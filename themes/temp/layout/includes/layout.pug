@@ -1,0 +1,50 @@
+
+- var pageTitle = page.title || config.subtitle || ''
+- if (is_archive()) pageTitle = 'Archives'
+- if (is_tag()) pageTitle = 'Tag: ' + page.tag
+- if (is_category()) pageTitle = 'Category: ' + page.category
+- if (is_month()) pageTitle += ': ' + page.month + '/' + page.year
+- if (is_year()) pageTitle += ': ' + page.year
+- pageTitle += ' [ ' + config.title + ' ]'
+
+doctype html
+html(lang=config.language)
+  head
+    meta(charset='UTF-8')
+    meta(name="viewport",content="device-width, initial-scale=1, maximum-scale=1,user-scalable=no") 
+    title= pageTitle
+    if theme.stylesheets !== undefined && theme.stylesheets.length > 0
+      //- stylesheets list from config.yml
+      each url in theme.stylesheets
+        link(rel='stylesheet', href=url)
+    link(rel="icon", href=config.root + 'img/favicon.png')
+    link(rel="stylesheet", href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css")
+    script(src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js")
+    
+  body(style="display:block", class="nobg")
+    #content-outer.container
+      #content-inner
+        if body
+          div!= body
+        else
+          include ./left-bar.pug
+          .mid-col
+            .body-wrap.article-entry
+              block content
+
+    #toTop(style="display: none;") Back to Top
+    script(src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js")
+    script(type='text/javascript').
+      hljs.initHighlightingOnLoad();
+      $(function() {
+        $(window).scroll(function() {
+          if($(this).scrollTop() >= 500) {
+            $('#toTop').fadeIn();
+          }else{
+            $('#toTop').fadeOut();
+          }
+        })
+        $('#toTop').click(function() {
+          $('body,html').animate({scrollTop:0},800);
+        })
+      })

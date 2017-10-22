@@ -1,0 +1,24 @@
+-
+  var options = {
+    prev_text: '上一页',
+    next_text: '下一页'
+  }
+#pagination
+  if(!is_post())
+    .page
+      a.first(href='/', title='') &#x9996;&#x9875;
+      !=paginator(options)
+      a.end(href='/page/'+page.total+'/', title='') &#x5C3E;&#x9875;
+      - var text = "共 " + (page.total * 8) +" 条记录"
+      span.rows=text
+  else
+    if(page.prev)
+      .prev-post.pull-left
+        a(href=url_for(page.prev.path))
+          i.fa.fa-chevron-left   
+          span=page.prev.title
+    if(page.next)
+      .next-post.pull-right
+        a(href=url_for(page.next.path))
+          span=page.next.title 
+          i.fa.fa-chevron-right

@@ -1,0 +1,36 @@
+extends includes/layout.pug
+
+block content
+	.arclist
+		h4.index-title.homeh4(style="animation: fuxiasuo 0.8s;")
+			a(href="#")
+				i.el-certificate
+				|最新文章
+				small New Article
+		ul
+			if site.posts.length > 0 
+				each post in page.posts.data
+					li(style="animation-name: fuxiasuo; animation-duration: 1s;")
+						.arc-right
+							h4(class="blue-text")
+								a(href=config.root + post.path, title=post.title)= post.title
+							p
+								- if (post.excerpt != '')
+									!= post.excerpt
+								- else
+									!= post.content
+							.article-info.article-info-index
+									.article-tag.tagcloud
+										i.icon-price-tags
+										| &#x9;&#x9;
+										if (post.tags)
+											ul.article-tag-list
+												each item, index in post.tags.toArray()
+													- var color = item.name.length % 5 + 1
+													li.article-tag-list-item
+														a(href='javascript:void(0)', class="article-tag-list-link color" + color)= item.name
+									p.article-more-link
+										a.article-more-a(href='/2017/09/15/centos7结合supervisor和think-queue实现队列/') &#x5C55;&#x5F00;&#x5168;&#x6587; &gt;&gt;
+									.clearfix
+
+	include includes/pagination.pug								

@@ -12,11 +12,11 @@ tags:
 ---
 
 首先安装webpack到本地
-```
+```sh
 npm install --save-dev webpack webpack-dev-server
 ```
 创建index.html
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +32,7 @@ npm install --save-dev webpack webpack-dev-server
 
 再创建webpack.config.js这个文件名是固定的不能更改
 <!--more-->
-```
+```javascript
 module.exports = {
 	entry: './src/index.js',
 	output: {
@@ -44,7 +44,7 @@ module.exports = {
 
 再依次创建 ./src ./src/index.js
 
-```
+```javascript
 import _ from 'lodash'
 
 function component() {
@@ -62,12 +62,12 @@ function component() {
 document.body.appendChild(component());
 ```
 lodash 是一个工具函数库 直接执行
-```
+```sh
 npm install lodash --save
 ```
 
 接下来就是借助webpack-dev-server来跑我们的测试, 直接运行
-```
+```sh
 webpack-dev-server
 ```
 这条命令即可， 打开 http://localhost:8080/ 就可以看到结果了
@@ -77,15 +77,15 @@ webpack-dev-server
 # Demo2
 配置 npm scripts
 
-```
+```sh
 npm run dev
 ```
 和
-```
+```sh
 npm run build 
 ```
 在package.json中配置如下内容即可
-```
+```json
 "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server",
@@ -98,11 +98,11 @@ npm run build
 # Demo3 loader
 loader主要用来加载各种格式的资源和数据的，比如css用css-loader 和style-loader；scss 用sass-loader；图片用file-loader或者url-loader
 比如 在src/index中加入
-```
+```sh
 import icon from './test.png'
 ```
 在渲染函数component中加入如下代码
-```
+```javascript
 var image = new Image()
 
 image.src = icon
@@ -115,13 +115,13 @@ element.appendChild(image)
 # Demo4 多入口输出
 
 首先配置webpack.config.js, 假设在src下建立一个print.js
-```
+```javascript
 export default function () {
   console.log('Get content from print.js')
 }
 ```
 在并且把index.js改成如下：
-```
+```javascript
 import _ from 'lodash'
 
 import './style.css'
@@ -163,7 +163,7 @@ document.getElementsByTagName('button')[0].onclick = PrintMe
 并且在webpack.config.js中我们加入两个插件，HtmlWebpackPlugin 和 cleanWebpackPlugin ，分别用来管理html文件和清理之前的构建文件
 
 webpack.config.js如今已经是如下内容:
-```
+```javascript
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')

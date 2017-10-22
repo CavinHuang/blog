@@ -1,0 +1,94 @@
+aside.myaside(style="animation: fuxiasuo 0.8s;")
+  div(style="height: 200px;")
+  // 右侧个人统计
+  .web-author.bg-color.animation-div(style="animation-name: fuxiasuo; animation-duration: 1.14286s;")
+    .author-tx
+      a.img-circle(href="/Home/Index/about.html", title="点击查看详细信息")
+        img.img-circle(src="/images/icon/ava.jpg")
+    | 		
+    .author-name
+      span.blue-text cavinHuang
+      p Just a programmer, eager to live fine!
+    
+  .left-action(style="display:none")
+    // 搜索
+    .search.animation-div(style="animation-name: fuxiasuo; animation-duration: 1.28571s;")
+      form(action="/Home/Index/search.html", method="get")
+        .search-index
+          input(name="search_word", type="text", placeholder="请输入关键字", onfocus="this.placeholder=''", onblur="this.placeholder='请输入关键字'")
+          |       
+          i.el-search
+            input(value=" ", type="submit")
+    // 标签
+    .cloud.bg-color.animation-div(style="animation-name: fuxiasuo; animation-duration: 2s;")
+      h4.index-title
+        i.el-tags
+        | 标签云
+        small Tags Clouds
+      |   
+      ul#3dcloud
+        .tag-cloud__title= page.title  
+        |  - 
+        span.tag-cloud__amount= site.tags.length
+      .tag-cloud-tags!= tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#A4D8FA', end_color: '#0790E8'})
+        li
+          a.tstyle-3(href="/tag/66.html", onclick="return recordId('tid',66)", title="标签：Composer ") Composer (1)
+        li
+          a.tstyle-4(href="/tag/67.html", onclick="return recordId('tid',67)", title="标签：SSL ") SSL (1)
+  .left-btn
+    ul
+      li.left-item
+        a(href="/") 主页
+      li.left-item
+        a(href="/tags") 标签页
+      li.left-item
+        a(href="/categories") 分类
+      li.left-item
+        a(href="/archives") 归档
+
+  // 关注我
+  .focus-me.bg-color.animation-div(style="animation-name: fuxiasuo; animation-duration: 1s;    position: absolute;bottom: 15px;left: 0;right: 0;")
+    .xiangguan
+      div
+        a.benbo(href=config.weibo, target="_blank")
+          i.el.el-rss
+        span 新浪微博
+      div
+        a.taobao(
+          href=config.github_url, 
+          target="_blank")
+          i.el.el-github
+        span github
+
+      div
+        a.side-fx(title="")
+          i.el-share-alt
+        span 分享本博
+      div
+        a.mail-btn(href="javascript:;", title="")
+          i.el.el-picasa
+        span 公众号
+    .mail-dy
+      img(src="/Template/xiao/Home/Public/images/icon/weixin.jpg")
+      |       
+      i.el-remove.fx-close
+    |     
+    .bd-fx.side-bdfx
+      i.el-remove.fx-close
+      |       
+      ul.bdsharebuttonbox.bdshare-button-style1-32(data-bd-bind="1505487673705")
+        li
+          a.bds_weixin(href="#", data-cmd="weixin", title="分享到微信")
+        |         
+        li
+          a.bds_tsina(href="#", data-cmd="tsina", title="分享到新浪微博")
+        |         
+        li
+          a.bds_qzone(href="#", data-cmd="qzone", title="分享到QQ空间")
+        |         
+        li
+          a.bds_tieba(href="#", data-cmd="tieba", title="分享到百度贴吧")
+      |       
+      script.
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+  

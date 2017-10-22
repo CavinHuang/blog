@@ -1,0 +1,30 @@
+
+# html lang
+language: en
+
+# main menu navigation
+menu:
+  主页: /
+  关于: /about
+  联系: /contact
+  归档: /archives
+
+# Miscelaneous
+favicon: /favicon.ico
+
+# stylesheets loaded in the <head>
+stylesheets:
+- /styles/common.css
+- /styles/index.css
+- /css/font-icon.css
+- /styles/skin_1.css
+
+# scripts loaded in the end of the body
+scripts:
+- /js/temp.js
+
+server:
+  compress: true # 开启压缩
+
+highlight:
+ auto_detect: false
