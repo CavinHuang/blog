@@ -13,7 +13,6 @@ Node.js的模块——request。有了这个模块，http请求变的超简单�
 
 Request使用超简单，同时支持https和重定向。
 
-全选复制放进笔记
 ```javascript
 var request = require('request');
 request('http://www.google.com', function (error, response, body) {
@@ -23,7 +22,7 @@ request('http://www.google.com', function (error, response, body) {
 })
 ```
 <!--more-->
-流
+ ### 流
 
 任何响应都可以输出到文件流。
 ```javascript
@@ -37,7 +36,7 @@ fs.createReadStream('file.json').pipe(request.put('http://mysite.com/obj.json'))
 ```javascript
 request.get('http://google.com/img.png').pipe(request.put('http://mysite.com/img.png'))
 ```
-表单
+### 表单
 request支持application/x-www-form-urlencoded和multipart/form-data实现表单上传。
 
 x-www-form-urlencoded很简单：
@@ -55,7 +54,7 @@ form.append('my_buffer', new Buffer([1, 2, 3]))
 form.append('my_file', fs.createReadStream(path.join(__dirname, 'doodle.png'))
 form.append('remote_file', request('http://google.com/doodle.png'))
 ```
- HTTP认证
+### HTTP认证
 ```javascript
 request.get('http://some.server.com/').auth('username', 'password', false);
 ```
@@ -73,7 +72,7 @@ sendImmediately，默认为真，发送一个基本的认证header。设为false
 
 sendImmediately为真时支持Digest认证。
 
-OAuth登录
+### OAuth登录
 ```javascript
 // Twitter OAuth
 var qs = require('querystring')
@@ -119,7 +118,7 @@ request.post({url:url, oauth:oauth}, function (e, r, body) {
   })
 })
 ```
-定制HTTP header
+### 定制HTTP header
 
 User-Agent之类可以在options对象中设置。在下面的例子中，我们调用github API找出某仓库的收藏数和派生数。我们使用了定制的User-Agent和https.
 ```javascript
@@ -142,7 +141,7 @@ function callback(error, response, body) {
 
 request(options, callback);
 ```
- cookies
+### cookies
 
 默认情况下，cookies是禁用的。在defaults或options将jar设为true，使后续的请求都使用cookie.
 ```javascript
