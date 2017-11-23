@@ -23,7 +23,7 @@ after_script:
 
 branches:
   only:
-    - master
+    - blog-resource
 env:
  global:
    - GH_REF: github.com/CavinHuang/CavinHuang.github.io.git
