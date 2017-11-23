@@ -1,6 +1,6 @@
 layout: '[layout]'
 title: vue-js学习系列-条形图小demo
-date: 2017-04-19 22:20:33 22:20:33
+date: 2017-04-19 22:20:33
 tags:
 	- 前端
 	- js
