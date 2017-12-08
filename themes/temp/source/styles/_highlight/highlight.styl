@@ -174,3 +174,57 @@ pre
   .tag .attr,
   .javascript .function
     color: $highlight-purple
+
+    .highlight
+      overflow-x auto
+      background-color #f8f8f8
+      padding 0.4em 0 0
+      line-height 1.1em
+      border-radius 2px
+      position relative
+      .gutter
+        width 1.5em
+      .code
+        pre
+          padding 1.2em 1.4em
+          line-height 1.5em
+          margin 0
+        .line
+          min-height 1.5em
+      &.html
+        .code
+          &:before
+            content "HTML"
+      &.js
+        .code
+          &:before
+            content "JS"
+      &.bash
+        .code
+          &:before
+            content "Shell"
+      &.css
+        .code
+          &:before
+            content "CSS"
+    .highlight table,
+    .highlight tr,
+    .highlight td
+      width 100%
+      border-collapse collapse
+      padding 0
+      margin 0
+    .highlight.html .code:before,
+    .highlight.js .code:before,
+    .highlight.bash .code:before,
+    .highlight.css .code:before
+      position absolute
+      top 0
+      right 0
+      color #ccc
+      text-align right
+      font-size 0.75em
+      padding 5px 10px 0
+      line-height 15px
+      height 15px
+      font-weight 600
