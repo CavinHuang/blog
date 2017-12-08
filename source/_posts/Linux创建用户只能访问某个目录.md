@@ -16,6 +16,7 @@ useradd test2
 ```sh
 passwd test2  
 ```
+<!--more-->
 3、修改登录后文件目录和只允许访问某一个目录
 修改/etc/ssh/sshd_config 文件
 ```sh
