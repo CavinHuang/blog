@@ -19,7 +19,7 @@ after_script:
   - git add .
   - git commit -m "Update docs"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-  - curl -X POST http://fix.zukmb.cn/deploy/nd97zE9QAm0TWkdRUGbGMuSQnPYYK7OAJxUsKx8PwYiBcifBbff0lAMBN1ir -d 'reason=Update docs&branch=master&update_only=true&source=Travis CI'
+  - curl -X POST http://fix.zukmb.cn/deploy/vpFOA5sMU3MJcNxsOh0w62t58BND5BzEkexf4ZQVuXReoLy1wWngVDZn9cW0 -d 'reason=Update docs&branch=master&update_only=true&source=Travis CI'
 # E: Build LifeCycle
 
 branches:
