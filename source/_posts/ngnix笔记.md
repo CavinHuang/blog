@@ -7,6 +7,7 @@ tags:
 category: 服务器纪实
 ---
 > 服务器安装折腾纪实，包括nginx、php、Apache、node、mysql等
+
 ## nginx+fastcgi修改php.ini后重启
 - 1. 停止nginx
 ```bash
