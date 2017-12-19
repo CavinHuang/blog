@@ -952,3 +952,70 @@ figure
     font-size: .8rem;
     cursor: pointer;
 }
+
+#side-right-bar{
+  min-width: 240px;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  padding: 16px;
+  border: 1px solid #999;
+  border-right: none;
+}
+.sidebar-toc__title {
+    padding-right: .5rem;
+    text-align: center;
+    font-size: 18px;
+}
+.sidebar-toc__progress {
+    position: relative;
+    margin-top: -.3rem;
+    padding-left: .6rem;
+    color: #00c4b6;
+}
+.sidebar-toc__progress .progress-notice {
+    margin-right: .4rem;
+}
+.sidebar-toc__progress .progress-num {
+    display: inline-block;
+    min-width: .9rem;
+}
+.sidebar-toc__progress-bar {
+    width: 0;
+    height: 1px;
+    background: #00c4b6;
+}
+.sidebar-toc ol {
+    margin-top: .2rem;
+    padding-left: .4rem;
+}
+
+.sidebar-toc li, .sidebar-toc ol {
+    list-style: none;
+}
+.sidebar-toc .toc-link {
+    display: block;
+    padding-left: .2rem;
+    border-right: 3px solid transparent;
+    text-decoration: none;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.sidebar-toc .toc-link.active {
+    border-right-color: #009d92;
+    background: #00c4b6;
+    color: #fff;
+}
+.sidebar-toc a {
+    color: #99a9bf;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    -ms-transition: all .2s;
+    transition: all .2s;
+}

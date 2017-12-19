@@ -11,7 +11,7 @@ doctype html
 html(lang=config.language)
   head
     meta(charset='UTF-8')
-    meta(name="viewport",content="device-width, initial-scale=1, maximum-scale=1,user-scalable=no") 
+    meta(name="viewport",content="device-width, initial-scale=1, maximum-scale=1,user-scalable=no")
     title= pageTitle
     if theme.stylesheets !== undefined && theme.stylesheets.length > 0
       //- stylesheets list from config.yml
@@ -20,7 +20,8 @@ html(lang=config.language)
     link(rel="icon", href=config.root + 'img/favicon.png')
     link(rel="stylesheet", href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css")
     script(src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js")
-    
+    script(src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js")
+    script(src="https://cdn.bootcss.com/velocity/1.5.0/velocity.min.js")
   body(style="display:block", class="nobg")
     #content-outer.container
       #content-inner
@@ -33,7 +34,7 @@ html(lang=config.language)
               block content
 
     #toTop(style="display: none;") Back to Top
-    script(src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js")
+
     script(type='text/javascript').
       hljs.initHighlightingOnLoad();
       $(function() {
