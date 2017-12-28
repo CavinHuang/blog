@@ -1,0 +1,14 @@
+include header.pug
+.app
+  include sideBar.pug
+  #content-outer.blog-container.main-container
+    #content-inner.blog-list-container
+      if body
+        div!= body
+      else
+        block content
+    include footer.pug
+  if theme.scripts !== undefined && theme.scripts.length > 0
+    //- scripts list from config.yml
+    each url in theme.scripts
+      script(src=url)

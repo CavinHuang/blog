@@ -1,0 +1,27 @@
+extends includes/layout.pug
+
+block content
+  article#post.article-container
+    .article-header
+      h1.article-title= page.title
+      div.article-subtitle
+        div.publish-time.fl 发布时间:
+          span= page.date.format('Y/M/D H:m:s')
+        div.categories 分类:
+          each item, idx in page.categories.data
+            a(href=config.root + item.path)
+              span= item.name
+            - if(idx != page.categories.data.length - 1)
+              | /
+    .article-content
+      != page.content
+    include includes/right-panel.pug
+    .article-pagenate
+      if(page.prev)
+        div.article-prev.fl
+          span ←
+          a(href=config.root + page.prev.path)= page.prev.title
+      if(page.next)
+        div.article-next.fr
+          a(href=config.root + page.next.path)= page.next.title
+          span →

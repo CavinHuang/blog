@@ -1,0 +1,109 @@
+.left-container
+  border-right 1px solid #eee
+  height 100vh
+  width 300px
+  background #fff
+  position fixed
+  left 0
+  top 0
+  bottom 0
+  .left-layout-container
+    display flex
+    flex-direction column
+    height 100%
+    overflow-y auto
+    .user-info
+      flex 0 0 150px
+      margin-top 50px
+      display flex
+      align-items center
+      flex-direction column
+      img
+        width 70px
+        flex 0 0 70px
+        border-radius 35px
+        cursor pointer
+        &:hover
+          transform rotate(1turn)
+          transition all 1s ease-in
+      .login-name
+        margin-top 14px
+        margin-bottom 12px
+        font-size 14px
+        flex 0 0 16px
+        line-height 16px
+        color #4b595f
+      :last-child
+        font-size 13px
+        margin 0 20px
+        flex 0 0 18px
+        line-height 18px
+        color #849aa4
+    .other-site
+      margin-top 20px
+      margin-bottom 67px
+      list-style none
+      flex 0 0 20px
+      display flex
+      justify-content center
+      li
+        cursor pointer
+        margin-right 20px
+        img
+          width 25px
+          height 25px
+        :last-child
+          margin-right 0
+    .left-menu
+      flex 1 1 150px
+      min-height 150px
+      display flex
+      list-style none
+      flex-direction column
+      color #4b595f
+      li
+        width 100%
+        height 40px
+        line-height 40px
+        cursor pointer
+        font-size 16px
+        &:before
+          width 4px
+          height 100%
+          content ""
+          margin-right 46px
+          float left
+          display table
+    .selected-menu
+      background-color #e5f1fc
+      color #3593f2
+      a
+        color #3593f2
+      &:before
+        background-color #3593f2
+    .qq-group
+      flex 0 0 170px
+      margin-top 50px
+      margin-left 55px
+      width 90px
+      span
+        display block
+        width 100%
+        height 15px
+        line-height 15px
+        font-size 12px
+        text-align center
+        color #849aa4
+        margin-bottom 10px
+      &:first-child
+        color #4b595f
+      img
+        width 90px
+        height 90px
+    .copyright
+      flex 0 0 20px
+      line-height 20px
+    .copyright, .powered
+      text-align center
+      font-size 12px
+      color #888

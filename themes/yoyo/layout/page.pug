@@ -1,0 +1,29 @@
+extends includes/layout.pug
+
+block content
+  if(page.path.indexOf('about') != -1)
+    div.about
+      .about-title-header
+        .about-title About
+        .about-avatar
+          img(src=config.about.avatar)
+        .about-name= config.about.name
+        .about-slog= config.about.slog
+      .about-content
+        !=page.content
+  else if(page.type == 'categories')
+    div.categories
+      .categories-title 分类
+        | (
+        span.category__amount= site.categories.length
+        | )
+      .categories-content
+        != list_categories()
+  else if(page.type == 'tags')
+    div.tags
+      .tags-title 标签
+        | (
+        span.category__amount= site.tags.length
+        | )
+      .tags-content
+        != tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#90a0dd', end_color: '#0cf'})

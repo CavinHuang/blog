@@ -1,0 +1,41 @@
+mixin articleSort(posts)
+  .article-sort
+    - var year
+    - var syear
+    - var yearArr = []
+    - posts = posts.data.sort(function (obj1, obj2) {
+    -    var val1 = new Date(obj1.date._i) * 1;
+    -    var val2 = new Date(obj2.date._i) * 1;
+    -    if (!isNaN(Number(val1)) && !isNaN(Number(val2))) {
+    -        val1 = Number(val1);
+    -        val2 = Number(val2);
+    -    }
+    -    if (val1 > val2) {
+    -        return -1;
+    -    } else if (val1 < val2) {
+    -        return 1;
+    -    } else {
+    -        return 0;
+    -    }
+    -})
+    .event_list
+      - posts.forEach(function (article) {
+        - var tempYear = date(article.date, 'YYYY')
+        div
+          if tempYear !== year
+            - year = tempYear
+            - yearArr.push(year)
+              h3(id=year)= year
+          li
+            span.article-sort-item__time= date(article.date)
+            p.article-sort-item__title
+              a(href=url_for(article.path) target="_blank")
+                span= article.title || 'No Title'
+      - })
+    .event_year
+      - yearArr.forEach(function (y, i) {
+      - var cls = '';
+      - if(i == 0) cls = 'current';
+        li(class=cls)
+          label(for=y)= y
+      - })

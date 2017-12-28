@@ -1,0 +1,28 @@
+.left-container
+  .left-layout-container.pc
+    .user-info
+      a(href="/")
+        img(src='https://avatars1.githubusercontent.com/u/24950299?s=460&v=4')
+      .login-name= config.about.name
+      .slog= config.about.slog
+    ul.other-site
+      li
+        img(src='http://www.17sucai.com/preview/177065/2017-09-28/Mon9/static/img/github.png')
+      li
+        img(src='http://www.17sucai.com/preview/177065/2017-09-28/Mon9/static/img/weibo.png')
+    ul.left-menu
+      -var idx = 0
+      each url, label in theme.menu
+        - var cls = ''
+        - var isCurr = (page.path.indexOf(url.substr(1, url.length)) != -1 && url.substr(1, url.length) != '')
+        - if(idx == 0 && page.path == 'index.html') cls = 'selected-menu'
+        - else if(isCurr) cls = 'selected-menu'
+        - idx ++
+        li(class=cls)
+          a(href=url)= label
+
+    .qq-group
+      span 读万卷书
+      span 行万里路
+      // img(src='http://www.17sucai.com//preview/177065/2017-09-28/Mon9/static/img/qq-group.jpg')
+    .copyright @ 2017 - 2017 CavinHuang

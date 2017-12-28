@@ -1,0 +1,36 @@
+if page.posts.length > 0
+  #recent-posts.recent-post-list
+    #article-list-table(style="display:none")
+      each post in page.posts.sort('date', -1).limit(18).toArray()
+        .recent-post-item
+          a(href=config.root + post.path)= post.title
+          ul
+            each item, index in post.tags.toArray()
+              - var color = item.name.length % 6 + 1
+              li.tag.tag-small(class='color'+color)
+                a= item.name
+          if post.date
+            time(datetime=post.date.toJSON(), class="time")= date(post.date, date_format)
+    #article-list-card
+      each post in page.posts.sort('date', -1).limit(10).toArray()
+        .card
+          .date_label
+            .day_month= post.date.format('M/D')
+            .year= post.date.format('Y')
+          a(href=config.root + post.path)
+            h1(class="card-title")= post.title
+          hr
+          div.excerpt.article-body
+            - if (post.excerpt != '')
+              != post.excerpt
+            - else
+              != post.content
+          div.article-bottom
+            .read_more.fl
+              a.fa.fa-link(href=config.root + post.path)   查看全文 >>
+            if (post.tags)
+              ul.article-tag-list.fr
+                each item, index in post.tags.toArray()
+                  - var color = item.name.length % 5 + 1
+                  li.article-tag-list-item
+                    a(href=config.root + item.path, class="article-tag-list-link color" + color)= item.name

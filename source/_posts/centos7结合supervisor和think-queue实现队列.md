@@ -97,30 +97,19 @@ tags:
 
 --------------------------------------------------------------------------------
 
-传统的程序执行流程一般是 即时|同步|串行的，在某些场景下，会存在并发低，吞吐量低，响应时间长等问题。在大型系统中，一般会引入消息队列的组件，将流程中部分任务抽离出来放入消息队列，并由专门的消费者作针对性的处理，从而降低系统耦合度，提高系统性能和可用性。
-
+> 传统的程序执行流程一般是 即时|同步|串行的，在某些场景下，会存在并发低，吞吐量低，响应时间长等问题。在大型系统中，一般会引入消息队列的组件，将流程中部分任务抽离出来放入消息队列，并由专门的消费者作针对性的处理，从而降低系统耦合度，提高系统性能和可用性。
 一般来说，可以抽离的任务具有以下的特点：
-
-- **允许延后|异步|并行处理** （相对于传统的 **即时|同步|串行** 的执行方式）
-
+- ** 允许延后|异步|并行处理 ** （相对于传统的 **即时|同步|串行** 的执行方式）
   - **允许延后**：
-
     抢购活动时，先快速缓冲有限的参与人数到消息队列，后续再排队处理实际的抢购业务；
-
   - **允许异步**：
-
     业务处理过程中的邮件，短信等通知
-
   - **允许并行**：
-
     用户支付成功之后，邮件通知，微信通知，短信通知可以由多个不同的消费者并行执行，通知到达的时间不要求先后顺序。
-
-- **允许失败和重试**
-
+- ** 允许失败和重试 **
   - 强一致性的业务放入核心流程处理
   - 无一致性要求或最终一致即可的业务放入队列处理
-
-**[thinkphp-queue](https://github.com/top-think/think-queue/releases)** 是thinkphp 官方提供的一个消息队列服务，它支持消息队列的一些基本特性：
+** [thinkphp-queue](https://github.com/top-think/think-queue/releases) ** 是thinkphp 官方提供的一个消息队列服务，它支持消息队列的一些基本特性：
 
 - 消息的**发布**，**获取**，**执行**，**删除**，**重发**，**失败处理**，**延迟执行**，**超时控制**等
 - 队列的**多队列**， **内存限制** ，**启动**，**停止**，**守护**等
@@ -140,13 +129,13 @@ thinkphp-queue 内置了 **Redis**，**Database**，**Topthink** ，**Sync**这�
 
 > 在业务控制器中推送一个新消息到一个名为 'helloJobQueue' 的队列中，该消息中包含我们自定义的业务数据，然后，编写一个名为 Hello 的消费者类，并通过命令行去调用该消费者类获取这个消息，拿到定义的数据。
 
-#### 1.1 安装 thinkphp-queue
+# 安装 thinkphp-queue
 
 ```bash
 composer install thinkphp-queue
 ```
 
-#### 1.2 搭建消息队列的存储环境
+## 搭建消息队列的存储环境
 
 - 使用 Redis [**推荐**]
 
@@ -170,7 +159,7 @@ composer install thinkphp-queue
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
   ```
 
-#### 1.3 配置消息队列的驱动
+## 配置消息队列的驱动
 
 根据选择的存储方式，在 `\application\extra\queue.php` 这个配置文件中，添加消息队列对应的驱动配置
 
@@ -222,7 +211,7 @@ expire 为`null` 时，thinkphp-queue 不会检查过期的任务，性能相对
 
 **对expire 参数理解或者使用不当时，很容易产生一些bug**，后面会举例提到。
 
-#### 1.4 消息的创建与推送
+### 消息的创建与推送
 
 我们在业务控制器中创建一个新的消息，并推送到 `helloJobQueue` 队列
 
@@ -269,7 +258,7 @@ namespace application\index\controller;
 
 > 除了 `Queue::push( $jobHandlerClassName , $jobData , $jobQueueName );`这种方式之外，还可以直接传入 `Queue::push( $jobHandlerObject ,null , $jobQueueName );` 这时，需要在 $jobHandlerObject 中定义一个 `handle()` 方法，消息队列在执行到该任务时会自动反序列化该对象，并调用其 `handle()`方法。 该方式的缺点是无法传入自定义数据。
 
-#### 1.5 消息的消费与删除
+### 消息的消费与删除
 
 编写 Hello 消费者类，用于处理 `helloJobQueue` 队列中的任务
 
@@ -333,13 +322,13 @@ namespace application\index\controller;
 
 ![目录结构-代码示例](目录结构-代码示例.png)
 
-#### 1.6 发布任务
+### 发布任务
 
 在浏览器中访问 <http://your.project.domain/index/job_test/actionWithHelloJob> ,可以看到消息推送成功。
 
 ![浏览器提示消息推送结果](浏览器提示消息推送结果.png)
 
-#### 1.7 处理任务
+### 处理任务
 
 切换当前终端窗口的目录到项目根目录下，执行
 
@@ -357,9 +346,9 @@ php think queue:work --queue helloJobQueue
 
 下文，将介绍 thinkphp-queue 的详细使用方法。如配置介绍，基本原理，各种特殊情况的处理等
 
-### 二 详细介绍
+## 二 详细介绍
 
-#### 2.1 命令模式
+### 2.1 命令模式
 
 - **queue:subscribe 命令** [截至2017-02-15，作者暂未实现该模式，略过]
 
@@ -379,7 +368,7 @@ php think queue:work --queue helloJobQueue
   php think queue:listen --queue helloJobQueue
   ```
 
-#### 2.2 命令行参数
+### 2.2 命令行参数
 
 - Work 模式
 
@@ -408,7 +397,7 @@ php think queue:work --queue helloJobQueue
 
   可以看到 listen 模式下，不包含 `--deamon` 参数，原因下面会说明
 
-#### 2.3 work 模式和 listen 模式的区别
+### 2.3 work 模式和 listen 模式的区别
 
 两者都可以用于处理消息队列中的任务
 
@@ -494,7 +483,7 @@ php think queue:work --queue helloJobQueue
   - 任务的执行时间较长(如生成大型的excel报表等)，
   - 任务的执行时间需要有严格限制
 
-#### 2.4 消息队列的开始，停止与重启
+### 2.4 消息队列的开始，停止与重启
 
 - 开始一个消息队列：
 
@@ -515,7 +504,7 @@ php think queue:work --queue helloJobQueue
   php think queue:work
   ```
 
-#### 2.5 多模块，多任务的处理
+### 2.5 多模块，多任务的处理
 
 - 多模块
 
@@ -614,7 +603,7 @@ php think queue:work --queue helloJobQueue
       }
   ```
 
-#### 2.6 消息的延迟执行与定时执行
+### 2.6 消息的延迟执行与定时执行
 
 延迟执行，相对于即时执行，是用来限制某个任务的最早可执行时刻。在到达该时刻之前，该任务会被跳过。
 
@@ -653,7 +642,7 @@ $job->release($time2wait);
 php think queue:work --delay 3
 ```
 
-#### 2.7 消息的重发
+### 2.7 消息的重发
 
 thinkphp-queue 中，消息的重发时机有3种：
 
@@ -685,7 +674,7 @@ if( $isJobDone === false){
 - 如果不需要自动重发的话， 请在抛出异常之前将任务删除 `$job->delete()` ，以免产生bug。
 - 如果需要自动重发的话，请直接抛出异常，不要在 `fire()` 方法中又手动使用 `$job->release()` , 这样会导致该任务被重发两次，产生两个一样的新任务。
 
-#### 2.8 任务的失败回调及告警
+### 2.8 任务的失败回调及告警
 
 当同时满足以下条件时，将触发任务失败回调：
 
@@ -824,13 +813,13 @@ public function failed($jobData){
 
 这样，就可以做到任务失败的**记录**与**告警**
 
-#### 2.9 处理过期的任务
+### 2.9 处理过期的任务
 
 过期这个概念用文字比较难描述清楚，建议先看一下 **深入理解** 中 **3.4 消息处理的详细流程图**
 
-### 三 深入理解
+## 三 深入理解
 
-#### 3.1 thinkphp-queue 中消息与队列的保存方式
+### 3.1 thinkphp-queue 中消息与队列的保存方式
 
 - Redis
 
@@ -881,7 +870,7 @@ public function failed($jobData){
   ]
   ```
 
-#### 3.2 thinkphp-queue 的目录结构和类关系图
+### 3.2 thinkphp-queue 的目录结构和类关系图
 
 ![thinkphp-queue的文件目录](thinkphp-queue的文件目录.png)
 
@@ -899,17 +888,17 @@ public function failed($jobData){
 
 ![thinkphp-queue类关系图](https://blog.huzhongyuan.com/wp-content/uploads/2017/02/thinkphp-queue%E7%B1%BB%E5%85%B3%E7%B3%BB%E5%9B%BE.svg)
 
-#### 3.3 Deamon模式的执行流程
+### 3.3 Deamon模式的执行流程
 
 ![Daemon模式与非daemon模式状态图](https://blog.huzhongyuan.com/wp-content/uploads/2017/02/Daemon%E6%A8%A1%E5%BC%8F%E4%B8%8E%E9%9D%9Edaemon%E6%A8%A1%E5%BC%8F%E7%8A%B6%E6%80%81%E5%9B%BE.svg)
 
-#### 3.4 Database模式下消息处理的详细流程
+### 3.4 Database模式下消息处理的详细流程
 
 下图中，展示了database 模式下消息处理的详细流程，redis 驱动下大体类似
 
 ![Database模式下消息获取和执行的具体流程](https://blog.huzhongyuan.com/wp-content/uploads/2017/02/Database%E9%A9%B1%E5%8A%A8%E4%B8%8B%E6%B6%88%E6%81%AF%E5%A4%84%E7%90%86%E7%9A%84%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B.svg)
 
-#### 3.5 redis 驱动下的任务重发细节
+### 3.5 redis 驱动下的任务重发细节
 
 在redis驱动下，为了实现任务的延迟执行和过期重发，任务将在这三个key中来回转移。
 
@@ -929,7 +918,7 @@ redis队列中的过期任务重发步骤--执行后：
 
 ![redis队列中的过期任务重发步骤--执行后](https://blog.huzhongyuan.com/wp-content/uploads/2017/02/redis%E9%98%9F%E5%88%97%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86-2.png)
 
-#### 3.6 thinkphp-queue的性能
+### 3.6 thinkphp-queue的性能
 
 - 测试环境 :
 
@@ -947,7 +936,7 @@ redis队列中的过期任务重发步骤--执行后：
 
 **注意：**由于在测试时，Host 机本身的cpu和内存长期100%，并且虚拟机中的各项服务并未专门调优，因此该测试结果**并不具备参考性**。
 
-#### 3.7 thinkphp-queue 的N种错误使用姿势
+### 3.7 thinkphp-queue 的N种错误使用姿势
 
 - **3.7.1** 在 消费者类的 `fire()` 方法中，忘记使用 `$job->delete()` 去删除消息，这种情况下，会产生一系列的bug：
 
@@ -986,27 +975,27 @@ redis队列中的过期任务重发步骤--执行后：
 
 - **3.7.7** 使用 `Queue::push($jobHandlerClassName , $jobData, $jobQueueName );` 推送任务时，`$jobData` 中包含未序列化的对象。这时，在消费者端拿到的 `$jobData` 中拿到的是该对象的public 属性的键值对数组。因此，需要在推送前手动序列化对象，在消费者端再手动反序列化还原为对象。
 
-### 四 拓展
+## 四 拓展
 
-#### 4.1 队列的稳定性和拓展性
+### 4.1 队列的稳定性和拓展性
 
 - 稳定性：不管是 listen 模式还是 work 模式，都建议使用 supervisor 或者 自定义的cron 脚本，去定时检查 work 进程是否正常
 - 拓展性： 当某个队列的消费者不足时，再给这个队列添加 work进程即可。
 
-#### 4.2 消息队列的可视化管理工具
+### 4.2 消息队列的可视化管理工具
 
 - 队列管理，队列的列表，队列的 work 进程数量控制，队列的任务数量变化趋势 //TBD
 - 任务管理，任务的列表，添加/**撤回**/查询任务，修改任务的 执行者/执行时间/优先级/数据 等 //TBD
 
-#### 4.2 编写自定义的 thinkphp-queue 驱动
+### 4.2 编写自定义的 thinkphp-queue 驱动
 
 //TBD
 
-#### 4.3 编写消息队列的单元测试
+### 4.3 编写消息队列的单元测试
 
 //TBD
 
-#### 4.4 与其他PHP消息队列库的对比
+### 4.4 与其他PHP消息队列库的对比
 
 TP5的消息队列与Laravel的消息队列比较相似，下面是与laravel 中的消息队列的一些对比：
 

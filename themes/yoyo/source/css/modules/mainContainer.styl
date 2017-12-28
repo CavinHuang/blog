@@ -1,0 +1,369 @@
+.blog-container
+  width calc(100% - 300px - 54px - 30px)
+  margin-right 54px
+  margin-left 30px
+  position absolute
+  left 300px
+  top 0
+  background #f6f6f6
+  right 0
+  overflow hidden
+.main-container
+  .recent-post-list
+    overflow-y auto
+    display flex
+    flex-direction column
+    list-style none
+    .recent-post-item
+      flex 0 0 69px
+      border-bottom 1px solid #eee
+      display flex
+      align-items center
+      padding 0 12px
+      ul
+        display flex
+        flex 1 0 auto
+        margin 0 30px
+        list-style none
+        .tag
+          margin-right 14px
+          cursor pointer
+          user-select none
+          border-radius 3px
+          font-size 14px
+          display inline-block
+          height 30px
+          line-height 30px
+          padding 0 15px
+          color #fff
+          a
+            color #fff
+        .tag-small
+          line-height 24px
+          height 24px
+          padding 0 12px
+          font-size 12px
+      .time
+        font-size .6rem
+        color #999
+        cursor default
+        flex 0 0 7rem
+        text-align right
+    .card
+      padding 20px 40px
+      margin-top 50px
+      position relative
+      transition margin 1s,height 1s
+      background #fff
+      margin-left 16px
+      &:first-child
+        margin-top 0
+      .date_label
+        position relative
+        float left
+        color #fff
+        background #00a9a9
+        margin-left -56px
+        margin-top -10px
+        &::before
+          position absolute
+          content ""
+          border 1.5em solid #00a9a9
+        .day_month
+          font-size 17px
+          width 48px
+          text-align center
+          padding-top 12px
+        .year
+          font-size 12px
+          margin-top 8px
+          text-align center
+
+  .article-body
+    -ms-text-size-adjust 100%
+    -webkit-text-size-adjust 100%
+    color #24292e
+    font-family -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif
+    font-size 16px
+    line-height 2em
+    word-wrap break-word
+    padding 15px
+    font-size 14px
+  .article-bottom
+    height 54px
+    border-top 1px solid #dedede
+    padding-top 12px
+    margin-top 12px
+  .article-tag-list
+    .article-tag-list-item
+      float left
+      margin-left 18px
+      .article-tag-list-link
+        display inline-block
+        text-decoration none
+        font-weight 400
+        font-size 10px
+        color #fff
+        height 18px
+        line-height 18px
+        float left
+        padding 0 5px 0 10px
+        position relative
+        border-radius 0 5px 5px 0
+        margin 5px 9px 5px 8px
+        font-family Menlo, Monaco, Andale Mono, lucida console, Courier New, monospace
+        &::before
+          content " "
+          width 0
+          height 0
+          position absolute
+          top 0
+          left -18px
+          border 9px solid transparent
+        &::after
+          content " "
+          width 4px
+          height 4px
+          background-color #fff
+          border-radius 4px
+          box-shadow 0 0 0 1px rgba(0,0,0,0.3)
+          position absolute
+          top 7px
+          left 2px
+
+// 文章
+.article-container
+  background #fff
+  padding 18px
+  .article-header
+    height 84px
+    border-bottom 1px solid #ddd
+    .article-title
+      height 34px
+      line-height 34px
+      text-indent 2em
+    .article-subtitle
+      height 28px
+      line-height 28px
+      overflow hidden
+      font-size 14px
+      color #999
+      text-indent 2em
+    .categories
+      a
+        color #3593f2
+    .categories a:first-child,.publish-time
+      > span:first-child
+        margin-left 12px
+  .article-content
+    padding 24px 12px
+    margin-bottom 20px
+    border-bottom 1px solid #ddd
+    padding-bottom 20px
+  .article-pagenate
+    height 48px
+    line-height 48px
+    overflow hidden
+    background #f6f6f6
+    border-radius 4px
+    .article-prev,.article-next
+      &:hover
+        color #3593f2
+        a
+          color #3593f2
+      span
+        display inline-block
+        width 48px
+        text-align center
+        position relative
+        font-size 20px
+        cursor pointer
+    .article-prev
+      span
+        border-right 2px solid #fff
+        margin-right 8px
+        &::before
+          content ''
+          height 48px
+          width 6px
+          background #3593f2
+          position absolute
+          left 0
+    .article-next
+      span
+        border-left 2px solid #fff
+        margin-left 8px
+        &::after
+          content ''
+          height 48px
+          width 6px
+          background #3593f2
+          position absolute
+          right 0
+
+// 响应式
+@media (max-width: 960px)
+  .left-container
+    display none
+  .main-container
+    left 0
+    margin 0 2%
+    width calc(100% - 4%)
+    .recent-post-list
+      .card
+        margin-left 0
+        .date_label
+          margin -26px 20px 30px -30px
+          &::before
+            border-bottom-color transparent
+            border-bottom-width 1.3em
+            top 100%
+            right 0
+
+@media (min-width: 960px)
+  .main-container
+    .recent-post-list
+      .card
+        .date_label
+          width 134px
+          height 48px
+          text-align left
+          background-color #00a9a9
+          margin-right 56px
+          &::before
+            border-right-color transparent
+            top 0
+            left 100%
+          &::after
+            position absolute
+            content ""
+            top 100%
+            left 0
+            border-right 1em solid #008989
+            border-bottom 0.5em solid transparent
+          .day_month
+            font-size 33px
+            font-weight 100
+            margin 10px 10px 0 10px
+            float left
+            line-height 28px
+            padding-top 0
+          .year
+            margin-top 21px
+            font-size 16px
+            text-align right
+
+#side-right-bar
+  min-width: 450px;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  max-height: 90%;
+  overflow hidden
+  overflow-y scroll;
+  transform: translateY(-50%);
+  background: #fff;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-right: none;
+  border-radius: 8px
+.close-right-bar
+  width 24px
+  height 100%
+  position absolute
+  left 0
+  top 0
+  cursor pointer
+  z-index 100000
+.sidebar-toc
+  position relative
+  &::before
+    content ''
+    position absolute
+    left -8px
+    top 50%
+    transform translateY(-50%)
+    width 0px
+    height 0px
+    border-bottom 8px solid transparent  /* left arrow slant */
+    border-top 8px solid transparent /* right arrow slant */
+    border-left 8px solid #ddd /* bottom, add background color here */
+    font-size 0px
+    line-height 0px
+    cursor pointer
+  &::after
+    content ''
+    position absolute
+    left -9px
+    top 50%
+    transform translateY(-50%)
+    width 0px
+    height 0px
+    border-bottom 7px solid transparent  /* left arrow slant */
+    border-top 7px solid transparent /* right arrow slant */
+    border-left 7px solid #fff /* bottom, add background color here */
+    font-size 0px
+    line-height 0px
+    cursor pointer
+  .sidebar-toc__title
+    padding-right: .5rem;
+    text-align: center;
+    font-size: 18px;
+  .sidebar-toc__progress
+    position: relative;
+    margin-top: -.3rem;
+    padding-left: .6rem;
+    color: #00c4b6;
+  .sidebar-toc__progress .progress-notice
+    margin-right: .4rem;
+  .sidebar-toc__progress .progress-num
+    display: inline-block;
+    min-width: .9rem;
+  .sidebar-toc__progress-bar
+    width: 0;
+    height: 1px;
+    background: #00c4b6;
+.sidebar-toc ol
+  margin-top: .2rem;
+  padding-left: .4rem;
+.sidebar-toc li, .sidebar-toc ol
+  list-style: none;
+.sidebar-toc .toc-link
+  display: block;
+  padding-left: .2rem;
+  border-right: 3px solid transparent;
+  text-decoration: none;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+.sidebar-toc .toc-link.active
+  border-right-color: #009d92;
+  background: #00c4b6;
+  color: #fff;
+.sidebar-toc a
+  color: #99a9bf;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -o-transition: all .2s;
+  -ms-transition: all .2s;
+  transition: all .2s;
+.right-btn
+  position fixed
+  right -72px
+  width 45px
+  height 72px
+  top 50%
+  transform translateY(-50%)
+  border 1px solid #ddd
+  border-radius 5px 0 0 5px
+  cursor pointer
+  background #fff
+  color #3593f2
+  span
+    width 20px
+    display inline-block
+    text-align center
+    margin-top 12px
+    margin-left 10px

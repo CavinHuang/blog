@@ -14,7 +14,7 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://cavinhuang.github.io/
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :id.html
 permalink_defaults:
 
 # Directory
@@ -37,14 +37,15 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
-relative_link: false
+post_asset_folder: true
+relative_link: true
 future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
-  tab_replace:
+  auto_detect: true
+  tab_replace: true
+highlight_theme: default
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -75,7 +76,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: temp
+theme: yoyo
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -83,3 +84,8 @@ deploy:
   type: git
   repository: git@github.com:CavinHuang/CavinHuang.github.io.git
   branch: master
+
+about:
+  name: CavinHuang
+  slog: 来不及总结自己,愿天大地大,我独一无二!
+  avatar: https://avatars1.githubusercontent.com/u/24950299?s=460&v=4
