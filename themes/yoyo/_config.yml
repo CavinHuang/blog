@@ -20,3 +20,4 @@ scripts:
 - /js/velocity.ui.min.js
 - /js/yoyo.js
 - /js/scroll.js
+- /js/particle.js
