@@ -5,7 +5,8 @@
 # Site
 title: CavinHuang-立志写故事
 subtitle: 不懂写故事的猫
-description:
+description: cavinHuang个人博客，这里记录学习和生活的点滴！
+keywords: 前端学习,php学习,个人博客,HTML,CSS,JS
 author: CavinHuang
 language: zh
 timezone:
