@@ -21,3 +21,5 @@ scripts:
 - /js/yoyo.js
 - /js/scroll.js
 - /js/particle.js
+- /js/anime.min.js
+- /js/fireworks.js
