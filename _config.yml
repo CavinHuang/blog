@@ -13,9 +13,9 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://cavinhuang.github.io/
+url: https://blog.zukmb.cn/
 root: /
-permalink: :id.html
+permalink: :year/:month/:day/:title.html
 permalink_defaults:
 
 # Directory
@@ -90,3 +90,8 @@ about:
   name: CavinHuang
   slog: 来不及总结自己,愿天大地大,我独一无二!
   avatar: https://avatars1.githubusercontent.com/u/24950299?s=460&v=4
+# 自动生成sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
