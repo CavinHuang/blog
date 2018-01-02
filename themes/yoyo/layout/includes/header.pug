@@ -12,7 +12,7 @@ html(lang=config.language)
     meta(charset='UTF-8')
     meta(name="baidu-site-verification", content="rqskM4bdtP")
     meta(name="viewport",content="device-width, initial-scale=1, maximum-scale=1,user-scalable=no")
-    title= pageTitle
+    title= pageTitle + '-' + config.url
     meta(name="keywords", content=config.keywords)
     meta(name="description", content=config.description)
     if theme.stylesheets !== undefined && theme.stylesheets.length > 0
