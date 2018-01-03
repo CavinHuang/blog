@@ -298,3 +298,112 @@ array_search(value,array,strict)
 |value    |	必需。规定需要搜素的键值。                                             |
 |array    |	必需。规定被搜索的数组。                                               |
 |strict   |可选。如果该参数被设置为 TRUE，则函数在数组中搜索数据类型和值都一致的元素。可能的值：true false - 默认如果设置为 true，则在数组中检查给定值的类型，数字 5 和字符串 5 是不同的（参见实例 2）|
+
+# 第五题 用两个栈实现队列
+> 题目描述: 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。
+
+思路：
+- 入队：将元素进栈A
+- 出队：判断栈B是否为空，如果为空，则将栈A中所有元素pop，并push进栈B，栈B出栈；
+- 如果不为空，栈B直接出栈。
+
+按思路实现如下:
+```js
+var stack1 = [], stack2 = []
+function push(node)
+{
+    // write code here
+    stack1.push(node)
+}
+function pop()
+{
+    // write code here
+
+    if(stack2.length == 0) {
+        if(stack1.length == 0) {
+            return null;
+        } else{
+            var len = stack1.length;
+            for (var i =0; i < len; i++) {
+            	stack2.push(stack1.pop())
+        	}  
+            return stack2.pop()
+        }
+    } else {
+        return stack2.pop()
+    }
+}
+```
+php版如下:
+```
+<?php
+/**
+*两个栈,栈1完成队列入的操作,栈2取栈1出栈的数据,使数据反向,模拟队列
+*/
+$stack1 = new SplStack();
+$stack2 = new SplStack();
+function mypush($node)
+{
+    // write code here
+    global $stack1;
+    global $stack2;
+
+    $stack1->push($node);
+}
+function mypop()
+{
+    // write code here
+    global $stack1;
+    global $stack2;
+    if($stack2->isEmpty()){
+        if($stack1->isEmpty()){
+            return null;
+        }else{
+            $len = $stack1->count();
+            for($i = 0; $i < $len; $i ++) {
+                $stack2->push($stack1->pop());
+            }
+            return $stack2->pop();
+        }
+    }else{
+        return $stack2->pop();
+    }
+}
+```
+>SplStack类通过使用一个双向链表来提供栈的主要功能。
+
+```php
+SplStack extends SplDoublyLinkedList implements Iterator , ArrayAccess , Countable {
+  /* 方法 */
+  __construct ( void )
+  void setIteratorMode ( int $mode )
+  /* 继承的方法 */
+}
+```
+基本继承方法如下：
+```php
+  public void SplDoublyLinkedList::add ( mixed $index , mixed $newval );
+  public mixed SplDoublyLinkedList::bottom ( void );
+  public int SplDoublyLinkedList::count ( void );
+  public mixed SplDoublyLinkedList::current ( void );
+  public int SplDoublyLinkedList::getIteratorMode ( void );
+  public bool SplDoublyLinkedList::isEmpty ( void );
+  public mixed SplDoublyLinkedList::key ( void );
+  public void SplDoublyLinkedList::next ( void );
+  public bool SplDoublyLinkedList::offsetExists ( mixed $index );
+  public mixed SplDoublyLinkedList::offsetGet ( mixed $index );
+  public void SplDoublyLinkedList::offsetSet ( mixed $index , mixed $newval );
+  public void SplDoublyLinkedList::offsetUnset ( mixed $index );
+  public mixed SplDoublyLinkedList::pop ( void );
+  public void SplDoublyLinkedList::prev ( void );
+  public void SplDoublyLinkedList::push ( mixed $value );
+  public void SplDoublyLinkedList::rewind ( void );
+  public string SplDoublyLinkedList::serialize ( void );
+  public void SplDoublyLinkedList::setIteratorMode ( int $mode );
+  public mixed SplDoublyLinkedList::shift ( void );
+  public mixed SplDoublyLinkedList::top ( void );
+  public void SplDoublyLinkedList::unserialize ( string $serialized );
+  public void SplDoublyLinkedList::unshift ( mixed $value );
+  public bool SplDoublyLinkedList::valid ( void );
+```
+链表具有的功能基本都已实现。
