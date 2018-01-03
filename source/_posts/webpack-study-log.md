@@ -1,7 +1,7 @@
 ---
 title: webpack-study-log webpack学习笔记【持续更行...】
 date: 2017-07-21 22:44:26
-tags: 
+tags:
     - js
     - webpack
 ---
@@ -10,7 +10,6 @@ tags:
 # webpack study demo1
 
 ---
-
 首先安装webpack到本地
 ```sh
 npm install --save-dev webpack webpack-dev-server
@@ -82,7 +81,7 @@ npm run dev
 ```
 和
 ```sh
-npm run build 
+npm run build
 ```
 在package.json中配置如下内容即可
 ```json
@@ -136,7 +135,7 @@ function component() {
   var btn = document.createElement('button')
 
   image.src = icon
-  
+
   element_h1.innerHTML = 'Webpack Demo4 OutPut'
   // btn.addEventListener('click', function () {
   //   alert(111)

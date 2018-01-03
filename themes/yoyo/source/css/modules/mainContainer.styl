@@ -174,9 +174,36 @@
     line-height 30px
     p
       margin-bottom 0
+      text-indent 0
   p
     margin-bottom 16px
     text-indent 2em
+  .highlight
+    table
+      border-left 0
+      td.code,td.gutter
+        border none!important
+      td.gutter
+        border-right 1px solid #ddd
+  table
+    width 100%
+    margin-bottom 20px
+    border 1px solid #ddd
+    border-left none
+    word-break normal
+    border-collapse collapse
+    td, th
+      padding 8px
+      border 1px solid #ddd
+      line-height 20px
+      vertical-align middle
+    th
+      vertical-align middle
+      text-align inherit
+      font-weight 700
+    tr
+      &:nth-of-type(2n)
+        background-color hsla(0,0%,71%,.1)
   ol,ul
     margin-top .4rem
     padding 0 0 0 .8rem
