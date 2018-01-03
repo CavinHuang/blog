@@ -155,8 +155,6 @@
     .categories a:first-child,.publish-time
       > span:first-child
         margin-left 12px
-.article-content
-  border-bottom 1px solid #ddd
 .article-content, .article-body
   padding 24px 12px
   margin-bottom 20px
@@ -222,46 +220,63 @@
       &:before
         margin-right .4rem
         color #49b1f5
-  .article-pagenate
-    height 48px
-    line-height 48px
-    overflow hidden
-    background #f6f6f6
-    border-radius 4px
-    .article-prev,.article-next
-      &:hover
+.post-copyright
+  position relative
+  margin-bottom 1rem
+  padding .5rem .8rem
+  border 1px solid #eee
+  transition box-shadow .3s ease-in-out
+  line-height 1.5
+  a
+    text-decoration underline
+    &:hover
+      text-decoration none
+  &:hover
+    box-shadow 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5)
+  .post-copyright-meta
+    color #49b1f5
+    font-weight 700
+    margin-right 14px
+.article-pagenate
+  height 48px
+  line-height 48px
+  overflow hidden
+  background #f6f6f6
+  border-radius 4px
+  .article-prev,.article-next
+    &:hover
+      color #3593f2
+      a
         color #3593f2
-        a
-          color #3593f2
-      span
-        display inline-block
-        width 48px
-        text-align center
-        position relative
-        font-size 20px
-        cursor pointer
-    .article-prev
-      span
-        border-right 2px solid #fff
-        margin-right 8px
-        &::before
-          content ''
-          height 48px
-          width 6px
-          background #3593f2
-          position absolute
-          left 0
-    .article-next
-      span
-        border-left 2px solid #fff
-        margin-left 8px
-        &::after
-          content ''
-          height 48px
-          width 6px
-          background #3593f2
-          position absolute
-          right 0
+    span
+      display inline-block
+      width 48px
+      text-align center
+      position relative
+      font-size 20px
+      cursor pointer
+  .article-prev
+    span
+      border-right 2px solid #fff
+      margin-right 8px
+      &::before
+        content ''
+        height 48px
+        width 6px
+        background #3593f2
+        position absolute
+        left 0
+  .article-next
+    span
+      border-left 2px solid #fff
+      margin-left 8px
+      &::after
+        content ''
+        height 48px
+        width 6px
+        background #3593f2
+        position absolute
+        right 0
 
 // 响应式
 @media (max-width: 960px)

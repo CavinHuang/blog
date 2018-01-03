@@ -15,6 +15,8 @@ html(lang=config.language)
     title= pageTitle + '-' + config.url
     meta(name="keywords", content=config.keywords)
     meta(name="description", content=config.description)
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    script(type="text/javascript",src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a4c3745fa28006f")
     if theme.stylesheets !== undefined && theme.stylesheets.length > 0
       //- stylesheets list from config.yml
       each url in theme.stylesheets

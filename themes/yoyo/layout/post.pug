@@ -16,6 +16,23 @@ block content
     .article-content
       != page.content
     include includes/right-panel.pug
+    .article-bottom
+      .addthis_inline_share_toolbox.fr
+    .post-copyright
+      .post-copyright__author
+        span.post-copyright-meta 文章作者:
+        span.post-copyright-info
+          a(href='mailto:undefined')= config.author
+      .post-copyright__type
+        span.post-copyright-meta 文章链接:
+        span.post-copyright-info
+          a(href=config.url + page.path)=config.url + page.path
+      .post-copyright__notice
+        span.post-copyright-meta 版权声明:
+        span.post-copyright-info
+          |转载请注明来自
+          a(href=config.url, target='_blank', style="font-size: 18px")=config.blog_names
+          | ！
     .article-pagenate
       if(page.prev)
         div.article-prev.fl
