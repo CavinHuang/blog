@@ -407,3 +407,167 @@ SplStack extends SplDoublyLinkedList implements Iterator , ArrayAccess , Countab
   public bool SplDoublyLinkedList::valid ( void );
 ```
 链表具有的功能基本都已实现。
+
+# 第六题 旋转数组最小数字
+> 题目描述: 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
+
+当然我们最简单的做法是直接求出此数组的最小值，但这不是我们练习题目的目的，我们目的在于巩固和学习算法，在这里我们采用二分法来计算，主要思路如下：
+
+需要考虑三种情况：
+- (1)array[mid] >= array[left]:
+出现这种情况的array类似[3,4,5,6,0,1,2]，此时最小数字一定在mid的右边。
+left = mid
+- (2)array[mid] == array[left]:
+出现这种情况的array类似 [1,0,1,1,1] 或者[1,1,1,0,1]，此时最小数字不好判断在mid左边
+还是右边,这时只好一个一个试 ，
+right = mid
+- (3)array[mid] < array[right]:
+出现这种情况的array类似[2,2,3,4,5,6,6],此时最小数字一定就是array[mid]或者在mid的左
+边。因为右边必然都是递增的。
+right = mid
+
+按照上面的思路，我实现如下：
+```js
+function minNumberInRotateArray(arr)
+{
+    if(arr.length == 0) return 0;
+    // 取出左右边界
+    var left = 0;
+    var right = arr.length - 1
+    var mid;
+    while(arr[left] >= arr[right]) {
+      if(right-left==1){
+         mid=right;
+         break;
+      }
+      // 取出中间点，二分法关键标识
+      mid = Math.floor(((left + right) / 2))
+      // 前部分和中间比较，大于往右移，小于往左移
+      if(arr[mid] >= arr[left]) {
+          left = mid
+      }else if(arr[mid] < arr[left]) {
+          right = mid
+      }else if(arr[mid] == arr[left] && arr[mid] == arr[right]){ // 相等时，逐个比较
+          var res = arr[0]
+          for(var i = 0; i < arr.length; i ++) {
+              if(res > arr[i]) return res
+          }
+      }
+    }
+    return arr[mid]
+}
+```
+简单版的js代码如下:
+```js
+function minNumberInRotateArray(arr)
+{
+   return Math.min.apply(null, arr)
+}
+```
+PHP的话比较简单，就不用二分法了，直接：
+```php
+function minNumberInRotateArray($arr)
+{
+    // write code here
+    if(empty($arr)) return 0;
+    return min($arr);
+}
+```
+
+# 第七题 斐波那契数列
+
+>题目描述: 大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。
+n<=39
+
+>斐波那契数列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
+如果设F(n）为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n)=F(n-1)+F(n-2)
+显然这是一个线性递推数列。
+
+其核心公式是：
+```bash
+F(n) = F(n-1) + F(n-2)
+```
+
+根据公式，完成如下代码:
+```js
+function Fibonacci(n)
+{
+    // write code here
+    // 1 时，永远为1，无需计算
+    if(n <= 1) return n;
+    // 根据f(n) = f(n-1) + f(n+1)设定三个变量
+    var f1 = 0, f2 = 1, fn;
+
+    // 循环查找
+    for(var i = 2; i <= n; i ++) {
+        // 算出当前指针
+        fn = f1 + f2;
+        // 更新指针
+        f1 = f2;
+        f2 = fn;
+    }
+    return fn;
+}
+```
+此道题php版也差不多，就不贴代码了。
+
+# 第八道 跳台阶
+
+>题目描述: 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+
+数列题，没什么好说的，找规律就行，代码如下：
+```js
+function jumpFloor(number)
+{
+    // write code here
+    if(number === 0 || number === 1 || number === 2) {
+        return number;
+    }
+    var oneStep = 1;
+    var twoStep = 2;
+    var num = 0;
+    for(var i = 3; i <= number; i ++) {
+        num = oneStep + twoStep
+        oneStep = twoStep
+        twoStep = num
+    }
+    return num
+}
+```
+
+# 第九题 变态跳台阶
+
+>题目描述: 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+
+首先，我们分析下：
+f(1) = 1
+f(2) = f(2-1) + f(2-2)         //f(2-2) 表示2阶一次跳2阶的次数。
+f(3) = f(3-1) + f(3-2) + f(3-3)
+...
+f(n) = f(n-1) + f(n-2) + f(n-3) + ... + f(n-(n-1)) + f(n-n)
+
+说明：
+-1）这里的f(n) 代表的是n个台阶有一次1,2,...n阶的 跳法数。
+-2）n = 1时，只有1种跳法，f(1) = 1
+-3) n = 2时，会有两个跳得方式，一次1阶或者2阶，这回归到了问题（1） ，f(2) = f(2-1) + f(2-2)
+-4) n = 3时，会有三种跳得方式，1阶、2阶、3阶，
+    那么就是第一次跳出1阶后面剩下：f(3-1);第一次跳出2阶，剩下f(3-2)；第一次3阶，那么剩下f(3-3)
+    因此结论是f(3) = f(3-1)+f(3-2)+f(3-3)
+-5) n = n时，会有n中跳的方式，1阶、2阶...n阶，得出结论：
+    f(n) = f(n-1)+f(n-2)+...+f(n-(n-1)) + f(n-n) => f(0) + f(1) + f(2) + f(3) + ... + f(n-1)
+-6) 由以上已经是一种结论，但是为了简单，我们可以继续简化：
+    f(n-1) = f(0) + f(1)+f(2)+f(3) + ... + f((n-1)-1) = f(0) + f(1) + f(2) + f(3) + ... + f(n-2)
+    f(n) = f(0) + f(1) + f(2) + f(3) + ... + f(n-2) + f(n-1) = f(n-1) + f(n-1)
+
+可以得出：
+    f(n) = 2*f(n-1)
+
+思路清晰后，解起来就快了。
+```js
+function jumpFloorII(number)
+{
+    // write code here
+    if(number <= 1) return 1;
+    return 2 * jumpFloorII(number - 1)
+}
+```
