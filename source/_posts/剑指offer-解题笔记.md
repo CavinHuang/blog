@@ -571,3 +571,98 @@ function jumpFloorII(number)
     return 2 * jumpFloorII(number - 1)
 }
 ```
+# 第十题 矩形覆盖
+> 题目描述: 我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？
+
+这道题本质上依旧是斐波那契数列
+2*n的大矩形，和n个2*1的小矩形
+其中target*2为大矩形的大小
+有以下几种情形：
+- 1⃣️target <= 0 大矩形为<= 2*0,直接return 1；
+- 2⃣️target = 1大矩形为2*1，只有一种摆放方法，return1；
+- 3⃣️target = 2 大矩形为2*2，有两种摆放方法，return2；
+- 4⃣️target = n 分为两步考虑：
+
+第一次摆放一块 2*1 的小矩阵，则摆放方法总共为f(target - 1)
+
+第一次摆放一块1*2的小矩阵，则摆放方法总共为f(target-2)
+因为，摆放了一块1*2的小矩阵（用√√表示），对应下方的1*2（用××表示）摆放方法就确定了，所以为f(targte-2)
+
+代码如下：
+```js
+function rectCover(number)
+{
+    // write code here
+    if(number <= 0) return 0
+    if(number <= 2) return number
+    return rectCover(number - 1) + rectCover(number - 2)
+}
+```
+
+# 第十一题 二进制中1的个数
+>题目描述: 输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。
+
+大神的代码如下，请欣赏：
+```js
+function NumberOf1(n)
+{
+    // write code here
+ 	var count = 0;
+    while(n!= 0){
+      count++;
+      n = n & (n - 1);
+    }
+    return count;
+}
+```
+思路分析：
+如果一个整数不为0，那么这个整数至少有一位是1。如果我们把这个整数减1，那么原来处在整数最右边的1就会变为0，原来在1后面的所有的0都会变成1(如果最右边的1后面还有0的话)。其余所有位将不会受到影响。
+举个例子：一个二进制数1100，从右边数起第三位是处于最右边的一个1。减去1后，第三位变成0，它后面的两位0变成了1，而前面的1保持不变，因此得到的结果是1011.我们发现减1的结果是把最右边的一个1开始的所有位都取反了。这个时候如果我们再把原来的整数和减去1之后的结果做与运算，从原来整数最右边一个1那一位开始所有位都会变成0。如1100&1011=1000.也就是说，把一个整数减去1，再和原整数做与运算，会把该整数最右边一个1变成0.那么一个整数的二进制有多少个1，就可以进行多少次这样的操作。
+
+我的代码，相对来说比较简陋了，如下：
+```js
+function NumberOf1(n)
+{
+    // write code here
+    if(n < 0) {
+        n = n >>> 0 // 利用位移计算，来算负数的补码
+    }
+   	var tn = n.toString(2), count = 0
+    // 找到1即可
+    for(var i = 0; i < tn.length; i++) {
+        if(1 === tn[i]*1) {
+            count ++
+        }
+    }
+    return count
+}
+```
+> N>>>1就代表N的二进制右移一位，二进制右移一位就能得到中间值。
+
+例如
+```
+10>>>1
+10的二进制代码为 1010
+向右移动一位后为 0101
+即 5
+```
+
+# 第十二题 数值的整数次方
+>题目描述: 给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。
+
+解题如下：
+```js
+function Power(base, exponent)
+{
+    // write code here
+    return Math.pow(base, exponent)
+}
+```
+php代码如下:
+```php
+function Power($base, $exponent)
+{
+    // write code here
+    return pow($base, $exponent);
+}
+```
