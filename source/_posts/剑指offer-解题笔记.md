@@ -666,3 +666,88 @@ function Power($base, $exponent)
     return pow($base, $exponent);
 }
 ```
+
+# 第十三题 调整数组顺序使奇数位于偶数前面
+
+> 题目描述:输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。
+
+本题主要考察js中数组的增删，也就是push(尾增),unshift(头增)和pop(尾删),shift(头删)这四个方法：
+```js
+function reOrderArray(array)
+{
+    // write code here
+    var arr1 = [], arr2 = []
+    for(var i = 0; i < array.length; i++){
+        if(array[i] % 2 === 0) {
+            arr1.push(array[i])
+        }else{
+            arr2.push(array[i])
+        }
+    }
+    return arr2.concat(arr1)
+}
+```
+php代码如下，主要是对array_merge函数的运用:
+```php
+function reOrderArray($array)
+{
+    // write code here
+    $arr1 = [];
+    $arr2 = [];
+    foreach($array as $k => $v) {
+        if($v % 2 === 0) {
+            $arr1[] = $v;
+        }else{
+            $arr2[] = $v;
+        }
+    }
+    return array_merge($arr2, $arr1);
+}
+```
+
+# 第十四题 链表中倒数第k个结点
+
+>题目描述:输入一个链表，输出该链表中倒数第k个结点。
+
+在第三题中曾提到链表是一个包含本节点信息和下一个节点指针的节点，此题主要考察对链表的认识，先看代码：
+```js
+/*function ListNode(x){
+    this.val = x;
+    this.next = null;
+}*/
+function FindKthToTail(head, k)
+{
+    // write code here
+    var currentNode = head
+    var ListArr = []
+    while(currentNode !== null) {
+        ListArr.push(currentNode)
+        currentNode = currentNode.next
+    }
+
+    return ListArr[ListArr.length - k]
+}
+```
+首先收集所有的链表节点信息，用js可以计算的数组存放，通过循环查找所有的节点，进行归拢，最后返回倒数K的节点出去。
+PHP代码：
+```php
+/*class ListNode{
+    var $val;
+    var $next = NULL;
+    function __construct($x){
+        $this->val = $x;
+    }
+}*/
+function FindKthToTail($head, $k)
+{
+    // write code here
+    $currentNode = $head;
+    $arr = [];
+    while(!is_null($currentNode)) {
+        $arr[] = $currentNode;
+        $currentNode = $currentNode->next;
+    }
+
+    return $arr[(count($arr) - $k)];
+}
+```
