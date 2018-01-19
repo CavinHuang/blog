@@ -751,3 +751,74 @@ function FindKthToTail($head, $k)
     return $arr[(count($arr) - $k)];
 }
 ```
+
+# 第十五题 反转链表
+
+>题目描述: 输入一个链表，反转链表后，输出链表的所有元素。
+
+根据题目的意思，我们可以假设输入的链表为 1 > 2 > 3 > 4 > 5 > null,则其反转之后必须为 null > 5 > 4 > 3 > 2 > 1
+
+代码如下：
+```js
+/*function ListNode(x){
+    this.val = x;
+    this.next = null;
+}*/
+function ReverseList(pHead)
+{
+    // write code here
+    var pNode1 = pHead, pNode2 = null, tmp = null;
+
+    while(pNode1){
+        // 保存next
+        tmp = pNode1.next
+
+        //重新指定 next
+        pNode1.next = pNode2
+
+        // 调换位置
+        pNode2 = pNode1
+        pNode1 = tmp
+    }
+
+    return pNode2
+}
+```
+php代码，相差不多，就不贴了。
+
+# 第十六题 合并两个排序的链表
+
+>题目描述:输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
+
+```js
+/*function ListNode(x){
+    this.val = x;
+    this.next = null;
+}*/
+function Merge(pHead1, pHead2)
+{
+    // write code here
+   if(pHead1 === null) return pHead2
+   else if(pHead2 === null) return pHead1
+
+   var result = {}  // 新建链表
+
+   // 判断当前两个节点的大小
+   // 把小值放入前面
+   // 再用更大值和更小值得下一个节点比较
+   if(pHead1.val > pHead2.val) {
+		result = pHead2
+    	result.next = Merge(pHead1, pHead2.next)
+   }else{
+       result = pHead1
+       result.next = Merge(pHead2, pHead1.next)
+   }
+
+    return result
+}
+```
+解题思路：
+假设输入的用例是{1,3,5}和{2,4,6}
+- 先用1和2比较，把1放入新的链表，然后递归比较1的下一个节点
+- 用2和3比较，确认2为1的下一个节点，然后递归2的下一个节点，
+- ... ...
