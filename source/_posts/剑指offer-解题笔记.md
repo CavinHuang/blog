@@ -822,3 +822,126 @@ function Merge(pHead1, pHead2)
 - 先用1和2比较，把1放入新的链表，然后递归比较1的下一个节点
 - 用2和3比较，确认2为1的下一个节点，然后递归2的下一个节点，
 - ... ...
+
+# 第十七题 树的子结构
+
+>题目描述: 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
+
+我的思路是先比较根节点，然后再比较左树，再比较右树，递归比较。
+```js
+/* function TreeNode(x) {
+    this.val = x;
+    this.left = null;
+    this.right = null;
+} */
+function HasSubtree(pRoot1, pRoot2)
+{
+    // write code here
+    // 比较根 => 比较左 => 比较右
+    if(!pRoot1 || !pRoot2) return false  // 排除空树
+    return isSub(pRoot1, pRoot2) || HasSubtree(pRoot1.left, pRoot2) || HasSubtree(pRoot1.right, pRoot2)
+}
+// 检测是否是子
+function isSub(pR1, pR2){
+    if(!pR2) return true
+    if(!pR1) return false
+    if(pR1.val === pR2.val) {
+        return isSub(pR1.left, pR2.left) && isSub(pR1.right, pR2.right) // 递归往下比较
+    }else{
+        return false
+    }
+}
+```
+
+# 第十八题 顺时针打印矩阵
+
+>题目描述: 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下矩阵： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 则依次打印出数字1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.
+
+首先我们确定矩阵结构是这样
+```
+[1,2,3,4]
+[5,6,7,8]
+[9,10,11,12]
+[13,14,15,16]
+```
+也是就说我们最终获得数应该是沿着矩阵边沿，一层一层剥洋葱一样，把矩阵解刨开来，我思路如下：
+旋转魔方解法：
+假如矩阵就为上面这个矩阵：
+我们取出第一行，这是第一条变，然后我们把整个矩阵逆时针旋转90°，此时矩阵结构如下：
+```
+[8,12,16]
+[7,11,15]
+[6,10,14]
+[5,9,13]
+```
+此时第一行则为原矩阵最外边最右边的那条边，再把第一行取出，继续旋转，此时矩阵结构如下：
+```
+[15,14,13]
+[11,10,9]
+[7,6,5]
+```
+以此类推，直到矩阵最后一个数值，下面是js代码:
+```js
+function printMatrix(matrix)
+{
+    // write code here
+ 	if(!matrix) return
+	var result = [];  
+    var tmp = matrix.shift()
+    result = result.concat(tmp)
+    while(matrix !== null) {
+		matrix = turn(matrix)
+		if(!matrix) break;
+		result = result.concat(matrix.shift())
+	}
+	return result
+}
+/**
+ * 旋转数组
+ * @param  {[type]} arr [description]
+ * @return {[type]}     [description]
+ */
+function turn (arr) {
+ 	if(!arr||arr.length < 0 || arr[0] == undefined) return
+	 // 取行和列
+  var rows = arr.length, cols = arr[0].length
+  var i, j, newArr = [];
+	for(j=cols; j > 0; j --) {
+		var tmp = []
+		for(i = 0; i < rows; i ++) {
+			tmp.push(arr[i][j - 1])
+		}
+		newArr.push(tmp)
+    }
+    return newArr;
+}
+```
+
+# 第十九题 包含min函数的栈
+
+>题目描述: 定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数。
+
+```js
+var result = []
+function push(node)
+{
+    // write code here
+    result.push(node)
+}
+function pop()
+{
+    // write code here
+	result.pop()
+}
+function top()
+{
+    // write code here
+    return result[0]
+}
+function min()
+{
+    // write code here
+	return Math.min.apply(null, result)
+}
+```
+没什么亮点，Math.min的用法而已。
