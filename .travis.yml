@@ -11,6 +11,8 @@ install:
 script:
   - hexo clean
   - hexo g
+  - rm -rf ./dist
+  - gulp
 
 after_script:
   - cd ./public
