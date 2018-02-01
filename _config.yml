@@ -17,7 +17,6 @@ timezone:
 url: http://blog.zukmb.cn/
 root: /
 permalink: :title/
-permalink_defaults:
 
 # Directory
 source_dir: source
@@ -29,7 +28,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
-github_url: "https://github.com/CavinHuang"
+github_url: "https://github.com/CavinHuang/"
 weibo: "http://weibo.com/nananmaomao/"
 
 # Writing
@@ -94,5 +93,6 @@ about:
 # 自动生成sitemap
 sitemap:
   path: sitemap.xml
+  template: ./sitemap_template.xml
 baidusitemap:
   path: baidusitemap.xml
