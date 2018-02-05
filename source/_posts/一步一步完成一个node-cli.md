@@ -451,3 +451,5 @@ webpack-template install
 {% asset_img install-2.gif install结果%}
 这时我们去看系统的user文件夹下的.webpack-project下，就会找到我们换成的项目了。
 到这里，我们install代码已经完成了，[github地址](https://github.com/CavinHuang/node-cli-demo/tree/v0.0.3)
+
+# 完成init命令
