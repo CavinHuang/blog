@@ -449,7 +449,202 @@ webpack-template install
 ```
 结果如下：
 {% asset_img install-2.gif install结果%}
+下面我们添加版本选择,我们把install.js里的代码，稍微修改下,加上版本选择：
+```js
+// 取出选择的git仓库
+const repo = answers.repo;
+// 获取选择仓库所有的版本
+const tags = await git.fetchRepoTagList( repo );
+
+if ( tags.length === 0 ) {
+  version = '';
+} else {
+  choices = tags.map( ( {
+    name
+  } ) => name );
+
+  answers = await inquirer.prompt( [
+    {
+      type: 'list',
+      name: 'version',
+      message: 'which version do you want to install?',
+      choices
+  }
+] );
+  version = answers.version;
+}
+console.log( answers ); // 输出最终的答案
+let result = await git.downloadGitRepo( [ repo, version ].join( '@' ) );
+console.log( result ? 'SUCCESS' : result )
+```
+{% asset_img install-3.gif install结果%}
+
 这时我们去看系统的user文件夹下的.webpack-project下，就会找到我们换成的项目了。
 到这里，我们install代码已经完成了，[github地址](https://github.com/CavinHuang/node-cli-demo/tree/v0.0.3)
 
 # 完成init命令
+init命令是通过收录一些用户填写的信息来初始化本地项目，其实原理就是把收录的参数进行替换，把下载到缓存目录的项目copy到当前命令行执行目录。
+首先我们还是完成最简单的命令行用户输入信息的收入，此处依然使用inquirer来完成：
+```js
+// 1、选择哪个模板
+// 2、当前项目的名字，也是初始化项目的文件夹名字
+let questions = [
+  {
+    type: 'list',
+    name: 'template',
+    message: 'which template do you want to init?',
+    choices: list
+  }, {
+    type: 'input',
+    name: 'dir',
+    message: 'project name',
+    async validate( input ) {
+      // 下面这行代码用于通知异步任务
+      const done = this.async();
+      if ( input.length === 0 ) {
+        done( 'You must input project name' );
+        return;
+      }
+      const dir = resolve( process.cwd(), input );
+      if ( await exists( dir ) ) {
+        done( 'The project name is already existed. Please change another name' );
+      }
+      done( null, true );
+    }
+  }
+];
+const answers = await inquirer.prompt( questions )
+```
+## ncp使用帮助
+下面是准备收集更加详细的信息，并且把下载的文件copy一份到临时目录，用于处理，此处copy文件用的是成熟的ncp库，这是一个与linux cp命令接口一致的库。[官方网站](https://github.com/AvianFlu/ncp),基本调用方式: ```ncp [source] [dest] [--limit=concurrency limit] [--filter=filter] --stopOnErr```
+实例代码:
+```js
+var ncp = require('ncp').ncp;
+
+ncp.limit = 16;
+
+ncp(source, destination, function (err) {
+ if (err) {
+   return console.error(err);
+ }
+ console.log('done!');
+});
+```
+
+## mkdirp使用帮助
+主要作用跟linux mkdir -p 是一样的，只是它运行在node里，也就是递归创建目录。
+主要用法:
+```js
+var mkdirp = require('mkdirp');
+
+mkdirp('/tmp/foo/bar/baz', function (err) {
+    if (err) console.error(err)
+    else console.log('pow!')
+});
+```
+根据这两个库，我们分装一个专门用来copy我们项目的工具函数
+```js
+import {
+	ncp
+} from 'ncp';
+import mkdirp from 'mkdirp'
+import {
+	exists
+} from 'mz/fs'
+export default function copyFile( src, dest ) {
+	return new Promise( async ( resolve, reject ) => {
+		if ( !( await exists( src ) ) ) {
+			mkdirp.sync( src ); //异步创建
+		}
+		ncp( src, dest, ( err ) => {
+			if ( err ) {
+				reject( err );
+				return;
+			}
+			resolve();
+		} );
+	} );
+}
+```
+copy到临时文件夹，生成项目是，要经过一个数据填充的过程，这个过程主要用的是一个静态站点生成器（[Metalsmith](https://www.npmjs.com/package/metalsmith)）和swig以及[consolidate一个模板引擎合并库](https://github.com/visionmedia/consolidate.js)
+
+在init.js里添加copy的动作和编译的动作
+```js
+const answers = await inquirer.prompt( questions )
+const metalsmith = config.metalsmith;
+if ( metalsmith ) {
+  const tmp = `${dirs.tmp}/${answers.template}`;
+  // 复制一份到临时目录，在临时目录编译生成
+  await copyFile( `${dirs.download}/${answers.template}`, tmp );
+  await metalsmithACtion( answers.template ); // 根据参数编译
+  await copyFile( `${tmp}/${dirs.metalsmith}`, answers.dir );
+  await rmfr( tmp ); // 清除临时文件夹
+} else {
+  await copyFile( `${dirs.download}/${answers.template}`, answers.dir );
+}
+```
+最后所有的目录结构如下：
+```bash
+│  .babelrc
+│  .gitignore
+│  index.js
+│  package.json
+│  
+├─bin
+│      hi.js
+│                      
+└─src
+    │  index.js
+    │  
+    ├─command
+    │      init.js
+    │      install.js
+    │      
+    ├─config
+    │      constant.js
+    │      index.js
+    │      
+    └─utils
+            copyFile.js
+            gitCtrl.js
+            initProjectQuestion.js    #初始化项目的问题
+            metalsmithACtion.js       #临时文件夹编译动作
+            render.js                 #编译模板的插件
+
+```
+
+到此所有的功能就已经实现了，为了让整个命令用起来更加人性化，更加流程，我们引入ora这个库，项目地址:[ora](https://github.com/sindresorhus/ora),主要效果如下：
+{% asset_img init.svg %}
+
+在utils里新建OraLoading.js
+```js
+import ora from 'ora';
+
+export default function OraLoading( action = 'getting', repo = '' ) {
+	const l = ora( `${action} ${repo}` );
+	return l.start();
+}
+```
+
+好了，到了这里所有的东西都已经写完了，下面我们来试试效果：
+首先是install
+{% asset_img install-last.gif %}
+init也是一样的就不演示了
+
+# npm 发布
+
+- 到npm.com注册好自己的账户，命令行然后切换到当前目录的文件夹,执行npm login命令，输入自己的账号密码，进行登录即可。
+
+执行
+```bash
+npm publish .
+```
+就可以发布自己的npm包了，注意此处一个坑，如果你是用的淘宝源，需要切换回npm源，
+```bash
+npm config set registry http://registry.npmjs.org
+```
+否则验证不通过。
+
+最后奉上github完成代码地址: [github传送门](https://github.com/CavinHuang/node-cli-demo)
+
+请各位老铁不要吝啬自己的start，感谢鼓励！
