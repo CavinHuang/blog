@@ -161,7 +161,9 @@ export default {
   }
 };
 ```
+
 路由钩子的调整(Router:index.js)
+
 ```js
 import Vue from "vue";
 import Router from "vue-router";
