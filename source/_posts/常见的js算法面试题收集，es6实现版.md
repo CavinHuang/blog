@@ -29,6 +29,7 @@ return maxValue;
 }
 console.log(strChar(str))    // a
 ```
+<!--more-->
 # 2、数组去重
 ## 2.1 map
 ```js
