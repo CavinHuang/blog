@@ -5,7 +5,7 @@ tags:
   - vue
   - 前端开发
 category:
-  - web前端开发
+  - 前端开发
 ---
 
 # 前言
