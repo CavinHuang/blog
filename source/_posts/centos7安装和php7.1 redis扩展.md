@@ -2,9 +2,9 @@
 title: centos7.0安装redis和php7.1 redis扩展
 date: 2017-09-08 23:49:20
 tags:
-	- centos7
-	- redis
-	- php7.1 redis
+  - centos7
+  - redis
+  - php7.1 redis
 ---
 
 ## 基本知识
@@ -33,7 +33,7 @@ tags:
 <!--more-->
 ---
 ## 接下来我们来安装Redis
-1、先到Redis官网(redis.io)下载redis安装包 
+1、先到Redis官网(redis.io)下载redis安装包
 
 2、将其下载到/usr/local/目录下
 
@@ -43,7 +43,7 @@ tar -zxvf redis.tar.gz
 ```
 4、编译源程序
 ```sh
-　　make 
+　　make
 
 　　cd src
 
@@ -65,7 +65,7 @@ vim /usr/local/redis/etc/redis.conf
 
 8、客户端连接
 ```
-　　/usr/local/redis/bin/redis-cli 
+　　/usr/local/redis/bin/redis-cli
 ```
 9、停止redis实例
 ```
@@ -161,9 +161,39 @@ cd phpredis-php7
 ./configure --with-php-config=/usr/local/php7/bin/php-config  
 make && make install  
 ```
+运行/usr/local/webserver/php/bin/phpize时出现：
+```bash
+Configuring for:
+PHP Api Version:         20041225
+Zend Module Api No:      20060613
+Zend Extension Api No:   220060519
+Cannot find autoconf. Please check your autoconf installation and the
+$PHP_AUTOCONF environment variable. Then, rerun this script.
+```
+解决办法是：
+```bash
+# cd /usr/loacl/src
+# wget http://ftp.gnu.org/gnu/m4/m4-1.4.9.tar.gz
+# tar -zvxf m4-1.4.9.tar.gz
+# cd m4-1.4.9/
+# ./configure && make && make install
+# cd ../
+# wget http://ftp.gnu.org/gnu/autoconf/autoconf-2.62.tar.gz
+# tar -zvxf autoconf-2.62.tar.gz
+# cd autoconf-2.62/
+# ./configure && make && make install
+```
+
+可爱的yum让我更容易把没安装的包安装好
+
+```bash
+ yum install m4
+ yum install autoconf
+```
 接着将 extension=redis.so 写入到 php.ini 文件中，最后重启服务器即可。
 如果使用的是php-rpm，则需要重启php-rpm：
-```
+
+```bash
 ps aux|grep php-fpm #查看fpm进程号  
 kill -USR2 fpm进程号 #平滑重启php-fpm  
 ```
