@@ -2,38 +2,31 @@
 title: centos7.0安装redis和php7.1 redis扩展
 date: 2017-09-08 23:49:20
 tags:
-	- centos7
-	- redis
-	- php7.1 redis
+  - centos7
+  - redis
+  - php7.1 redis
 ---
 
 ## 基本知识
 
-1、Redis的数据类型：
-
+1、 Redis的数据类型：
 　　字符串、列表（lists）、集合（sets）、有序集合（sorts sets）、哈希表（hashs）
 
-2、Redis和memcache相比的独特之处：
-
+2、 Redis和memcache相比的独特之处：
 　　（1）redis可以用来做存储（storge）、而memcache是来做缓存（cache）。这个特点主要是因为其有“持久化”功能
-
 　　（2）存储的数据有“结构”，对于memcache来说，存储的数据，只有一种类型——“字符串”，而redis则可以存储字符串、链表、集合、有序集合、哈序结构
 
-3、持久化的两种方式：
-
+3、 持久化的两种方式：
 　　Redis将数据存储于内存中，或被配置为使用虚拟内存。
-
 　　实现数据持久化的两种方式：（1）使用截图的方式，将内存中的数据不断写入磁盘（性能高，但可能会引起一定程度的数据丢失）
-
 　　　　　　　　　　　　　　　（2）使用类似mysql的方式，记录每次更新的日志
 
-4、Redis的主从同步：对提高读取性能非常有益
-
-5、Redis服务端的默认端口是6379
+4、 Redis的主从同步：对提高读取性能非常有益
+5、 Redis服务端的默认端口是6379
 <!--more-->
 ---
 ## 接下来我们来安装Redis
-1、先到Redis官网(redis.io)下载redis安装包 
+1、先到Redis官网(redis.io)下载redis安装包
 
 2、将其下载到/usr/local/目录下
 
@@ -43,7 +36,7 @@ tar -zxvf redis.tar.gz
 ```
 4、编译源程序
 ```sh
-　　make 
+　　make
 
 　　cd src
 
@@ -65,7 +58,7 @@ vim /usr/local/redis/etc/redis.conf
 
 8、客户端连接
 ```
-　　/usr/local/redis/bin/redis-cli 
+　　/usr/local/redis/bin/redis-cli
 ```
 9、停止redis实例
 ```
