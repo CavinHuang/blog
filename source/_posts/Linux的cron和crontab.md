@@ -4,6 +4,7 @@ date: 2017-11-14 20:22:56
 tags:
   - Linux
   - crontab
+category: '系统折腾'
 ---
 一 cron
 

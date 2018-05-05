@@ -5,6 +5,9 @@ tags:
   - centos7
   - redis
   - php7.1 redis
+category:
+  - 服务器纪实
+  - php
 ---
 
 ## 基本知识
