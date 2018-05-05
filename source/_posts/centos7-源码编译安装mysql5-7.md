@@ -31,6 +31,7 @@ rpm -e --nodeps boost-filesystem-1.41.0-11.el6_1.2.x86_64 #卸载boost
 ```bash
 yum install gcc gcc-c++ ncurses ncurses-devel bison libgcrypt perl cmake
 ```
+<!--more-->
 ## 2.准备安装
 
 首先将boost库解压出来
