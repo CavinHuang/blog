@@ -41,4 +41,6 @@ gulp.task("watch",function() {
 gulp.task("default",["html","css","js", "mv"],function(){
     console.log("gulp task ok!");
 });
-
+gulp.task("build",["html","css","js", "mv"],function(){
+    console.log("gulp task ok!");
+});
