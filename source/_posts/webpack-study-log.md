@@ -9,7 +9,6 @@ category:
   - webpack
 ---
 
-
 # webpack study demo1
 
 ---
@@ -17,6 +16,8 @@ category:
 ```sh
 npm install --save-dev webpack webpack-dev-server
 ```
+<!--more-->
+
 创建index.html
 ```html
 <!DOCTYPE html>
@@ -33,7 +34,6 @@ npm install --save-dev webpack webpack-dev-server
 可以看出我们的输出文件当然是bundle.js
 
 再创建webpack.config.js这个文件名是固定的不能更改
-<!--more-->
 ```javascript
 module.exports = {
 	entry: './src/index.js',

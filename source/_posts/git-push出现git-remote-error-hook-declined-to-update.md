@@ -14,6 +14,8 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (226/226), done.
 Writing objects: 100% (237/237), 19.60 MiB | 1.25 MiB/s, done.
 Total 237 (delta 129), reused 0 (delta 0)
+<!--more-->
+
 # 错误原因在这里是因为 不小心把日志文件加入了版本控制，而文件有过大，超过了git服务器的要求
 remote: warning: Large files detected.
 remote: error: File log/node-app.stdout.log is 172.8 MB; this exceeds file size limit of 100.0 MB
@@ -22,6 +24,7 @@ remote: error: hook declined to update refs/heads/dev
 To https://*******.git
  ! [remote rejected] dev -> dev (hook declined)
 error: failed to push some refs to 'https://*******.git'
+
 ```
 原因是有一个文件超过了git服务器对文件大小的限制。
 删掉本地文件，再推，还是报错。回滚，再推，还是同样的错误。

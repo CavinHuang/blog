@@ -11,6 +11,8 @@ category:
 ---
 
 之前也写过webpack学习记录，项目中需要一个常用的webpack多页面配置，所以才动手，本着能写一行是一行的原则，开始了配置webpack之旅。
+<!--more-->
+
 # 定目录结构
 首先我只需要开发环境（包含自动更新）和打包环境，初定的目录结构是这样的
 {%asset_img dir-1.png 目录结构 %}
@@ -45,7 +47,6 @@ const env = process.env.NODE_ENV.replace( /(\s*$)|(^\s*)/ig, "" );
 // 根据环境变量引用相关的配置文件
 module.exports = require( `./config/webpack.config.${env}.js` )
 ```
-<!--more-->
 在config文件夹下分别新建webpack.config.dev.js和webpack.config.product.js分别代表开发环境的配置和生成打包文件的配置，考虑到很多配置都会相同，再建一个webpack.config.base.js用来写统一的配置。
 
 webpack.config.dev.js和webpack.config.product.js的区别是一个runtime时的配置，一个文件生成的配置，简而言之，就是开发环境的不同是配置webpack-dev-server,生产环境是压缩，map等配置

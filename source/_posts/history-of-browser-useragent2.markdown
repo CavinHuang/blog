@@ -11,15 +11,13 @@ reward: true
 ---
 
 ![其实应该叫做浏览器约架史](/assets/blogImg/browser-history2.jpg)    
-
-
 前篇[《浏览器野史 UserAgent列传（上）》](/2014/09/26/history-of-browser-useragent/)
-
+<!--more-->
 ### 六、师夷长技
 
 前面说到，微软靠Windows系统捆绑IE销售。而Windows自然也有它的对手，Linux。一个技术快速发展的时代，系统的世界里也是战火纷飞。Linux系统自从有了可视化界面，也需要浏览器呀。桌面系统KDE的缔造者们就发明了一个。
 
-<!--more-->
+
 
 真是具有跨时代意义的工具呀，好伟大呀，人们在想，它叫什么呢？
 但大神就是大神，大神就是讲究先从文字上占据压垮你的气势。

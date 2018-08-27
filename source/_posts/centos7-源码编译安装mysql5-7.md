@@ -14,7 +14,7 @@ category:
 首先需要准备mysql的源码包，最新版本是5.7.12
 下载地址为：
 [http://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.12.tar.gz](http://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.12.tar.gz)
-
+<!--more-->
 同时，mysql 5.7需要boost 1.59以及以上版本，需要在sourceforge上下载。地址为：
 [http://www.boost.org/users/download/](http://www.boost.org/users/download/)
 
@@ -31,7 +31,6 @@ rpm -e --nodeps boost-filesystem-1.41.0-11.el6_1.2.x86_64 #卸载boost
 ```bash
 yum install gcc gcc-c++ ncurses ncurses-devel bison libgcrypt perl cmake
 ```
-<!--more-->
 ## 2.准备安装
 
 首先将boost库解压出来

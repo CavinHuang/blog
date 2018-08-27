@@ -6,16 +6,17 @@ tags:
   - date
 ---
 
->函数目录
+> 函数目录
 getFormatDateStr 获得指定日期格式的字符串；
 getDayPrevAfter 获得n天前/后的日期；
+<!--more-->
 formatDateWithTimeZone 格式化日期带时区，ISO 8601；
 countDownBySecond 倒计时；
 monthSize 获得指定日期所在月的天数；
 getCalendarMonth 获得指定日期所在月的第一周到第四/五周的数据组合；
 getOneDateWeekIndex 获得指定的某天所在该月的第几周，下标从0开始；
 下面是详细的说明：
-<!--more-->
+
 ### getFormatDateStr
 ```javascript
 /**

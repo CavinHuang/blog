@@ -2,15 +2,15 @@
 title: js常用代码整理
 date: 2017-03-19 11:36:05
 tags:
-	- js
-	- javasript
+ - js
+ - javasript
 ---
 #### 1. PC - js
 - 返回指定范围的随机数(m-n之间)的公式
 ```javascript
 Math.random()*(n-m)+m
 ```
-
+<!--more-->
 - [return false](http://stackoverflow.com/questions/1357118/event-preventdefault-vs-return-false)
 - [return false](http://www.75team.com/archives/201)
 ```javascript
@@ -28,9 +28,8 @@ if(top != self){
     location.href = ”about:blank”;
 }
 ```
-<!--more-->
 - 两种图片lazy加载的方式
-第一个By JS中级交流群 成都-猎巫 第二个By 上海-zenki 
+第一个By JS中级交流群 成都-猎巫 第二个By 上海-zenki
 ```javascript
 // @description 准备为图片预加载使用的插件
 // 使用的图片容器css类名为lazy-load-wrap
@@ -214,7 +213,7 @@ WeixinJSBridge.invoke('getBrandWCPayRequest', d, function(res){
 });
 ```
 
-- 瀑布流无限加载实例 
+- 瀑布流无限加载实例
 ```javascript
 // be dependent on jquery & jquery.infinitescroll.min.js
 // insert this '<div id="more"><a href="api?page="></a></div>' to your page.html
@@ -260,7 +259,7 @@ WeixinJSBridge.invoke('getBrandWCPayRequest', d, function(res){
               var country_id = $("#country_id").val();
               query = query + "&namekeyword="+keyword;
               query = query +"&cat_id="+cat_id
-              query = query + "&brand_id=" + brand_id; 
+              query = query + "&brand_id=" + brand_id;
               query = query + "&country_id=" + country_id;
               path = [path,query];
               return path;
@@ -278,7 +277,7 @@ WeixinJSBridge.invoke('getBrandWCPayRequest', d, function(res){
   });
 })(jQuery);
 ```
-  
+
 - [iOS，Safari浏览器，input等表单focus后fixed元素错位问题](https://www.snip2code.com/Snippet/176582/--iOS-Safari----input---focus-fixed-----)
 ```javascript
 if( /iPhone|iPod|iPad/i.test(navigator.userAgent) ) {
@@ -286,19 +285,19 @@ if( /iPhone|iPod|iPad/i.test(navigator.userAgent) ) {
   {
      $('header').css("position", 'absolute');
      $('footer').css("position", 'absolute');
-     
+
   });
-  
+
   $(document).on('blur', 'input, textarea', function()
   {
        $('header').css("position", 'fixed');
        $('footer').css("position", 'fixed');
-      
+
   });
-} 
+}
 
 ```
-  
+
 - 得到地理位置
 ```javascript
 function getLocation(callback){
@@ -406,10 +405,10 @@ window.onerror = function (errMsg, scriptURI, lineNumber, columnNumber, errorObj
 ```javascript
 var $body = $('body');
 document.title = 'title'; // hack在微信等webview中无法修改document.title的情况    
-var $iframe = $('<iframe src="/favicon.ico"></iframe>').on('load', function(){ 
-    setTimeout(function(){ 
-        $iframe.off('load').remove() 
-    }, 0) 
+var $iframe = $('<iframe src="/favicon.ico"></iframe>').on('load', function(){
+    setTimeout(function(){
+        $iframe.off('load').remove()
+    }, 0)
 }).appendTo($body)
 ```
 
@@ -455,7 +454,7 @@ String.prototype.trim = function() {
 
 - 清除左空格/右空格
 ```js
-function ltrim(s){ return s.replace( /^(\s*|　*)/, ""); } 
+function ltrim(s){ return s.replace( /^(\s*|　*)/, ""); }
 function rtrim(s){ return s.replace( /(\s*|　*)$/, ""); }
 ```
 - 判断是否以某个字符串开头
@@ -464,7 +463,7 @@ String.prototype.startWith = function (s) {
     return this.indexOf(s) == 0
 }
 ```
-- 判断是否以某个字符串结束	
+- 判断是否以某个字符串结束
 ```js
 String.prototype.endWith = function (s) {
     var d = this.length - s.length;
@@ -498,7 +497,7 @@ Date.prototype.Format = function(formatStr) {
     return str
 }
 ```
-- 判断是否为数字类型	
+- 判断是否为数字类型
 ```js
 function isDigit(value) {
     var patrn = /^[0-9]*$/;
@@ -529,7 +528,7 @@ function getCookie(name) {
     return null
 }
 ```
-- 加载样式文件表	
+- 加载样式文件表
 ```js
 function LoadStyle(url) {
     try {
@@ -579,7 +578,7 @@ function appendscript(src, text, reload, charset) {
     if(reload && $(id)) {
         $(id).parentNode.removeChild($(id));
     }
- 
+
     evalscripts.push(id);
     var scriptNode = document.createElement("script");
     scriptNode.type = "text/javascript";
@@ -612,25 +611,25 @@ function $(id) {
     return !id ? null : document.getElementById(id);
 }
 ```
-- 检验URL链接是否有效	
+- 检验URL链接是否有效
 ```js
-function getUrlState(URL){ 
-    var xmlhttp = new ActiveXObject("microsoft.xmlhttp"); 
+function getUrlState(URL){
+    var xmlhttp = new ActiveXObject("microsoft.xmlhttp");
     xmlhttp.Open("GET",URL, false);  
     try{  
-            xmlhttp.Send(); 
+            xmlhttp.Send();
     }catch(e){
-    }finally{ 
-        var result = xmlhttp.responseText; 
+    }finally{
+        var result = xmlhttp.responseText;
         if(result){
-            if(xmlhttp.Status==200){ 
-                return(true); 
-             }else{ 
-                   return(false); 
-             } 
-         }else{ 
-             return(false); 
-         } 
+            if(xmlhttp.Status==200){
+                return(true);
+             }else{
+                   return(false);
+             }
+         }else{
+             return(false);
+         }
     }
 }
 ```
@@ -655,7 +654,7 @@ function getPageHeight(){
 - 获取页面可视宽度
 ```js
 function getPageViewWidth(){
-    var d = document, a = d.compatMode == "BackCompat" ? 
+    var d = document, a = d.compatMode == "BackCompat" ?
        				   d.body: d.documentElement;
     return a.clientWidth;
 }
@@ -724,7 +723,7 @@ backTop('goTop');
 - 获得URL中GET参数值
 ```js
 // 用法：如果地址是 test.htm?t1=1&t2=2&t3=3, 那么能取得：GET["t1"], GET["t2"], GET["t3"]
-function get_get(){ 
+function get_get(){
     querystr = window.location.href.split("?")
     if(querystr[1]){
         GETs = querystr[1].split("&");

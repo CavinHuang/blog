@@ -15,6 +15,7 @@ category:
 
 　　mysql> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpass');
 ```
+<!--more-->
 
 # 方法2：用mysqladmin
 ```bash

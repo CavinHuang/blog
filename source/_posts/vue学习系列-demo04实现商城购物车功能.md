@@ -7,10 +7,10 @@ tags:
 ---
 首先，先上最终的效果图
 ![这里写图片描述](http://img.blog.csdn.net/20170503210148155?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjQwOTg0OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+<!--more-->
 
 ----------
 效果并不是很好看，但是这不是重点。
-<!-- more -->
 首先，我们先看下布局，
 ```html
 <template>
@@ -74,7 +74,7 @@ tags:
 	.header-title h3
 		font-weight normal
 		text-align center
-	.car-list 
+	.car-list
 		background #f2f2f2
 		margin-top 12px
 		padding 8px
@@ -100,7 +100,7 @@ tags:
 		background #fff  
 		border:2px solid #ccc
 		border-radius 50%
-	.input-label:after 
+	.input-label:after
 		opacity 0  
 		content ''  
 		position absolute  
@@ -126,13 +126,13 @@ tags:
 		width 100%
 	.input-label.active
 		background #F15A24
-	.car-cont 
+	.car-cont
 		margin-left 100px
 	.car-cont h3
 		font-weight normal
 		line-height 24px
 		font-size 14px
-	.car-price 
+	.car-price
 		position absolute
 		right 12px
 		bottom 0px
@@ -144,7 +144,7 @@ tags:
 		height 24px
 		line-height 24px
 		width 100%
-	.car-footer 
+	.car-footer
 		height 60px
 		background #f5f5f5
 		position fixed
@@ -157,13 +157,13 @@ tags:
 		float left
 		margin-left 12px
 		position relative
-	.total-cont 
+	.total-cont
 		height 60px
 		line-height 60px
 		font-size 16px
 		float left
 	.total-cont span
-		display inline-block 
+		display inline-block
 		margin-left 12px
 	.btn-box
 		float right

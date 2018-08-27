@@ -15,6 +15,8 @@ var emptyArray = []
     filter = emptyArray.filter
     slice = emptyArray.slice
 ```
+<!--more-->
+
 zepto 一开始就定义了一个空数组 emptyArray，定义这个空数组是为了取得数组的 concat、filter、slice 方法
 
 compact
@@ -51,7 +53,6 @@ uniq = function(array) {
   })
 }
 ```
-<!-- more -->
 数组去重。
 
 数组去重的原理是检测 item 在数组中第一次出现的位置是否和 item 所处的位置相等，如果不相等，则证明不是第一次出现，将其过滤掉。
@@ -180,7 +181,7 @@ function isPlainObject(obj) {
 
 isArray
 ```javascript
-isArray = Array.isArray || 
+isArray = Array.isArray ||
            function(object) { return object instanceof Array}
 ```
 这个方法来用判断是否为数组类型。
@@ -239,7 +240,7 @@ if (!Array.isArray) {
 ```
 也就是说，isArray 可以修改成这样：
 ```javascript
-isArray = Array.isArray || 
+isArray = Array.isArray ||
            function(object) { return Object.prototype.toString.call(object) === '[object Array]'}
 ```
 为什么 zepto 不这样写呢？知道的可以留言告知下。

@@ -11,6 +11,7 @@ category:
 # mysql授权远程用户
 
 先用ssh登录远程服务器，用root连上数据库看看情况；
+<!--more-->
 
 ```bash
 mysql> select Host,User,Password from mysql.user;
@@ -25,7 +26,6 @@ mysql> select Host,User,Password from mysql.user;
 +----------------+------------------+-------------------------------------------+
 5 rows in set (0.00 sec)
 ```
-<!--more-->
 一共有5个mysql账号，Host列可以看出来，这些账号都只支持服务器本机连接，现在我们来创建一个远程用户；
 
 ```bash

@@ -2,11 +2,12 @@ layout: '[layout]'
 title: 初学javascript中Array的各种方法
 date: 2017-01-23 11:33:18
 tags:  
-	- js 
+	- js
 	- 前端
 	- array
 ---
 Array数组在JavaScript中的地位不言而喻，也是JavaScript中最常用的一种对象。
+<!--more-->
 
 ##concat()
 连接两个或更多的数组，并返回结果。
@@ -15,36 +16,35 @@ var arr1 = [1,2,3,4];
 var arr2 = ['a','b','c','d'];
 console.log(arr1.concat(arr2)); //[1, 2, 3, 4, "a", "b", "c", "d"]
 ```
-<!-- more -->
 ##join()
 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。
 ```javascript
-var arr = [1,2,3,4,5,6,7,8,9,'a','b','c']; 
+var arr = [1,2,3,4,5,6,7,8,9,'a','b','c'];
 console.log(arr.join('-'));//1-2-3-4-5-6-7-8-9-a-b-c
 ```
 ##pop()
 删除并返回数组的最后一个元素
 ```javascript
-var arr  = [1,2,3,4,5,6,7,8,9,'a','b','c']; 
+var arr  = [1,2,3,4,5,6,7,8,9,'a','b','c'];
 console.log(arr.pop());//c
 console.log(arr);//[1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b"]
 ```
 ##push()
 向数组的末尾添加一个或更多元素，并返回新的长度。
 ```
-var arr =  [1,2,3,4,5,6,7,8,9,'a','b','c']; 
+var arr =  [1,2,3,4,5,6,7,8,9,'a','b','c'];
 console.log(arr.push(10));//[1,2,3,4,5,6,7,8,9,'a','b','c',10]
 ```
 ##reverse()
 颠倒数组中元素的顺序。
 ```javascript
-var arr =  [1,2,3,4,5,6,7,8,9,'a','b','c']; 
+var arr =  [1,2,3,4,5,6,7,8,9,'a','b','c'];
 console.log(arr.reverse());//["c", "b", "a", 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
 ##shift()
 删除并返回数组的第一个元素
 ```javascript
-var arr =  [1,2,3,4,5,6,7,8,9,'a','b','c']; 
+var arr =  [1,2,3,4,5,6,7,8,9,'a','b','c'];
 console.log(arr.shift());// 1;
 console.log(arr);//2,3,4,5,6,7,8,9,'a','b','c'
 ```

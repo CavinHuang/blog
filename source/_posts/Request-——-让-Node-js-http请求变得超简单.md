@@ -12,6 +12,7 @@ Node.js的模块——request。有了这个模块，http请求变的超简单�
 使用超简单
 
 Request使用超简单，同时支持https和重定向。
+<!--more-->
 
 ```javascript
 var request = require('request');
@@ -21,8 +22,7 @@ request('http://www.google.com', function (error, response, body) {
   }
 })
 ```
-<!--more-->
- ### 流
+### 流
 
 任何响应都可以输出到文件流。
 ```javascript

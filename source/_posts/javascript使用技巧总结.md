@@ -12,13 +12,10 @@ tags:
 function smallest(array){                         
   return Math.min.apply(Math, array);             
 }                                                 
-
 function largest(array){                          
   return Math.max.apply(Math, array);             
 }  
-
 smallest([0, 1, 2.2, 3.3]); // 0
-
 largest([0, 1, 2.2, 3.3]); // 3.3
 ```
 <!--more-->
@@ -367,7 +364,7 @@ Date.construct([2017, 02, 14]); //  Tue Mar 14 2017 00:00:00 GMT+0800 (CST)
         //定义一个数组用于取出将来的字母
         var arr = [];
         //这里取<=符号是因为要取出结束的字母
-        for(;i<=j;i++){ 
+        for(;i<=j;i++){
             //fromCharCode是String上的一个静态方法，用于将一个数字转换成对应的字母
             var letter = String.fromCharCode(i);
             arr.push(letter);

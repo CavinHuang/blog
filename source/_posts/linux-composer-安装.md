@@ -12,6 +12,8 @@ category:
 ```bash
 curl -sS https://getcomposer.org/installer | php
 ```
+<!--more-->
+
 > 注意： 如果上述方法由于某些原因失败了，你还可以通过 php >下载安装器：
 ```bash
 php -r "readfile('https://getcomposer.org/installer');" | php

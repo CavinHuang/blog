@@ -14,6 +14,7 @@ category:
 svn  checkout  http://路径(目录或文件的全路径)　[本地目录全路径] --username　用户名
 svn  checkout  svn://路径(目录或文件的全路径)　[本地目录全路径]  --username　用户名
 ```
+<!--more-->
 
 ### 例子：
 ```bash
@@ -22,7 +23,6 @@ svn co http://localhost/test/testapp --username wzhnsc
 svn checkout svn://localhost/测试工具 /home/testtools --username wzhnsc
 svn checkouthttp://localhost/test/testapp --username wzhnsc
 ```
-<!--more-->
 >注：如果不带--password 参数传输密码的话，会提示输入密码，建议不要用明文的--password 选项。
 　　 其中 username 与 password前是两个短线，不是一个。
 　　 不指定本地目录全路径，则检出到当前目录下。

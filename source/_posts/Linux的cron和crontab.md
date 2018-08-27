@@ -9,8 +9,7 @@ category: '系统折腾'
 一 cron
 
 crond位于/etc/rc.d/init.d/crond 或 /etc/init.d 或 /etc/rc.d /rc5.d/S90crond,最总引用/var/lock/subsys/crond。
-
-
+<!--more-->
 
 cron是一个linux下的定时执行工具（相当于windows下的scheduled task），可以在无需人工干预的情况下定时地运行任务task。由于cron 是Linux的service（deamon），可以用以下的方法启动、关闭这个服务：
 ```sh
@@ -19,13 +18,12 @@ cron是一个linux下的定时执行工具（相当于windows下的scheduled tas
 /sbin/service crond restart //重启服务
 /sbin/service crond reload //重新载入配置
 ```
+
 你也可以将这个服务在系统启动的时候自动启动：
 在/etc/rc.d/rc.local这个脚本的末尾加上：
 /sbin/service crond start
 
 现在cron这个服务已经在进程里面了，我们就可以用这个服务了。
-
-<!--more-->
 
 二 crontab
 

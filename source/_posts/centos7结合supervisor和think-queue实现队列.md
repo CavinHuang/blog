@@ -8,7 +8,7 @@ tags:
 ---
 
 > Linux的后台进程运行有好几种方法，例如nohup，screen等，但是，如果是一个服务程序，要可靠地在后台运行，我们就需要把它做成daemon，最好还能监控进程状态，在意外结束时能自动重启。 supervisor就是用Python开发的一套通用的进程管理程序，能将一个普通的命令行进程变为后台daemon，并监控进程状态，异常退出时能自动重启。
-
+<!-- more -->
 # 安装supervisor
 
 > 【注】 linux环境必须安装 python
@@ -27,9 +27,7 @@ tags:
 　　# python setup.py install
 ```
 
-<!-- more -->
-
- 【可能报错】：ImportError: No module named setuptools
+【可能报错】：ImportError: No module named setuptools
 
 【解决办法】：没有setuptools的模块，说明python缺少这个模块，那我们只要安装这个模块即可解决此问题
 

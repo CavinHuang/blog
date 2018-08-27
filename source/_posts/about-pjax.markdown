@@ -4,8 +4,8 @@ title: "pjax: 当ajax遇上pushState"
 date: 2017-1-22 08:55
 comments: true
 tags:
-	- js
-	- html5
+  - js
+  - html5
 ---
 
 >var pjax = pushState + ajax;                  

@@ -16,6 +16,8 @@ category:
 ```bash
 　yum -y install gcc-c++ pcre-devel zlib-devel openssl openssl-devel
 ```
+<!--more-->
+
 ## 安装Nginx
 ```bash
 　cd /usr/local/src;
@@ -26,7 +28,6 @@ category:
 　make    #编译
 　make install    #安装
 ```
-<!--more-->
 ## 启动Nginx
 ```bash
 　/usr/local/nginx/sbin/nginx   开启Nginx

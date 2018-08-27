@@ -14,6 +14,8 @@ category:
 
 在linux上搭建了svn服务器，建立了一个项目。详细搭建可以参考博文。
 在svnserve.conf里把这四个前面的#去掉
+<!--more-->
+
 ```bash
 anon-access = read
 auth-access = write

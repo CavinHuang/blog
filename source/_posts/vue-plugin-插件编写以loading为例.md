@@ -10,13 +10,13 @@ category: 前端开发
 ---
 
 我们在使用vue开发的过程中，经常会遇到这两个问题：
+<!--more-->
 
 我要使用loading(加载动画) toast（浮层提示） dialog（弹框提示）之类的全局性组件，但是用全局组件注册的话非常麻烦，还要在template标签中书写组件html代码然后参数通过在data选项中注册变量来控制组件的显示/隐藏/提示语，显得异常麻烦~
 我要使用某些全局函数例如（axios）来进行某些操作，如果每次使用都需要import或者require的话，是一件不太优雅的事情
 所以我们就想到在vue的全局实例Vue或者指向这个实例的指针this的原型上添加某一方法来达到随用随取的效果。
 
 本文以loading为例，讲下如何编写一个Vue插件。
-<!--more-->
 首先我们编写一个普通的loading组件，作为插件的模板：
 ```javascript
  // my-project/src/plugin/loading/loading.vue

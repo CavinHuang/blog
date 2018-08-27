@@ -15,13 +15,14 @@ node-cli 即用nodejs与shell交互，完成指定工作的工具。他们通常
 sass xx.scss:xx.css
 webpack ....
 ```
+<!--more-->
+
 等等，我们实现的这个工具是为了拉取[CavinHuang/webpack-multi-skeleton webpack 多页面骨架](https://github.com/CavinHuang/webpack-multi-skeleton)用于本地快速构建项目的脚手架工具，设想通过以下命令来实现：
 ```bash
 webpack-template i  # install git端所有的模板列表供选择，选择其中之一后进行本地缓存
 webpack-template init # 通过一些选项，初始化整个项目
 ```
 整个设想大概就是这些，下面就从最简单的开始，来一步一步实现。
-<!--more-->
 # 实现第一个自己的node命令
 我们直接用npm init初始化一个项目出来
 ```bash

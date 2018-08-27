@@ -11,6 +11,7 @@ category:
 > 服务器安装折腾纪实，包括nginx、php、Apache、node、mysql等
 
 ## nginx+fastcgi修改php.ini后重启
+<!-- more -->
 
 - 1.停止nginx
 ```bash
@@ -29,7 +30,6 @@ ps：若仅仅修改了nginx的配置文件，则不需重启php-fpm，则只需
 ```base
 /usr/local/nginx/sbin/nginx -s reload
 ```
-<!--more-->
 
 ## php proc_open没有开启
 今天在部署服务器的时候，使用composer来安装依赖。遇到了

@@ -12,11 +12,12 @@ category: '系统折腾'
 ```sh
 useradd test2  
 ```
+<!--more-->
+
 2、设置用户密码
 ```sh
 passwd test2  
 ```
-<!--more-->
 3、修改登录后文件目录和只允许访问某一个目录
 修改/etc/ssh/sshd_config 文件
 ```sh

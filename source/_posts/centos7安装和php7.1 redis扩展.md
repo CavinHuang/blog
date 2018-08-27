@@ -14,7 +14,7 @@ category:
 
 1、 Redis的数据类型：
 　　字符串、列表（lists）、集合（sets）、有序集合（sorts sets）、哈希表（hashs）
-
+<!--more-->
 2、 Redis和memcache相比的独特之处：
 　　（1）redis可以用来做存储（storge）、而memcache是来做缓存（cache）。这个特点主要是因为其有“持久化”功能
 　　（2）存储的数据有“结构”，对于memcache来说，存储的数据，只有一种类型——“字符串”，而redis则可以存储字符串、链表、集合、有序集合、哈序结构
@@ -26,7 +26,7 @@ category:
 
 4、 Redis的主从同步：对提高读取性能非常有益
 5、 Redis服务端的默认端口是6379
-<!--more-->
+
 ---
 ## 接下来我们来安装Redis
 1、先到Redis官网(redis.io)下载redis安装包

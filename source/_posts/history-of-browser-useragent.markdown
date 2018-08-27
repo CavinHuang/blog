@@ -15,14 +15,12 @@ reward: true
 某天，我做一个小项目，需要判断一下浏览器类型。简单的呀。
 控制台敲下：``navigator.userAgent``
 浏览器回应：``Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36``
-
+<!--more-->
 天，这串是啥？你怎么连话都说不清楚？
 
 我对userAgent并不陌生，但明明一个单词就可以说清楚的事情，却是这么掏心掏肺的回答。怪可怜的，一定有冤情。
 
 后来我查阅了很多资料，发现历史非常的精彩。
-
-<!--more-->
 
 ### 大事年表
 * 1990年: Nexus(WorldWideWeb)诞生
