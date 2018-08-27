@@ -8,13 +8,13 @@ category:
 ---
 
 在提交一个项目的commit时，push的时候，报错：
+<!--more-->
 ```bash
 Counting objects: 237, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (226/226), done.
 Writing objects: 100% (237/237), 19.60 MiB | 1.25 MiB/s, done.
 Total 237 (delta 129), reused 0 (delta 0)
-<!--more-->
 
 # 错误原因在这里是因为 不小心把日志文件加入了版本控制，而文件有过大，超过了git服务器的要求
 remote: warning: Large files detected.
