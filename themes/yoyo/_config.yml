@@ -20,6 +20,6 @@ scripts:
 - /js/velocity.ui.min.js
 - /js/yoyo.js
 - /js/scroll.js
-- /js/particle.js
+# - /js/particle.js
 - /js/anime.min.js
-# - /js/fireworks.js
+- /js/fireworks.js
