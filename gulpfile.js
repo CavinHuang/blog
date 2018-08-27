@@ -2,21 +2,21 @@ var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 
 gulp.task("clean",function() {
-    return gulp.src("./dst/*")
+    return gulp.src("./dist/*")
     .pipe(plugins.clean());
 });
 
 gulp.task("css",["clean"],function(){
     var stream = gulp.src(["public/**/*.css","!public/**/*.min.css"])
         .pipe(plugins.minifyCss({compatibility: 'ie8'}))
-        .pipe(gulp.dest("./dst/"));
+        .pipe(gulp.dest("./dist/"));
     return stream;
 });
 
 gulp.task("js",["clean"],function(){
     var stream = gulp.src(["public/**/*.js","!public/**/*.min.js"])
         .pipe(plugins.uglify())
-        .pipe(gulp.dest("./dst/"));
+        .pipe(gulp.dest("./dist/"));
     return stream;
 });
 
@@ -24,12 +24,12 @@ gulp.task("html",["clean"],function(){
     var stream = gulp.src("public/**/*.html")
         .pipe(plugins.minifyHtml())
         //.pipe(plugins.rename({suffix: ".gulp"}))
-        .pipe(gulp.dest("./dst/"));
+        .pipe(gulp.dest("./dist/"));
     return stream;
 });
 
 gulp.task("mv",function() {
-    var stream = gulp.src("./dst/**/*")
+    var stream = gulp.src("./dist/**/*")
         .pipe(gulp.dest("./public/"))
     return stream;
 });

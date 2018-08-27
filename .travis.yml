@@ -12,7 +12,7 @@ script:
   - hexo clean
   - hexo g
   - rm -rf ./dist
-  - gulp build
+  - gulp
 
 after_script:
   - cd ./public
