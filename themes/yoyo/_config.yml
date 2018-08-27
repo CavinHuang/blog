@@ -22,4 +22,4 @@ scripts:
 - /js/scroll.js
 - /js/particle.js
 - /js/anime.min.js
-- /js/fireworks.js
+# - /js/fireworks.js
