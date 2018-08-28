@@ -9,6 +9,10 @@
   right 0
   overflow hidden
 .main-container
+  transition all .35s ease-out
+  &.open
+    transition all .35s ease-out
+    transform translateX(68%)
   .recent-post-list
     overflow-y auto
     display flex
@@ -311,10 +315,13 @@
 @media (max-width: 960px)
   #side-right-bar,.left-container
     display none
+  .navbar-container
+    display block
   .main-container
     left 0
     margin 0 2%
     width calc(100% - 4%)
+    padding-top 75px
     .recent-post-list
       .card
         margin-left 0

@@ -2,6 +2,15 @@ include header.pug
 .app
   include sideBar.pug
   #content-outer.blog-container.main-container
+    nav.navbar
+      .navbar-container
+        .navbar-header
+          a#navMenu.navbar-menu(href='javascript:;', data-isOpen="false")
+            i.iconfont.icon-menu
+          a.navbar-logo(href='/', )
+            img(src=config.logo_path, )
+          a.navbar-search(href='', )
+            //- i.iconfont.icon-search
     #content-inner.blog-list-container
       if body
         div!= body

@@ -96,3 +96,5 @@ sitemap:
   template: ./sitemap_template.xml
 baidusitemap:
   path: baidusitemap.xml
+
+logo_path: '/assets/img/logo.png'

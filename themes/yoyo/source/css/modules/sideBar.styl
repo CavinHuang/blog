@@ -109,3 +109,133 @@
       text-align center
       font-size 12px
       color #888
+
+.navbar-container
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 64px
+  display none
+  background #fff
+  .navbar-header
+    height 64px
+    display flex
+    position relative
+    align-items center
+    width 100%
+    justify-content space-between
+    .navbar-menu,.navbar-search
+      border none
+      display inline-block
+      height 64px
+      width 20%
+      line-height 64px
+      text-align center
+    .navbar-logo
+      width 30%
+      height 100%
+      overflow hidden
+      display inline-block
+      margin 0 auto
+  .iconfont
+    display block
+    width 30px
+    height 30px
+    margin 17px
+  .icon-menu
+    height 2px
+    background #ccc
+    width 24px
+    margin 0 auto
+    margin-top 20px
+    position relative
+    &::after,&::before
+      content ''
+      width 24px
+      height 2px
+      background #ccc
+      position absolute
+      left 0
+    &::after
+      top 8px
+    &::before
+      top 16px
+
+#app-aside
+  width 68%
+  position fixed
+  top 0
+  left 0
+  height 100%
+  z-index 9999
+  transform translateX(-100%)
+  transition all .35s ease-out
+  background-color #34393d
+  &.open
+    overflow hidden
+    transform translateX(0)
+    transition all .35s ease-out
+    -webkit-overflow-scrolling touch
+aside
+  display block
+  overflow auto
+  position relative
+  width 100%
+  height 100%
+  margin 0
+  opacity 0
+  transform scale(.8)
+  transition all .35s ease-out
+  &.open
+    opacity 1
+    transform scale(1)
+    transition all .35s ease-out
+  .aside-user
+     width 100%
+     display flex
+     align-items flex-start
+     flex-direction column
+     padding 14px
+     border-bottom 1px solid #282c2f
+     .avatar
+       width 35%
+       img
+        max-width 100%
+        border 2px solid #eee
+    .profile
+      color hsla(0,0%,100%,.6)
+      width 100%
+      .name
+        font-weight 700
+        margin-bottom 12px
+        font-size 15px
+        margin 20px 0 4px
+      .email
+        color #0088f5
+        margin 0
+        overflow hidden
+        text-overflow ellipsis
+        white-space nowrap
+  .aside-nav
+    width 100%
+    .nav-list
+      padding 0
+      margin 0
+      .item
+        border none
+        display block
+        width 100%
+        height 3em
+        line-height 3em
+        padding 0 1em
+        text-decoration none
+        text-transform uppercase
+        font-weight 700
+        border-radius 1px
+        color hsla(0,0%,100%,.6)
+        margin-bottom .5em
+        &.selected-menu
+          color #0088f5
+          font-weight 700
+          background-color hsla(0,0%,100%,.6)

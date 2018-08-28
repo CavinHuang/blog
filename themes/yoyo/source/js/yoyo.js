@@ -114,4 +114,23 @@ $(function() {
           queue: true
         })
     })
+
+    // 打开侧边栏
+    $("#navMenu").click(function () {
+      var isOpen = $(this).data('isOpen')
+      var appAside = $("#app-aside")
+      var aside = $(".aside")
+      var mainContainer = $("#content-outer")
+      if (!Boolean(isOpen)) {
+        mainContainer.addClass('open')
+        aside.addClass('open')
+        appAside.addClass('open')
+        $(this).data('isOpen', true)
+      } else {
+        mainContainer.removeClass('open')
+        aside.removeClass('open')
+        appAside.removeClass('open')
+        $(this).data('isOpen', false)
+      }
+    })
 });

@@ -26,3 +26,23 @@
       span 行万里路
       // img(src='http://www.17sucai.com//preview/177065/2017-09-28/Mon9/static/img/qq-group.jpg')
     .copyright @ 2017 - 2017 CavinHuang
+
+#app-aside
+  aside.aside
+    .aside-user
+      .avatar
+        img(src=config.about.avatar, alt=config.about.name, )
+      .profile
+        h3.name= config.about.name
+        p.email= config.about.slog
+    .aside-nav
+      nav.nav-list
+        -var idx = 0
+        each url, label in theme.menu
+          - var cls = ''
+          - var isCurr = (page.path.indexOf(url.substr(1, url.length)) != -1 && url.substr(1, url.length) != '')
+          - if(idx == 0 && page.path == 'index.html') cls = 'selected-menu'
+          - else if(isCurr) cls = 'selected-menu'
+          - idx ++
+          a.item(class=cls, href=url)
+            span= label
