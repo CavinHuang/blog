@@ -14,12 +14,12 @@ if page.posts.length > 0
     #article-list-card
       each post in page.posts.sort('date', -1).limit(10).toArray()
         .card
-          .date_label
-            .day_month= post.date.format('M/D')
-            .year= post.date.format('Y')
-          a(href=config.root + post.path)
-            h1(class="card-title")= post.title
-          hr
+          .card-header
+            .date_label
+              .day_month= post.date.format('M/D')
+              .year= post.date.format('Y')
+            a(href=config.root + post.path)
+              h1(class="card-title")= post.title
           div.excerpt.article-body
             - if (post.excerpt != '')
               != post.excerpt
