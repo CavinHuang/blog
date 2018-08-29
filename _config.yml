@@ -45,7 +45,7 @@ future: true
 # highlight
 prism_plugin:
   mode: 'preprocess'    # realtime/preprocess
-  theme: 'duotone-sea'
+  theme: 'base16-ateliersulphurpool.light'
   line_number: true    # default false
   #custom_css: 'path/to/your/custom.css'     # optional
 
