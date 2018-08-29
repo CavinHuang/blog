@@ -9,6 +9,7 @@ category:
 ## empty使用的误区
 最近在学习php正则表达式，学习完成之后在写一个验证类工具的时候有一段代码如下：
 <!-- more -->
+
 ```php
 public function isUrl($subject){
    $res = $this->regex('url' , $subject);

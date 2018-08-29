@@ -41,12 +41,28 @@ render_drafts: false
 post_asset_folder: true
 relative_link: true
 future: true
+
+# highlight
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'duotone-sea'
+  line_number: true    # default false
+  #custom_css: 'path/to/your/custom.css'     # optional
+
 highlight:
-  enable: true
-  line_number: true
-  auto_detect: true
-  tab_replace:
+  enable: false
+  #line_number: true
+  #auto_detect: true
+  #tab_replace:
 highlight_theme: default
+
+# word count plugins
+post_wordcount:
+  item_text: true
+  wordcount: true         # 单篇 字数统计
+  min2read: true          # 单篇 阅读时长
+  totalcount: false       # 网站 字数统计
+  separated_meta: true
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')

@@ -13,6 +13,25 @@
   &.open
     transition all .35s ease-out
     transform translateX(68%)
+  .article-word-count
+    height 48px
+    line-height 48px
+    width 80%
+    margin 0 auto
+    background #f8f8f8
+    box-sizing border-box
+    color #b3b3b3
+    margin-top 16px
+    border-radius 4px
+    text-align center
+    ul
+      display flex
+    .word-count-item
+      flex 1
+    .post-count
+      color #47ebb4
+      font-size 1.2em
+      margin 0 4px
   .recent-post-list
     overflow-y auto
     display flex
@@ -509,3 +528,14 @@
     margin-left 10px
 .archive
   overflow hidden
+
+/**
+ * footer
+ */
+.footer-content
+  background #fff
+  padding 8px
+  text-align center
+  line-height 24px
+  color #999
+  font-size 14px

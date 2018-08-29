@@ -13,6 +13,16 @@ block content
               span= item.name
             - if(idx != page.categories.data.length - 1)
               | /
+    .article-word-count
+      ul
+        .word-count-item
+          | 全文约
+          span.post-count= wordcount(page.content)
+          | 字
+        .word-count-item
+          | 预计需要
+          span.post-count= min2read(page.content) 
+          | 分钟
     .article-content
       != page.content
     include includes/right-panel.pug
