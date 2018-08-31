@@ -4,9 +4,12 @@ date: 2017-11-14 20:22:56
 tags:
   - Linux
   - crontab
-category: '系统折腾'
+category:
+  - 服务器纪实
+  - 定时任务
 ---
-一 cron
+
+# 一 cron
 
 crond位于/etc/rc.d/init.d/crond 或 /etc/init.d 或 /etc/rc.d /rc5.d/S90crond,最总引用/var/lock/subsys/crond。
 <!--more-->

@@ -7,7 +7,6 @@ tags:
   - shell
 category:
   - nodejs学习笔录
-  - web前端开发
 ---
 
 node-cli 即用nodejs与shell交互，完成指定工作的工具。他们通常是长这样的：
