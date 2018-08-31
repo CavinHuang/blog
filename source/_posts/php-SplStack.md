@@ -12,6 +12,8 @@ category:
 
 >SPL是用于解决典型问题(standard problems)的一组接口与类的集合。
 
+<!--more-->
+
 在前面的文章中，我们单独说过什么是栈，栈(Stack)是一种特殊的线性表，因为它只能在线性表的一端进行插入或删除元素(即进栈和出栈)，SplStack继承自SplDoublyLinkedList，并且mode被限制为LIFO，即后进先出模式。
 
 在php中SplStack类通过使用一个双向链表来提供栈的主要功能，其主要的接口如下,已经做了详细的说明:
