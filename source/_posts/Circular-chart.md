@@ -16,6 +16,8 @@ category:
 <!-- more -->
 {%asset_img circle.gif 效果 %}
 
+录屏有点卡屏V_V
+
 源代码：
 ```js
 /**
