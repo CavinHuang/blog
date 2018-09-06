@@ -370,6 +370,6 @@ let a = new WordsCanvas(document.querySelector("#canvasWords"), {})
 
 最终实现的效果如下:
 
-{ asset_img canvas-words.gif 动画}
+{% asset_img canvas-words.gif 动画 %}
 
 最后奉上github地址: [https://github.com/CavinHuang/canvas-study-demo/tree/master/app/templates/canvas-word](https://github.com/CavinHuang/canvas-study-demo/tree/master/app/templates/canvas-word)
