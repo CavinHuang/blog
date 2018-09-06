@@ -44,6 +44,7 @@ future: true
 
 # highlight
 prism_plugin:
+  enable: true
   mode: 'preprocess'    # realtime/preprocess
   theme: 'base16-ateliersulphurpool.light'
   line_number: true    # default false
@@ -51,10 +52,10 @@ prism_plugin:
 
 highlight:
   enable: false
-  #line_number: true
-  #auto_detect: true
-  #tab_replace:
-highlight_theme: default
+  line_number: true
+  auto_detect: true
+  tab_replace: '  '
+highlight_theme: darker
 
 # word count plugins
 post_wordcount:
