@@ -16,78 +16,78 @@ tags:
 
 ## 1.获取supervisor包：【<https://pypi.python.org/pypi/supervisor】>
 
-```sh
-　　# wget https://pypi.python.org/packages/80/37/964c0d53cbd328796b1aeb7abea4c0f7b0e8c7197ea9b0b9967b7d004def/supervisor-3.3.1.tar.gz
+```bash
+# wget https://pypi.python.org/packages/80/37/964c0d53cbd328796b1aeb7abea4c0f7b0e8c7197ea9b0b9967b7d004def/supervisor-3.3.1.tar.gz
 ```
 
 ## 2.解压supervisor-3.3.1.tar.gz 并安装
 
-```sh
-　　# tar zxvf supervisor-3.3.1.tar.gz && cd supervisor-3.3.1
+```bash
+# tar zxvf supervisor-3.3.1.tar.gz && cd supervisor-3.3.1
 
-　　# python setup.py install
+# python setup.py install
 ```
 
 【可能报错】：ImportError: No module named setuptools
 
 【解决办法】：没有setuptools的模块，说明python缺少这个模块，那我们只要安装这个模块即可解决此问题
 
-```sh
- 　　　　　　# wget http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz
+```bash
+# wget http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz
 
-　　　　　　 # tar zxvf setuptools-0.6c11.tar.gz && cd setuptools-0.6c11
+# tar zxvf setuptools-0.6c11.tar.gz && cd setuptools-0.6c11
 
-　　　　　　 # python setup.py build
+# python setup.py build
 
-　　　　　　# python setup.py install
+# python setup.py install
 ```
 
 ## 3.创建supervisor的配置文件：
 
-```sh
-　　# echo_supervisord_conf > /etc/supervisord.conf
+```bash
+# echo_supervisord_conf > /etc/supervisord.conf
 ```
 
 ## 4.开启supervisord服务
 
-```sh
-　　# supervisord -c /etc/supervisord.conf
+```bash
+# supervisord -c /etc/supervisord.conf
 ```
 
 ## 5.更新新的配置到supervisord
 
-```sh
-　　# supervisorctl update
+```bash
+# supervisorctl update
 ```
 
 ## 6.重新启动配置中的所有程序
 
-```sh
-　　# supervisorctl reload
+```bash
+# supervisorctl reload
 ```
 
 ## 7.启动某个进程(program_name=你配置中写的程序名称)
 
-```sh
-　　# supervisorctl start program_name
+```bash
+# supervisorctl start program_name
 ```
 
 ## 8.查看正在守候的进程
 
-```sh
-　　# supervisorctl
+```bash
+# supervisorctl
 ```
 
 ## 9.重启某一进程 (program_name=你配置中写的程序名称)
 
-```sh
-　　# supervisorctl restart program_name
+```bash
+# supervisorctl restart program_name
 ```
 
 ## 10.停止全部进程
 
-```
-　　# supervisorctl stop all
+```bash
+# supervisorctl stop all
 ```
 
 ## 11.查看supervisord进程
@@ -135,28 +135,24 @@ composer install thinkphp-queue
 ```
 
 ## 搭建消息队列的存储环境
-
 - 使用 Redis [**推荐**]
-
-  ```json
-  安装并启动 Redis 服务
-  ```
-
+```json
+安装并启动 Redis 服务
+```
 - 使用数据库 [不推荐]
-
-  ```mysql
-  CREATE TABLE `prefix_jobs` (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `queue` varchar(255) NOT NULL,
-    `payload` longtext NOT NULL,
-    `attempts` tinyint(3) unsigned NOT NULL,
-    `reserved` tinyint(3) unsigned NOT NULL,
-    `reserved_at` int(10) unsigned DEFAULT NULL,
-    `available_at` int(10) unsigned NOT NULL,
-    `created_at` int(10) unsigned NOT NULL,
-    PRIMARY KEY (`id`)
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-  ```
+```mysql
+CREATE TABLE `prefix_jobs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `queue` varchar(255) NOT NULL,
+  `payload` longtext NOT NULL,
+  `attempts` tinyint(3) unsigned NOT NULL,
+  `reserved` tinyint(3) unsigned NOT NULL,
+  `reserved_at` int(10) unsigned DEFAULT NULL,
+  `available_at` int(10) unsigned NOT NULL,
+  `created_at` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
 
 ## 配置消息队列的驱动
 
@@ -339,8 +335,6 @@ php think queue:work --queue helloJobQueue
 
 ![命令行执行结果](命令行执行结果.png)
 
-​
-
 至此，我们成功地经历了一个消息的 创建 -> 推送 -> 消费 -> 删除 的基本流程
 
 下文，将介绍 thinkphp-queue 的详细使用方法。如配置介绍，基本原理，各种特殊情况的处理等
@@ -398,47 +392,30 @@ php think queue:work --queue helloJobQueue
 
 ### 2.3 work 模式和 listen 模式的区别
 
-两者都可以用于处理消息队列中的任务
-
-区别在于:
-
-- **2.3.1 执行原理不同**
-
+两者都可以用于处理消息队列中的任务区别在于:
+- 2.3.1 执行原理不同**
   - work 命令是**单进程**的处理模式。
-
     按照是否设置了 `--daemon` 参数，work命令又可分为单次执行和循环执行两种模式。
-
-    - 单次执行：不添加 `--daemon`参数，该模式下,work进程在处理完下一个消息后直接结束当前进程。当不存在新消息时，会sleep一段时间然后退出。
-    - 循环执行：添加了 `--daemon`参数，该模式下,work进程会循环地处理队列中的消息，直到内存超出参数配置才结束进程。当不存在新消息时，会在每次循环中sleep一段时间。
-
+    单次执行：不添加 `--daemon`参数，该模式下,work进程在处理完下一个消息后直接结束当前进程。当不存在新消息时，会sleep一段时间然后退出。
+    循环执行：添加了 `--daemon`参数，该模式下,work进程会循环地处理队列中的消息，直到内存超出参数配置才结束进程。当不存在新消息时，会在每次循环中sleep一段时间。
   - listen 命令是 **父进程 + 子进程** 的处理模式。
-
     listen命令所在的父进程会创建一个**单次执行模式的work子进程**，并通过该work子进程来处理队列中的下一个消息，当这个work子进程退出之后，listen命令所在的父进程会监听到该子进程的退出信号，并重新创建一个新的**单次执行的work子进程**
 
-- **2.3.2 退出时机不同**
-
+- 2.3.2 退出时机不同**
   - work 命令的退出时机在上面的执行原理部分已叙述，此处不再重复
   - listen 命令中，listen所在的父进程正常情况会一直运行，除非遇到下面两种情况：
+    创建的某个work子进程的执行时间超过了 listen命令行中的`--timeout` 参数配置，此时work子进程会被强制结束，listen所在的父进程也会抛出一个 `ProcessTimeoutException` 异常并退出。开发者可以选择捕获该异常，让父进程继续执行，也可以选择通过 supervisor 等监控软件重启一个新的listen命令。
+    listen 命令所在的父进程因某种原因存在内存泄露，则当父进程本身占用的内存超过了命令行中的 `--memory` 参数配置时，父子进程均会退出。正常情况下，listen进程本身占用的内存是稳定不变的。
 
-    - 创建的某个work子进程的执行时间超过了 listen命令行中的`--timeout` 参数配置，此时work子进程会被强制结束，listen所在的父进程也会抛出一个 `ProcessTimeoutException` 异常并退出。开发者可以选择捕获该异常，让父进程继续执行，也可以选择通过 supervisor 等监控软件重启一个新的listen命令。
-    - listen 命令所在的父进程因某种原因存在内存泄露，则当父进程本身占用的内存超过了命令行中的 `--memory` 参数配置时，父子进程均会退出。正常情况下，listen进程本身占用的内存是稳定不变的。
-
-- **2.3.3 性能不同**
-
+- 2.3.3 性能不同**
   - work 命令是在脚本内部做循环，框架脚本在命令执行的初期就已加载完毕；
-
   - 而listen模式则是处理完一个任务之后新开一个work进程，此时会重新加载框架脚本。
-
     因此： **work 模式的性能会比listen模式高**。
-
     注意：当代码有更新时，work 模式下需要手动去执行 `php think queue:restart` 命令重启队列来使改动生效；而listen 模式会自动生效,无需其他操作。
 
 - **2.3.4 超时控制能力**
-
   - work 模式本质上既不能控制进程自身的运行时间，也无法限制执行中的任务的执行时间。
-
     举例来说，假如你在某次上线之后，在上文中的 `\application\index\job\Hello.php` 消费者的`fire`方法中添加了一段死循环 ：
-
     ```php
     public function fire(){
        while(true){ //死循环
@@ -447,18 +424,12 @@ php think queue:work --queue helloJobQueue
        }
     }
     ```
-
     那么这个循环将永远不能停止，直到任务所在的进程超过内存限制或者由管理员手动结束。这个过程不会有任何的告警。更严重的是，如果你配置了expire ，那么这个死循环的任务可能会污染到同样处理 `helloJobQueue` 队列的其他work进程，最后好几个work进程将被卡死在这段死循环中。详情后文会说明。
-
     **work 模式下的超时控制能力，实际上应该理解为 多个work 进程配合下的过期任务重发能力。**
-
   - 而 listen命令可以限制其创建的work子进程的超时时间。
-
     listen 命令可通过 `--timeout` 参数限制work子进程允许运行的最长时间，超过该时间限制仍未结束的子进程会被强制结束；
-
   - 这里有必要补充一下 expire 和 timeout 之间的区别：
-
-    - expire 在配置文件中设置，timeout 在 listen命令 的命令行参数中设置，而且，expire 和 timeout 是两个不同层次上的概念：
+    expire 在配置文件中设置，timeout 在 listen命令 的命令行参数中设置，而且，expire 和 timeout 是两个不同层次上的概念：
 
 ```
 - expire 是指任务的过期时间。这个时间是全局的，影响到所有的work进程。(不管是独立的work命令还是 listen 模式下创建的的work子进程) 。expire 针对的对象是 **任务**。
@@ -466,9 +437,7 @@ php think queue:work --queue helloJobQueue
 ```
 
 - **2.3.5 使用场景不同**
-
   根据上面的介绍，可以看到，
-
   work 命令的适用场景是：
 
   - 任务数量较多
@@ -483,124 +452,115 @@ php think queue:work --queue helloJobQueue
   - 任务的执行时间需要有严格限制
 
 ### 2.4 消息队列的开始，停止与重启
-
-- 开始一个消息队列：
-
-  ```bash
-  php think queue:work
-  ```
-
-- 停止所有的消息队列：
-
-  ```bash
-  php think queue:restart
-  ```
-
-- 重启所有的消息队列：
-
-  ```bash
-  php think queue:restart
-  php think queue:work
-  ```
-
+#### 开始一个消息队列：
+```bash
+php think queue:work
+```
+#### 停止所有的消息队列：
+```bash
+php think queue:restart
+```
+#### 重启所有的消息队列：
+```bash
+php think queue:restart
+php think queue:work
+```
 ### 2.5 多模块，多任务的处理
+#### 多模块
 
-- 多模块
+> 单模块项目推荐使用 `app\job` 作为任务类的命名空间
 
-  > 单模块项目推荐使用 `app\job` 作为任务类的命名空间
+> 多模块项目可用使用 `app\module\job` 作为任务类的命名空间 也可以放在任意可以自动加载到的地方
 
-  > 多模块项目可用使用 `app\module\job` 作为任务类的命名空间 也可以放在任意可以自动加载到的地方
+#### 多任务
 
-- 多任务
+> 如果一个任务类里有多个小任务的话，在发布任务时，需要用 `任务的类名@方法名` 如 `app\lib\job\Job2@task1`、`app\lib\job\Job2@task2`
 
-  > 如果一个任务类里有多个小任务的话，在发布任务时，需要用 `任务的类名@方法名` 如 `app\lib\job\Job2@task1`、`app\lib\job\Job2@task2`
+> 注意：命令行中的 --queue 参数不支持@解析
 
-  > 注意：命令行中的 --queue 参数不支持@解析
+多任务例子:
+在 `\application\index\controller\JobTest.php` 控制器中，添加 `actionWithMultiTask()`方法：
 
-  多任务例子:
+```php
+public function actionWithMultiTask(){
 
-  - 在 `\application\index\controller\JobTest.php` 控制器中，添加 `actionWithMultiTask()`方法：
+  $taskType = $_GET['taskType'];
+    switch ($whichTask) {
+       case 'taskA':
+           $jobHandlerClassName  = 'application\index\job\MultiTask@taskA';
+           $jobDataArr = ['a'    => '1'];
+           $jobQueueName = "multiTaskJobQueue";
+           break;
+       case 'taskB':
+           $jobHandlerClassName  = 'application\index\job\MultiTask@taskB';
+           $jobDataArr = ['b'    => '2'];
+           $jobQueueName = "multiTaskJobQueue";        
+           break;
+        default:
+           break;
+   }
 
-  ```php
-  public function actionWithMultiTask(){
-
-    $taskType = $_GET['taskType'];
-      switch ($whichTask) {
-         case 'taskA':
-             $jobHandlerClassName  = 'application\index\job\MultiTask@taskA';
-             $jobDataArr = ['a'    => '1'];
-             $jobQueueName = "multiTaskJobQueue";
-             break;
-         case 'taskB':
-             $jobHandlerClassName  = 'application\index\job\MultiTask@taskB';
-             $jobDataArr = ['b'    => '2'];
-             $jobQueueName = "multiTaskJobQueue";        
-             break;
-          default:
-             break;
-     }
-
-    $isPushed = Queue::push($jobHandlerClassName, $jobDataArr, $jobQueueName);
-    if ($isPushed !== false) {
-      echo("the $taskType of MultiTask Job has been Pushed to ".$jobQueueName ."<br>");
-    }else{
-      throw new Exception("push a new $taskType of MultiTask Job Failed!");
-    }
+  $isPushed = Queue::push($jobHandlerClassName, $jobDataArr, $jobQueueName);
+  if ($isPushed !== false) {
+    echo("the $taskType of MultiTask Job has been Pushed to ".$jobQueueName ."<br>");
+  }else{
+    throw new Exception("push a new $taskType of MultiTask Job Failed!");
   }
-  ```
+}
+```
 
-  - 新增 `\application\index\job\MultiTask.php` 消费者类，并编写其 `taskA()` 和 `taskB()`方法
+新增 `\application\index\job\MultiTask.php` 消费者类，并编写其 `taskA()` 和 `taskB()`方法
 
-  ```php
-  <?php
-  /**
-   * 文件路径： \application\index\job\MultiTask.php
-   * 这是一个消费者类，用于处理 multiTaskJobQueue 队列中的任务
-   */
-  namespace application\index\job;
+```php
+<?php
+/**
+ * 文件路径： \application\index\job\MultiTask.php
+ * 这是一个消费者类，用于处理 multiTaskJobQueue 队列中的任务
+ */
+namespace application\index\job;
 
-  use think\queue\Job;
+use think\queue\Job;
 
-  class MultiTask {
+class MultiTask {
 
-      public function taskA(Job $job,$data){
+    public function taskA(Job $job,$data){
 
-          $isJobDone = $this->_doTaskA($data);
+        $isJobDone = $this->_doTaskA($data);
 
-          if ($isJobDone) {
-              $job->delete();
-              print("Info: TaskA of Job MultiTask has been done and deleted"."\n");
-          }else{
-              if ($job->attempts() > 3) {
-                  $job->delete();     
-              }
-          }
-      }
+        if ($isJobDone) {
+            $job->delete();
+            print("Info: TaskA of Job MultiTask has been done and deleted"."\n");
+        }else{
+            if ($job->attempts() > 3) {
+                $job->delete();     
+            }
+        }
+    }
 
-      public function taskB(Job $job,$data){
+    public function taskB(Job $job,$data){
 
-          $isJobDone = $this->_doTaskA($data);
+        $isJobDone = $this->_doTaskA($data);
 
-          if ($isJobDone) {
-              $job->delete();
-              print("Info: TaskB of Job MultiTask has been done and deleted"."\n");
-          }else{
-              if ($job->attempts() > 2) {
-                  $job->release();     
-              }
-          }
-      }
+        if ($isJobDone) {
+            $job->delete();
+            print("Info: TaskB of Job MultiTask has been done and deleted"."\n");
+        }else{
+            if ($job->attempts() > 2) {
+                $job->release();     
+            }
+        }
+    }
 
-      private function _doTaskA($data) {
-          print("Info: doing TaskA of Job MultiTask "."\n");
-          return true;
-      }
+    private function _doTaskA($data) {
+        print("Info: doing TaskA of Job MultiTask "."\n");
+        return true;
+    }
 
-      private function _doTaskB($data) {
-          print("Info: doing TaskB of Job MultiTask "."\n");
-          return true;
-      }
-  ```
+    private function _doTaskB($data) {
+        print("Info: doing TaskB of Job MultiTask "."\n");
+        return true;
+    }
+```
 
 ### 2.6 消息的延迟执行与定时执行
 
@@ -610,7 +570,7 @@ php think queue:work --queue helloJobQueue
 
 使用方式：
 
-- 在生产者业务代码中：
+#### 在生产者业务代码中：
 
 ```php
 // 即时执行
@@ -622,7 +582,7 @@ $time2wait = strtotime('2017-02-18 01:01:01') - strtotime('now');
 $isPushed = Queue::later($time2wait,$jobHandlerClassName, $jobDataArr, $jobQueueName);
 ```
 
-- 在消费者类中：
+#### 在消费者类中：
 
 ```php
 // 重发，即时执行
@@ -634,7 +594,7 @@ $time2wait = strtotime('2017-02-18 01:01:01') - strtotime('now');
 $job->release($time2wait);
 ```
 
-- 在命令行中：
+#### 在命令行中：
 
 ```bash
 //如果消费者类的fire()方法抛出了异常且任务未被删除时，将自动重发该任务，重发时，会设置其下次执行前延迟多少秒,默认为0
@@ -645,20 +605,18 @@ php think queue:work --delay 3
 
 thinkphp-queue 中，消息的重发时机有3种：
 
-- 2.7.1 在消费者类中手动重发：
+#### 2.7.1 在消费者类中手动重发：
 
 ```php
 if( $isJobDone === false){
     $job->release();
 }
 ```
+#### 2.7.2 work进程自动重发，需同时满足以下两个条件
+- 消费者类的 fire() 方法抛出了异常
+- 任务未被删除
 
-- 2.7.2 work进程自动重发，需同时满足以下两个条件
-
-  - 消费者类的 fire() 方法抛出了异常
-  - 任务未被删除
-
-- 2.7.3 当配置了 expire 不为 `null` 时，work 进程内部每次查询可用任务之前，会先自动重发已过期的任务。
+#### 2.7.3 当配置了 expire 不为 `null` 时，work 进程内部每次查询可用任务之前，会先自动重发已过期的任务。
 
 > 补充：
 
@@ -759,7 +717,6 @@ return [
 
 namespace application\behavior;
 
-
 class MyQueueFailedLogger {
 
     const should_run_hook_callback = true;
@@ -824,7 +781,11 @@ public function failed($jobData){
 
   在 Redis 中，每一个 队列 都三个key 与之对应 ，以 helloJobQueue 队列举例，其在redis 中的保存方式为：
 
-  | key名 | 类型 | 说明 | | ----------------------------- | --------------- | -------------- | | queues:helloJobQueue | List ， 列表 | 待执行的任务列表 | | queues:helloJobQueue:delayed | Sorted Set，有序集合 | 延迟执行和定时执行的任务集合 | | queues:helloJobQueue:reserved | Sorted Set，有序集合 | 执行中的任务集合 |
+  | key名 | 类型 | 说明 |
+  | ----------------------------- | --------------- | -------------- |
+  | queues:helloJobQueue | List ， 列表 | 待执行的任务列表 |
+  | queues:helloJobQueue:delayed | Sorted Set，有序集合 | 延迟执行和定时执行的任务集合 |
+  | queues:helloJobQueue:reserved | Sorted Set，有序集合 | 执行中的任务集合 |
 
   > 使用的`:`分隔符, 只是用来表示相关key的关联性。本身没有特殊含义。使用分隔符是一种常见的组织key的方式。
 
@@ -937,74 +898,70 @@ redis队列中的过期任务重发步骤--执行后：
 
 ### 3.7 thinkphp-queue 的N种错误使用姿势
 
-- **3.7.1** 在 消费者类的 `fire()` 方法中，忘记使用 `$job->delete()` 去删除消息，这种情况下，会产生一系列的bug：
+#### 3.7.1 在 消费者类的 `fire()` 方法中，忘记使用 `$job->delete()` 去删除消息，这种情况下，会产生一系列的bug：
+- 配置的 expire 为 `null` ， 则该任务被执行一次后会永远留在消息队列中，占用消息队列的空间 , 除非开发者另行处理。
 
-  - 配置的 expire 为 `null` ， 则该任务被执行一次后会永远留在消息队列中，占用消息队列的空间 , 除非开发者另行处理。
+- 配置的 expire `不为 null` ，该任务在 expire 秒后被认为是过期任务，并被消息队列还原为待执行状态，在消息队列的后面的循环中继续被获取，这时，如果
+- 命令行中的 `--tries` 参数为0 或者未设置,那么每隔 一段时间该任务就会被执行一次。
+- 命令行中的 `--tries` 参数 n 大于0 ， 那么当这个任务被误执行的次数超过n 时，会由消息队列尝试去触发失败回调事件:
 
-  - 配置的 expire `不为 null` ，该任务在 expire 秒后被认为是过期任务，并被消息队列还原为待执行状态，在消息队列的后面的循环中继续被获取，这时，如果
+- 如果开发者没有编写失败处理的回调事件：那么该任务仍然不会被删除，每隔一段时间就会被执行一次。[这个可能属于框架的[Bug](https://github.com/top-think/think-queue/issues/10)] ,
+- 如果编写了失败回调事件
+  - 回调事件中删除了任务，则这个任务被误执行了 n 次。
+  - 回调事件中未删除任务，这时，如果：
+    - 回调事件返回值是 false，那么该任务仍然不会被删除，每隔一段时间就会被执行一次
+    - 回调事件返回值是 true， 那么该任务会先被删除，然后触发消费者类的 failed() 方法，如果在 failed() 方法中设置了告警，那么这个告警就是一次误报。
 
-    - 命令行中的 `--tries` 参数为0 或者未设置,那么每隔 一段时间该任务就会被执行一次。
-    - 命令行中的 `--tries` 参数 n 大于0 ， 那么当这个任务被误执行的次数超过n 时，会由消息队列尝试去触发失败回调事件:
+因此，在 使用 thinkphp-queue 时，请记得：
 
-      - 如果开发者没有编写失败处理的回调事件：那么该任务仍然不会被删除，每隔一段时间就会被执行一次。[这个可能属于框架的[Bug](https://github.com/top-think/think-queue/issues/10)] ,
-      - 如果编写了失败回调事件
+- **任务完成后, 使用 `$job->delete()` 删除任务**
+- 在消费者类的 `fire()` 方法中，使用 `$job->attempt()` 检查任务已执行次数，对于次数异常的，作相应的处理。
+- 在消费者类的 `fire()` 方法中，根据业务数据来判断该任务是否已经执行过，以避免该任务被重复执行。
+- 编写失败回调事件，将事件中失败的任务及时通知给开发人员。
 
-        - 回调事件中删除了任务，则这个任务被误执行了 n 次。
-        - 回调事件中未删除任务，这时，如果：
+#### 3.7.2 使用了 `queue:work --daemon` ，但更新代码后没有使用 `queue:restart` 重启 work 进程, 使得 work 进程中的代码与最新的代码不同，出现各种问题。
 
-          - 回调事件返回值是 false，那么该任务仍然不会被删除，每隔一段时间就会被执行一次
-          - 回调事件返回值是 true， 那么该任务会先被删除，然后触发消费者类的 failed() 方法，如果在 failed() 方法中设置了告警，那么这个告警就是一次误报。
+#### 3.7.3 使用了 `queue:work --daemon` ，但是消费者类的 fire() 方法中存在死循环，或 `sleep(n)` 等逻辑，导致消息队列被堵塞；或者使用了 `exit()` , `die()` 这样的逻辑，导致work进程直接终止 。
 
-  因此，在 使用 thinkphp-queue 时，请记得：
+#### 3.7.4 配置的 expire 为 `null` ，这时如果采用的是 Redis 驱动且使用了延迟功能，如 `later(n)` ， `release(n)` 方法或者 `--delay` 参数不为0 ， 那么将导致被延迟的任务永远无法处理。(这个可能属于框架的[Bug](https://github.com/top-think/think-queue/issues/12))
 
-  - **任务完成后, 使用 `$job->delete()` 删除任务**
-  - 在消费者类的 `fire()` 方法中，使用 `$job->attempt()` 检查任务已执行次数，对于次数异常的，作相应的处理。
-  - 在消费者类的 `fire()` 方法中，根据业务数据来判断该任务是否已经执行过，以避免该任务被重复执行。
-  - 编写失败回调事件，将事件中失败的任务及时通知给开发人员。
+#### 3.7.5 配置的 expire 为`null` ，但并没有自行处理过期的任务，导致过期的任务得不到处理，且一直占用消息队列的空间。
 
-- **3.7.2** 使用了 `queue:work --daemon` ，但更新代码后没有使用 `queue:restart` 重启 work 进程, 使得 work 进程中的代码与最新的代码不同，出现各种问题。
+#### 3.7.6 配置的 expire `不为null` ，但配置的 expire 时间太短，以至于 expire 时间 < 消费者的 `fire()` 方法所需时间 + 删除该任务所需的时间 ，那么任务将被误认为执行超时，从而被消息队列还原为待执行状态。
 
-- **3.7.3** 使用了 `queue:work --daemon` ，但是消费者类的 fire() 方法中存在死循环，或 `sleep(n)` 等逻辑，导致消息队列被堵塞；或者使用了 `exit()` , `die()` 这样的逻辑，导致work进程直接终止 。
-
-- **3.7.4** 配置的 expire 为 `null` ，这时如果采用的是 Redis 驱动且使用了延迟功能，如 `later(n)` ， `release(n)` 方法或者 `--delay` 参数不为0 ， 那么将导致被延迟的任务永远无法处理。(这个可能属于框架的[Bug](https://github.com/top-think/think-queue/issues/12))
-
-- **3.7.5** 配置的 expire 为`null` ，但并没有自行处理过期的任务，导致过期的任务得不到处理，且一直占用消息队列的空间。
-
-- **3.7.6** 配置的 expire `不为null` ，但配置的 expire 时间太短，以至于 expire 时间 < 消费者的 `fire()` 方法所需时间 + 删除该任务所需的时间 ，那么任务将被误认为执行超时，从而被消息队列还原为待执行状态。
-
-- **3.7.7** 使用 `Queue::push($jobHandlerClassName , $jobData, $jobQueueName );` 推送任务时，`$jobData` 中包含未序列化的对象。这时，在消费者端拿到的 `$jobData` 中拿到的是该对象的public 属性的键值对数组。因此，需要在推送前手动序列化对象，在消费者端再手动反序列化还原为对象。
+#### 3.7.7 使用 `Queue::push($jobHandlerClassName , $jobData, $jobQueueName );` 推送任务时，`$jobData` 中包含未序列化的对象。这时，在消费者端拿到的 `$jobData` 中拿到的是该对象的public 属性的键值对数组。因此，需要在推送前手动序列化对象，在消费者端再手动反序列化还原为对象。
 
 ## 四 拓展
 
 ### 4.1 队列的稳定性和拓展性
-
 - 稳定性：不管是 listen 模式还是 work 模式，都建议使用 supervisor 或者 自定义的cron 脚本，去定时检查 work 进程是否正常
 - 拓展性： 当某个队列的消费者不足时，再给这个队列添加 work进程即可。
-
 ### 4.2 消息队列的可视化管理工具
-
 - 队列管理，队列的列表，队列的 work 进程数量控制，队列的任务数量变化趋势 //TBD
 - 任务管理，任务的列表，添加/**撤回**/查询任务，修改任务的 执行者/执行时间/优先级/数据 等 //TBD
-
 ### 4.2 编写自定义的 thinkphp-queue 驱动
-
 //TBD
-
 ### 4.3 编写消息队列的单元测试
-
 //TBD
-
 ### 4.4 与其他PHP消息队列库的对比
-
 TP5的消息队列与Laravel的消息队列比较相似，下面是与laravel 中的消息队列的一些对比：
 
-```
-      | thinkphp-queue (v1.1.2)             | laravel-queue (v5.3)
-```
-
---------- | ----------------------------------- | --------------------------------------- 内置的驱动 | Database，Redis，Sync，TopThink | Database，Redis, Sync(在laravel中称为 null)。 Redis驱动要求 | 安装redis的C扩展 | 安装 predis 包 + LUA脚本 推送任务 | 允许推送 消费者类名，消费者对象 | 允许推送消费者类名，消费者对象，闭包 失败任务处理 | 触发失败回调事件 (有Bug) | 触发失败回调事件 + 移动任务到 failed_jobs表? 消息订阅 | subscribe 命令+ Topthink驱动(注：未实现/未提供) | subscribe 命令 + 安装IronMQ 驱动 删除任务 | 消费者类中手动删除 | 任务完成后自动删除 推送到多个队列 | 需自己实现 | 原生支持 延迟执行 | 支持 (有Bug) | 支持 消息重发 | 支持 | 支持 检查已执行次数 | 原生支持 | 需在消费者类中显式 use 相关的 trait 执行方式 | work 模式 + listen 模式 | work 模式 + listen 模式 进程命令 | 开启，停止，重启 | 开启，停止，重启 任务命令 | 无 | 展示失败任务列表，重试某个失败任务，删除某个失败任务 支持的事件 | 失败回调事件 | 失败回调事件，支持消费前事件，消费后事件
-
---------------------------------------------------------------------------------
+  |  | thinkphp-queue (v1.1.2)   | laravel-queue (v5.3) |
+  |------------------| ----------------------------------- | --------------------------------------- |
+  |内置的驱动 | Database，Redis，Sync，TopThink | Database，Redis, Sync(在laravel中称为 null)。|
+  |Redis驱动要求|  装redis的C扩展 | 安装 predis 包 + LUA脚本 推送任务  |
+  |推送任务|允许推送 消费者类名，消费者对象 | 允许推送消费者类名，消费者对象，闭包  |
+  |失败任务处理   |触发失败回调事件 (有Bug)   |触发失败回调事件 + 移动任务到 failed_jobs表?   |
+  |消息订阅   |subscribe 命令+ Topthink驱动(注：未实现/未提供)   |subscribe 命令 + 安装IronMQ 驱动   |
+  |删除任务   |消费者类中手动删除   |任务完成后自动删除   |
+  |推送到多个队列   |需自己实现   |原生支持   |
+  |延迟执行   |支持 (有Bug)   |支持   |
+  |消息重发 | 支持 | 支持|
+  |检查已执行次数 | 原生支持 | 需在消费者类中显式 use 相关的 trait|
+  |执行方式   |work 模式 + listen 模式 | work 模式 + listen 模式|
+  |进程命令   | 开启，停止，重启 | 开启，停止，重启|
+  |任务命令   | 无 | 展示失败任务列表，重试某个失败任务，删除某个失败任务 |
+  |支持的事件   |失败回调事件 | 失败回调事件，支持消费前事件，消费后事件|
 
 使用supervisor管理think-queue示例
 
