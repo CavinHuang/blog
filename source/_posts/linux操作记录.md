@@ -21,3 +21,40 @@ nobody   42893  0.0  0.6 183000  6508 ?        S    4月18   0:17 php-fpm: pool 
 ```bash
 kill -USR2 42891
 ```
+
+## redis操作
+### 检测是否有安装redis-cli和redis-server
+```bash
+[root@localhost bin]# whereis redis-cli
+redis-cli: /usr/bin/redis-cli
+
+[root@localhost bin]# whereis redis-server
+redis-server: /usr/bin/redis-server
+```
+### 检测后台进程是否存在
+```bash
+ps -ef |grep redis
+```
+### 检测redis端口
+```bash
+netstat -lntp | grep 6379
+```
+### 使用redis-cli客户端检测连接是否正常
+```bash
+redis-cli
+127.0.0.1:6379> keys *
+(empty list or set)
+127.0.0.1:6379> set key "hello world"
+OK
+127.0.0.1:6379> get key
+"hello world"
+```
+### 停止redis
+#### 使用客户端
+```bash
+redis-cli shutdown
+```
+#### 因为Redis可以妥善处理SIGTERM信号，所以直接kill -9也是可以的
+```bash
+kill -9 PID
+```
