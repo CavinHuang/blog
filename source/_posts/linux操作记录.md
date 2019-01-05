@@ -21,7 +21,7 @@ nobody   42893  0.0  0.6 183000  6508 ?        S    4月18   0:17 php-fpm: pool 
 ```bash
 kill -USR2 42891
 ```
-
+<!--more-->
 ## redis操作
 ### 检测是否有安装redis-cli和redis-server
 ```bash
@@ -57,4 +57,37 @@ redis-cli shutdown
 #### 因为Redis可以妥善处理SIGTERM信号，所以直接kill -9也是可以的
 ```bash
 kill -9 PID
+```
+## iptables简单配置方法
+### 修改方式一: 直接修改配置文件
+```bash
+vim /etc/sysconfig/iptables
+```
+### 修改方式二：通过iptables命令添加
+```bash
+iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+```
+### 重启iptables
+```bash
+service iptables restart
+```
+### 配置文件解释
+```bash
+*filter
+#默认INPUT 的策略是DROP 即拒绝所有的外来请求
+:INPUT DROP [0:0]
+#一般情况下用不到FORWARD 可以配置为默认DROP
+:FORWARD DROP [0:0]
+#本机对其他机器访问设置为默认ACCEPT
+:OUTPUT ACCEPT [0:0]
+#允许已经建立和相关的连接
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+#允许icmp协议(即ping)
+-A INPUT -p icmp -j ACCEPT
+#允许回环请求
+-A INPUT -i lo -j ACCEPT
+#开放端口22 80(如果要开放其他端口 继续添加开放规则即可)
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+COMMIT
 ```
