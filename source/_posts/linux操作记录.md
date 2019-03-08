@@ -19,7 +19,7 @@ nobody   42893  0.0  0.6 183000  6508 ?        S    4月18   0:17 php-fpm: pool 
 ```
 -重启php-fpm:
 ```bash
-kill -USR2 42891
+  kill -USR2 42891
 ```
 <!--more-->
 ## redis操作
@@ -31,6 +31,7 @@ redis-cli: /usr/bin/redis-cli
 [root@localhost bin]# whereis redis-server
 redis-server: /usr/bin/redis-server
 ```
+
 ### 检测后台进程是否存在
 ```bash
 ps -ef |grep redis
