@@ -9,7 +9,7 @@ category:
 ---
 
 ## 重启php-fpm
-- 查看php-fpm的master进程号
+### 查看php-fpm的master进程号
 ```bash
 # ps aux|grep php-fpm
 root     21891  0.0  0.0 112660   960 pts/3    R+   16:18   0:00 grep --color=auto php-fpm
@@ -17,18 +17,22 @@ root     42891  0.0  0.1 182796  1220 ?        Ss   4月18   0:19 php-fpm: maste
 nobody   42892  0.0  0.6 183000  6516 ?        S    4月18   0:07 php-fpm: pool www
 nobody   42893  0.0  0.6 183000  6508 ?        S    4月18   0:17 php-fpm: pool www
 ```
--重启php-fpm:
+
+### 重启php-fpm:
 ```bash
-  kill -USR2 42891
+kill -USR2 42891
 ```
 <!--more-->
+
 ## redis操作
+
 ### 检测是否有安装redis-cli和redis-server
+
 ```bash
-[root@localhost bin]# whereis redis-cli
+[root@localhost bin] # whereis redis-cli
 redis-cli: /usr/bin/redis-cli
 
-[root@localhost bin]# whereis redis-server
+[root@localhost bin] # whereis redis-server
 redis-server: /usr/bin/redis-server
 ```
 
