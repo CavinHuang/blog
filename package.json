@@ -6,7 +6,7 @@
     "dev": "hexo s -p 3111 -o"
   },
   "hexo": {
-    "version": "3.3.9"
+    "version": "3.4.0"
   },
   "dependencies": {
     "hexo": "^3.2.0",
@@ -26,6 +26,7 @@
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.2",
     "hexo-wordcount": "^3.0.2",
+    "natives": "^1.1.6",
     "save": "^2.3.2"
   },
   "devDependencies": {
