@@ -1,15 +1,17 @@
 language: node_js
 node_js: stable
 
-cache:
-  directories:
-    - node_modules
+#cache:
+#  directories:
+#    - node_modules
 # S: Build Lifecycle
 install:
   - npm install
 
-#before_script:
-#  - npm install -g gulp
+before_script:
+  - rm -r node_modules
+  - npm install natives
+  - npm install -g gulp@v3.9.1
 
 script:
   - hexo clean
