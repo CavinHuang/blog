@@ -1,9 +1,12 @@
-layout: '[layout]'
+---
 title: 百度前端学院js系列-第二天详解
-date: 2017-04-01 23:13:37
+date: 2017-04-01
+category:
+  - frontend
 tags:
 	- 百度前端学院
 	- js
+	- frontend
 ---
 任务二的内容是这样的：
 任务描述

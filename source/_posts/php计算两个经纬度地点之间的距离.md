@@ -3,6 +3,8 @@ title: php计算两个经纬度地点之间的距离
 date: 2017-02-18 11:25:12
 tags: 
 	- php
+category:
+  - php
 ---
 ```php
 /**

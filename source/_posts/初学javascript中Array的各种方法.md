@@ -1,6 +1,9 @@
 layout: '[layout]'
 title: 初学javascript中Array的各种方法
 date: 2017-01-23 11:33:18
+category: 
+	- frontend
+	- 编程练习
 tags:  
 	- js
 	- 前端

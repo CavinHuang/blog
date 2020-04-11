@@ -7,7 +7,7 @@ tags:
   - 服务器
   - 环境安装
 category:
-  - 服务器纪实
+  - 服务器操作
   - nginx
 ---
 # Nginx1.13   安装

@@ -5,7 +5,9 @@ tags:
   - JavaScript
   - 算法
   - 数据结构
-category: 前端开发
+category: 
+  - frontend
+  - 编程练习
 ---
 本文是以数据结构和普遍算法在js中的体现，以此来学习js，首先会体现或者实现的数据结构和算法如下：
 <!--more-->

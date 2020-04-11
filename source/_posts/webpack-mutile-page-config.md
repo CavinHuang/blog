@@ -6,7 +6,7 @@ tags:
   - webpack
   - webpack多页面
 category:
-  - 前端开发
+  - frontend
   - webpack
 ---
 

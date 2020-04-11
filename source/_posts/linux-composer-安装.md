@@ -5,7 +5,7 @@ tags:
   - linux
   - composer
 category:
-  - 服务器纪实
+  - 服务器操作
   - composer
 ---
 ## 下载composer

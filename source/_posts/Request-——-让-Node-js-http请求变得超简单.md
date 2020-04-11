@@ -4,7 +4,9 @@ date: 2017-11-23 16:22:59
 tags:
   - node
   - request
-category: 前端开发
+category:
+ - frontend
+ - nodejs
 ---
 Request —— 让 Node.js http请求变得超简单
 

@@ -4,6 +4,10 @@ date: 2017-03-19 11:36:05
 tags:
  - js
  - javasript
+category:
+ - frontend
+ - 技巧总结
+ - js
 ---
 #### 1. PC - js
 - 返回指定范围的随机数(m-n之间)的公式

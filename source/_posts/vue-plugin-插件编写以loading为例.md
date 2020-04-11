@@ -6,7 +6,9 @@ tags:
   - vuejs
   - javascript
   - 前端
-category: 前端开发
+category:
+ - frontend
+ - vue
 ---
 
 我们在使用vue开发的过程中，经常会遇到这两个问题：

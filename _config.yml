@@ -16,7 +16,7 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: "http://blog.zukmb.cn/"
 root: /
-permalink: :title/
+permalink: :category/:id
 
 # Directory
 source_dir: source
@@ -77,6 +77,14 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  小程序: miniprogram
+  问题总结: problem
+  技巧总结: skill
+  编程练习: study
+  日常随笔: notes
+  前端面试: interview
+  服务器操作: Server
+  项目管理: project
 tag_map:
 
 # Date / Time format

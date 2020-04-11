@@ -4,6 +4,9 @@ date: 2017-05-03 21:22:49
 tags:
 	- javascript
 	- vue.js
+category:
+ - frontend
+ - vue
 ---
 首先，先上最终的效果图
 ![这里写图片描述](http://img.blog.csdn.net/20170503210148155?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjQwOTg0OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)

@@ -1,6 +1,9 @@
 layout: '[layout]'
 title: 读Zepto源码之内部方法
 date: 2017-04-12 20:50:53
+category:
+	- frontend
+	- 编程练习
 tags:
 	- zepto
 	- js

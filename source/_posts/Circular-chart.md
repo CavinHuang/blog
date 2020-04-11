@@ -7,7 +7,7 @@ tags:
  - canvas
  - canvas圆形进度盘
 category:
- - 前端开发
+ - frontend
  - canvas
 ---
 

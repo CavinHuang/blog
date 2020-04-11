@@ -5,6 +5,10 @@ date: 2016-04-28 23:54
 comments: true
 tags:
 	- js
+	- 懒加载
+category:
+	- frontend
+	- js
 ---
 
 ![原图 by Denis Perepelenko](/assets/blogImg/lazyload.jpg)    

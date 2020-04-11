@@ -6,7 +6,7 @@ tags:
  - 前端
  - 前端面试
 category:
-  - 前端开发
+  - frontend
   - 前端面试
 ---
 

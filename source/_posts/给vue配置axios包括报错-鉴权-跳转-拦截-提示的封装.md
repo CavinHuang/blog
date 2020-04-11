@@ -5,7 +5,8 @@ tags:
   - vue
   - 前端开发
 category:
-  - 前端开发
+  - frontend
+  - vue
 ---
 
 # 前言

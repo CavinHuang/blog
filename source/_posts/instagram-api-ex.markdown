@@ -7,6 +7,9 @@ tags:
 	- web
 	- 经验
 	- 产品
+category:
+ - frontend
+ - js
 ---
 
 最近喜欢上了instagram，分享一下获取照片的经验。

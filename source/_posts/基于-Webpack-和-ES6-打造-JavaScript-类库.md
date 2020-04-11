@@ -4,7 +4,9 @@ date: 2017-11-21 21:09:58
 tags:
   - webpack
   - JavaScript
-category: 前端开发
+category:
+  - frontend
+  - webpack
 ---
 ## 首先，我们说的 “类库” 是指什么
 

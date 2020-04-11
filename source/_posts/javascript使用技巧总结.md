@@ -4,6 +4,10 @@ date: 2017-02-06 21:14:26
 tags:
 	- js使用技巧
 	- js
+category:
+  - frontend
+  - 技巧总结
+  - js
 ---
  >JavaScript技巧，偶尔更新。
 

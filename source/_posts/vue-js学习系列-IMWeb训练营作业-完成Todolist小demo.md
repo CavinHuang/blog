@@ -5,6 +5,9 @@ tags:
 	- 前端
 	- js
 	- vue
+category:
+ - frontend
+ - vue
 ---
 
 先上最终的效果图吧，简单小例子，30分钟左右完成

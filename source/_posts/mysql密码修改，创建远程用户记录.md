@@ -5,7 +5,8 @@ tags:
   - linux
   - mysql
 category:
-  - 服务器纪实
+  - 服务器操作
+  - mysql
 ---
 
 

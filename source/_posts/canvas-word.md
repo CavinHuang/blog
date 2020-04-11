@@ -8,7 +8,7 @@ tags:
  - 文字粒子
  - canvas文字粒子
 category:
- - 前端开发
+ - frontend
  - canvas
 ---
 

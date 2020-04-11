@@ -6,7 +6,7 @@ tags:
   - linux
   - 服务器
 category:
-  - 服务器纪实
+  - 项目管理
   - svn
 ---
 

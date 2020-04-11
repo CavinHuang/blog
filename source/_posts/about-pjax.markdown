@@ -6,6 +6,9 @@ comments: true
 tags:
   - js
   - html5
+category:
+  - frontend
+  - pjax
 ---
 
 >var pjax = pushState + ajax;                  

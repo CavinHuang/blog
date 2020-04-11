@@ -5,8 +5,8 @@ tags:
    - nginx
    - 服务器纪实
 category:
-  - 服务器纪实
-  - Nginx
+  - 服务器操作
+  - nginx
 ---
 > 服务器安装折腾纪实，包括nginx、php、Apache、node、mysql等
 

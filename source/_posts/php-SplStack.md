@@ -6,7 +6,7 @@ tags:
   - spl
   - php SplStack
 category:
-  - php开发与学习
+  - php
   - spl
 ---
 

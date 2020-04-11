@@ -5,7 +5,8 @@ tags:
   - javascript
   - 剑指offer
 category:
-  - 前端开发
+  - frontend
+  - 编程练习
 ---
 匆匆忙忙的写完博客主题，终于下定决心折腾下算法了，打算把牛客网的剑指offer系列题目，用JavaScript和php实现一份。
 

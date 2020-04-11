@@ -4,9 +4,9 @@ date: 2018-05-05 13:58:03
 tags:
   - centos7
   - redis
-  - php7.1 redis
+  - Mysql
 category:
-  - 服务器纪实
+  - 服务器操作
   - mysql
 ---
 ## 1.准备工作

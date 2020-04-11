@@ -4,7 +4,7 @@ date: 2017-12-27 16:31:44
 tags:
   - mysql
 category:
-  - 服务器纪实
+  - 服务器操作
   - mysql
 ---
 

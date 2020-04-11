@@ -5,6 +5,9 @@ tags:
 	- 前端
 	- js
 	- vue
+category:
+ - frontend
+ - vue
 ---
 >vuejs目前的火爆程度真的让人惊叹啊，作为一个初入前端的人，能够学习到这样的技术真的是一种荣幸！
 

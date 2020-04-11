@@ -5,6 +5,9 @@ tags:
 	- 前端
 	- js
 	- vue
+category:
+ - frontend
+ - vue
 ---
 
 现在上节中安装的项目的src目录中建立pages文件用来装demo源码

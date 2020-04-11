@@ -5,7 +5,10 @@ tags:
   - vue
   - javascript
   - 移动端开发
-category: 前端开发  
+category:
+ - frontend
+ - 问题总结
+ - vue 
 ---
 
 ### 1. IOS移动端 原始输入法问题

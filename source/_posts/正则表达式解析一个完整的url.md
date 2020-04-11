@@ -6,7 +6,7 @@ tags:
   - js
   - javascript
 category:
-  - 前端开发
+  - frontend
 ---
 
 > 题目：解析一个完整的url,返回Object包含域与window.location相同

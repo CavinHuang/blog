@@ -4,6 +4,9 @@ date: 2017-03-15 09:49:20
 tags:
   - javascript
   - date
+category:
+ - frontend
+ - js
 ---
 
 > 函数目录

@@ -5,7 +5,7 @@ tags:
   - Linux
   - crontab
 category:
-  - 服务器纪实
+  - 服务器操作
   - 定时任务
 ---
 

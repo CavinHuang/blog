@@ -4,7 +4,8 @@ date: 2018-04-20 16:17:34
 tags:
  - git
 category:
- - git操作记录
+ - 工具
+ - git
 ---
 
 在提交一个项目的commit时，push的时候，报错：
