@@ -17,7 +17,10 @@ mixin articleSort(posts)
     -    } else {
     -        return 0;
     -    }
-    -})
+    - })
+
+
+
     .event_list
       - posts.forEach(function (article) {
         - var tempYear = date(article.date, 'YYYY')

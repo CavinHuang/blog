@@ -168,7 +168,7 @@ export default {
 ```js
 import Vue from "vue";
 import Router from "vue-router";
-import layout from "@/components/layout/layout";
+import layout from "@/_components/layout/layout";
 // 版块有点多,版块独立路由管理,里面都是懒加载引入
 import customerManage from "./customerManage"; // 客户管理
 import account from "./account"; //登录

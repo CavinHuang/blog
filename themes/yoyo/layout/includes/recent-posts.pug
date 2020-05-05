@@ -1,3 +1,6 @@
+- var a= 1
+- console.log(1)
+
 if page.posts.length > 0
   #recent-posts.recent-post-list
     #article-list-table(style="display:none")
@@ -27,7 +30,7 @@ if page.posts.length > 0
               != post.content
           div.article-bottom
             .read_more.fl
-              a.fa.fa-link(href=config.root + post.path)   查看全文 >>
+              a.fa.fa-link(href=url_for(page.path))   查看全文 >>
             if (post.tags)
               ul.article-tag-list.fr
                 each item, index in post.tags.toArray()

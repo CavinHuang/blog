@@ -24,6 +24,7 @@ category:
 - 功能（feature）分支：为了开发某个特定功能，从develop分支上面分出来的。开发完成后，要merge到develop分支。功能分支的命名，可以采用feature-*的形式命名(*为任务单号)
 - Bug修复（fixbug）分支：为了修复某个bug，从常设分支上面分出来的。修复完成后，再merge到对应的分支。Bug修复分支的命名，可以采用fixbug-*的形式命名（*为bug单号）
 
+<!-- more -->
 ## 流程规范
 ### 正常开发流程
 - 从develop分支切出一个新分支，根据是功能还是bug，命名为feature-* 或 fixbug-*。
