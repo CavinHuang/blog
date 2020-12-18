@@ -28,3 +28,4 @@ git config --global https.proxy 'socks5://127.0.0.1:1080'
 
 ```
 如果设置了代理用来拉代码，而本地用的是内网的gitlab之类的，需要删除git代理之后才有用哦！
+
