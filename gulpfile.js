@@ -4,30 +4,30 @@ var uglify = require('gulp-uglify');
 var htmlmin = require('gulp-htmlmin');
 var htmlclean = require('gulp-htmlclean');
 // 压缩css文件
-gulp.task('minify-css', function() {
+gulp.task('minify-css', function () {
   return gulp.src('./public/**/*.css')
-  .pipe(minifycss())
-  .pipe(gulp.dest('./public'));
+    .pipe(minifycss())
+    .pipe(gulp.dest('./public'));
 });
 // 压缩html文件
-gulp.task('minify-html', function() {
+gulp.task('minify-html', function () {
   return gulp.src('./public/**/*.html')
-  .pipe(htmlclean())
-  /* .pipe(htmlmin({
-    removeComments: true,
-    minifyJS: false,
-    minifyCSS: true,
-    minifyURLs: true,
-  })) */
-  .pipe(gulp.dest('./public'))
+    .pipe(htmlclean())
+    /* .pipe(htmlmin({
+      removeComments: true,
+      minifyJS: false,
+      minifyCSS: true,
+      minifyURLs: true,
+    })) */
+    .pipe(gulp.dest('./public'))
 });
 // 压缩js文件
-gulp.task('minify-js', function() {
+gulp.task('minify-js', function () {
   return gulp.src('./public/**/*.js')
-  .pipe(uglify())
-  .pipe(gulp.dest('./public'));
+    .pipe(uglify())
+    .pipe(gulp.dest('./public'));
 });
 // 默认任务
-gulp.task('default', [
-  'minify-html','minify-css','minify-js'
-]);
+gulp.task('default', gulp.series([
+  'minify-html', 'minify-css', 'minify-js'
+]));
