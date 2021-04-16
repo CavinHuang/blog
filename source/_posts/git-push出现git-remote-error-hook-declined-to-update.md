@@ -1,11 +1,12 @@
 ---
 title: 'git push出现git remote: error: hook declined to update'
-date: 2018-04-20 16:17:34
 tags:
- - git
+  - git
 category:
- - 工具
- - git
+  - 工具
+  - git
+abbrlink: 40a075d8
+date: 2018-04-20 16:17:34
 ---
 
 在提交一个项目的commit时，push的时候，报错：

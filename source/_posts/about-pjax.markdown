@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "pjax: 当ajax遇上pushState"
-date: 2017-1-22 08:55
+title: 'pjax: 当ajax遇上pushState'
+date: '2017-1-22 08:55'
 comments: true
 tags:
   - js
@@ -9,6 +9,7 @@ tags:
 category:
   - frontend
   - pjax
+abbrlink: c039b062
 ---
 
 >var pjax = pushState + ajax;                  

@@ -1,12 +1,13 @@
 ---
 title: 正则表达式解析一个完整的url
-date: 2018-03-17 19:46:10
 tags:
   - web前端
   - js
   - javascript
 category:
   - frontend
+abbrlink: f834138b
+date: 2018-03-17 19:46:10
 ---
 
 > 题目：解析一个完整的url,返回Object包含域与window.location相同

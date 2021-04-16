@@ -16,7 +16,7 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: "http://blog.zukmb.cn/"
 root: /
-permalink: :category/:id.html
+permalink: posts/:abbrlink/
 
 # Directory
 source_dir: source
@@ -41,6 +41,10 @@ render_drafts: false
 post_asset_folder: true
 relative_link: true
 future: true
+
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
 
 # highlight
 prism_plugin:
@@ -91,6 +95,8 @@ category_map:
   定时任务: crontab
   文件系统: files
   工具: tools
+  外汇交易: Foreign
+  交易策略: TradingStrategy
 tag_map:
 
 # Date / Time format

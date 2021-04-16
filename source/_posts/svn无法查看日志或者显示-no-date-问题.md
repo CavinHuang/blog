@@ -1,6 +1,5 @@
 ---
 title: svn无法查看日志或者显示(no date)问题
-date: 2017-12-22 11:47:23
 tags:
   - svn
   - linux
@@ -8,6 +7,8 @@ tags:
 category:
   - 项目管理
   - svn
+abbrlink: d7e06bb0
+date: 2017-12-22 11:47:23
 ---
 
 现有配置

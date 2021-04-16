@@ -1,14 +1,15 @@
 ---
 layout: post
-title: "说到加载图片，我们可以谈些什么"
-date: 2016-04-28 23:54
+title: 说到加载图片，我们可以谈些什么
+date: '2016-04-28 23:54'
 comments: true
 tags:
-	- js
-	- 懒加载
+  - js
+  - 懒加载
 category:
-	- frontend
-	- js
+  - frontend
+  - js
+abbrlink: bc3de361
 ---
 
 ![原图 by Denis Perepelenko](/assets/blogImg/lazyload.jpg)    

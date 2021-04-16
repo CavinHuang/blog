@@ -1,6 +1,5 @@
 ---
 title: centos7.0安装redis和php7.1 redis扩展
-date: 2017-09-08 23:49:20
 tags:
   - centos7
   - redis
@@ -8,6 +7,8 @@ tags:
 category:
   - 服务器操作
   - php
+abbrlink: '25837622'
+date: 2017-09-08 23:49:20
 ---
 
 ## 基本知识

@@ -1,6 +1,5 @@
 ---
 title: php SplStack的认识和使用
-date: 2018-08-30 16:34:08
 tags:
   - php
   - spl
@@ -8,6 +7,8 @@ tags:
 category:
   - php
   - spl
+abbrlink: 51367f9b
+date: 2018-08-30 16:34:08
 ---
 
 >SPL是用于解决典型问题(standard problems)的一组接口与类的集合。

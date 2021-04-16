@@ -1,12 +1,13 @@
 ---
 title: mysql密码修改，创建远程用户记录
-date: 2018-03-05 14:12:48
 tags:
   - linux
   - mysql
 category:
   - 服务器操作
   - mysql
+abbrlink: 3f13de63
+date: 2018-03-05 14:12:48
 ---
 
 

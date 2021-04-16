@@ -1,11 +1,12 @@
 ---
 title: Linux创建用户只能访问某个目录
-date: 2017-12-08 11:29:13
 tags:
   - linux
 category:
   - 服务器操作
   - 文件系统
+abbrlink: c586c075
+date: 2017-12-08 11:29:13
 ---
 
 ## 一、直接创建

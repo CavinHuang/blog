@@ -1,6 +1,5 @@
 ---
 title: centos7 源码编译安装mysql5.7
-date: 2018-05-05 13:58:03
 tags:
   - centos7
   - redis
@@ -8,6 +7,8 @@ tags:
 category:
   - 服务器操作
   - mysql
+abbrlink: c8b87153
+date: 2018-05-05 13:58:03
 ---
 ## 1.准备工作
 

@@ -1,12 +1,13 @@
 ---
 title: Centos7硬盘挂载方法
-date: 2018-08-27 15:07:50
 tags:
- - linux
- - centos
- - 服务器
+  - linux
+  - centos
+  - 服务器
 category:
   - 服务器操作
+abbrlink: b745fdb3
+date: 2018-08-27 15:07:50
 ---
 
 ## 查看新添加的磁盘

@@ -1,12 +1,13 @@
 ---
 title: '给vue配置axios包括报错,鉴权,跳转,拦截,提示的封装'
-date: 2018-02-27 20:53:09
 tags:
   - vue
   - 前端开发
 category:
   - frontend
   - vue
+abbrlink: 2f8ec77
+date: 2018-02-27 20:53:09
 ---
 
 # 前言

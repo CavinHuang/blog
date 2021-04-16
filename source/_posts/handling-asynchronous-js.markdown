@@ -1,14 +1,15 @@
 ---
 layout: post
-title: "统一处理异步的js回调"
-date: 2016-10-06 10:55
+title: 统一处理异步的js回调
+date: '2016-10-06 10:55'
 comments: true
 tags:
   - web
   - js
 category:
- - frontend
- - js
+  - frontend
+  - js
+abbrlink: 4cac943d
 ---
 
 js编程时经常会用到异步处理，而异步会带了所谓的并发问题。比如，你需要向服务器发出多个ajax请求，然后在返回所有结果后做进一步处理，同时要显示动画。因此我们需要用到以下的方案。

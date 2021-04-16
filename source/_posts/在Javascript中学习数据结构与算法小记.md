@@ -1,13 +1,14 @@
 ---
 title: 在Javascript中学习数据结构与算法小记
-date: 2017-11-03 22:05:47
 tags:
   - JavaScript
   - 算法
   - 数据结构
-category: 
+category:
   - frontend
   - 编程练习
+abbrlink: efb217c0
+date: 2017-11-03 22:05:47
 ---
 本文是以数据结构和普遍算法在js中的体现，以此来学习js，首先会体现或者实现的数据结构和算法如下：
 <!--more-->

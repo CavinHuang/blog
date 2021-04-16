@@ -1,15 +1,16 @@
 ---
 title: canvas文字粒子特效(含运动)
-date: 2018-09-06 11:29:47
 tags:
- - canvas
- - 粒子
- - 文字
- - 文字粒子
- - canvas文字粒子
+  - canvas
+  - 粒子
+  - 文字
+  - 文字粒子
+  - canvas文字粒子
 category:
- - frontend
- - canvas
+  - frontend
+  - canvas
+abbrlink: 6b730681
+date: 2018-09-06 11:29:47
 ---
 
 最近在学习canvas，对于canvas我本是是不太会的，仅会画个图片文字的，尴尬！！所以下个功夫学习下。

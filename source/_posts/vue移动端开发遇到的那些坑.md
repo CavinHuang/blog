@@ -1,14 +1,15 @@
 ---
 title: vue移动端开发遇到的那些坑
-date: 2017-11-01 19:33:46
 tags:
   - vue
   - javascript
   - 移动端开发
 category:
- - frontend
- - 问题总结
- - vue 
+  - frontend
+  - 问题总结
+  - vue
+abbrlink: 9ed937b1
+date: 2017-11-01 19:33:46
 ---
 
 ### 1. IOS移动端 原始输入法问题

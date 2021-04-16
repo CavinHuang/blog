@@ -1,12 +1,13 @@
 ---
 title: 基于 Webpack 和 ES6 打造 JavaScript 类库
-date: 2017-11-21 21:09:58
 tags:
   - webpack
   - JavaScript
 category:
   - frontend
   - webpack
+abbrlink: 90c38e42
+date: 2017-11-21 21:09:58
 ---
 ## 首先，我们说的 “类库” 是指什么
 

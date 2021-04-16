@@ -1,14 +1,15 @@
 ---
 title: vue plugin 插件编写以loading为例
-date: 2017-11-24 10:30:20
 tags:
   - vue
   - vuejs
   - javascript
   - 前端
 category:
- - frontend
- - vue
+  - frontend
+  - vue
+abbrlink: d11faa5b
+date: 2017-11-24 10:30:20
 ---
 
 我们在使用vue开发的过程中，经常会遇到这两个问题：

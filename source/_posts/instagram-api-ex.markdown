@@ -1,15 +1,16 @@
 ---
 layout: post
-title: "instagram图片拉取小经验"
-date: 2016-03-03 22:52
+title: instagram图片拉取小经验
+date: '2016-03-03 22:52'
 comments: true
 tags:
-	- web
-	- 经验
-	- 产品
+  - web
+  - 经验
+  - 产品
 category:
- - frontend
- - js
+  - frontend
+  - js
+abbrlink: 9cbe617c
 ---
 
 最近喜欢上了instagram，分享一下获取照片的经验。

@@ -1,13 +1,14 @@
 ---
 title: linux增加ssh-key到authorized_keys
-date: 2020-12-21 09:17:55
 tags:
- - linux
- - ssh
- - ssh-key
+  - linux
+  - ssh
+  - ssh-key
 category:
- - 服务器操作
- - 日常命令
+  - 服务器操作
+  - 日常命令
+abbrlink: c9d6d41d
+date: 2020-12-21 09:17:55
 ---
 
 ## 原因

@@ -1,6 +1,5 @@
 ---
 title: webpack多页面配置记录
-date: 2018-01-17 17:06:16
 tags:
   - js
   - webpack
@@ -8,6 +7,8 @@ tags:
 category:
   - frontend
   - webpack
+abbrlink: 991a09e3
+date: 2018-01-17 17:06:16
 ---
 
 之前也写过webpack学习记录，项目中需要一个常用的webpack多页面配置，所以才动手，本着能写一行是一行的原则，开始了配置webpack之旅。

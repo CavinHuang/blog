@@ -1,12 +1,13 @@
 ---
 title: Request —— 让 Node.js http请求变得超简单
-date: 2017-11-23 16:22:59
 tags:
   - node
   - request
 category:
- - frontend
- - nodejs
+  - frontend
+  - nodejs
+abbrlink: fae4e3c2
+date: 2017-11-23 16:22:59
 ---
 Request —— 让 Node.js http请求变得超简单
 

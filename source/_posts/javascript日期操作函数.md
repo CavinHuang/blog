@@ -1,12 +1,13 @@
 ---
 title: javascript日期操作函数
-date: 2017-03-15 09:49:20
 tags:
   - javascript
   - date
 category:
- - frontend
- - js
+  - frontend
+  - js
+abbrlink: 6f58516
+date: 2017-03-15 09:49:20
 ---
 
 > 函数目录

@@ -1,12 +1,13 @@
 ---
 title: ngnix笔记
-date: 2017-12-16 18:24:13
 tags:
-   - nginx
-   - 服务器纪实
+  - nginx
+  - 服务器纪实
 category:
   - 服务器操作
   - nginx
+abbrlink: e3ce09c
+date: 2017-12-16 18:24:13
 ---
 > 服务器安装折腾纪实，包括nginx、php、Apache、node、mysql等
 

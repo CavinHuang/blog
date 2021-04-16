@@ -1,12 +1,13 @@
 ---
 title: centos7结合supervisor和think-queue实现队列
-date: 2017-09-15T09:02:20.000Z
 tags:
   - centos
   - supervisor
   - think-queue
 category:
   - 服务器操作
+abbrlink: 75f8d643
+date: 2017-09-15 09:02:20
 ---
 
 > Linux的后台进程运行有好几种方法，例如nohup，screen等，但是，如果是一个服务程序，要可靠地在后台运行，我们就需要把它做成daemon，最好还能监控进程状态，在意外结束时能自动重启。 supervisor就是用Python开发的一套通用的进程管理程序，能将一个普通的命令行进程变为后台daemon，并监控进程状态，异常退出时能自动重启。

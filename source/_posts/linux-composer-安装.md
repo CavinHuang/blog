@@ -1,12 +1,13 @@
 ---
 title: linux composer 安装
-date: 2017-12-27 10:57:33
 tags:
   - linux
   - composer
 category:
   - 服务器操作
   - composer
+abbrlink: 2e516d97
+date: 2017-12-27 10:57:33
 ---
 ## 下载composer
 ```bash

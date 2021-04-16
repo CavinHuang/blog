@@ -1,13 +1,14 @@
 ---
 title: git代理设置
-date: 2020-12-18 17:11:11
 tags:
- - 工具
- - git
- - git代理
+  - 工具
+  - git
+  - git代理
 category:
- - 工具
- - git
+  - 工具
+  - git
+abbrlink: bd68c172
+date: 2020-12-18 17:11:11
 ---
 
 git 和本地的internet代理是不通用的，需要给git设置单独的代理

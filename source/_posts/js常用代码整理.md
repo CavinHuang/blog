@@ -1,13 +1,14 @@
 ---
 title: js常用代码整理
-date: 2017-03-19 11:36:05
 tags:
- - js
- - javasript
+  - js
+  - javasript
 category:
- - frontend
- - 技巧总结
- - js
+  - frontend
+  - 技巧总结
+  - js
+abbrlink: a5ad9984
+date: 2017-03-19 11:36:05
 ---
 #### 1. PC - js
 - 返回指定范围的随机数(m-n之间)的公式

@@ -1,12 +1,13 @@
 ---
 title: 《剑指offer》解题笔记
-date: 2018-01-03 10:30:43
 tags:
   - javascript
   - 剑指offer
 category:
   - frontend
   - 编程练习
+abbrlink: 7266d4a
+date: 2018-01-03 10:30:43
 ---
 匆匆忙忙的写完博客主题，终于下定决心折腾下算法了，打算把牛客网的剑指offer系列题目，用JavaScript和php实现一份。
 

@@ -1,12 +1,13 @@
 ---
 title: webpack-study-log webpack学习笔记【持续更行...】
-date: 2017-07-21 22:44:26
 tags:
   - js
   - webpack
 category:
   - frontend
   - webpack
+abbrlink: 4cb2828
+date: 2017-07-21 22:44:26
 ---
 
 # webpack study demo1

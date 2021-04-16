@@ -1,6 +1,5 @@
 ---
 title: 一步一步完成一个node-cli
-date: 2018-02-03 11:32:49
 tags:
   - nodejs
   - node-cli
@@ -8,6 +7,8 @@ tags:
 category:
   - frontend
   - node
+abbrlink: 5146c33e
+date: 2018-02-03 11:32:49
 ---
 
 node-cli 即用nodejs与shell交互，完成指定工作的工具。他们通常是长这样的：

@@ -1,13 +1,14 @@
 ---
 title: 常见的js算法面试题收集，es6实现版
-date: 2018-03-03 16:11:05
 tags:
- - javascript
- - 前端
- - 前端面试
+  - javascript
+  - 前端
+  - 前端面试
 category:
   - frontend
   - 前端面试
+abbrlink: b6a3b68a
+date: 2018-03-03 16:11:05
 ---
 
 # 1、js 统计一个字符串出现频率最高的字母/数字

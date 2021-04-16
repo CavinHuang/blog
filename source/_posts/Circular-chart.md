@@ -1,14 +1,15 @@
 ---
 title: canvas圆形进度盘
-date: 2018-09-04 10:25:02
 tags:
- - html5
- - javascript
- - canvas
- - canvas圆形进度盘
+  - html5
+  - javascript
+  - canvas
+  - canvas圆形进度盘
 category:
- - frontend
- - canvas
+  - frontend
+  - canvas
+abbrlink: e79c6210
+date: 2018-09-04 10:25:02
 ---
 
 近期有个项目涉及到圆形进度盘，因为只有圆形的进度盘，切数量少，所以用库的话实在是大材小用，索性就自己封装了一个。

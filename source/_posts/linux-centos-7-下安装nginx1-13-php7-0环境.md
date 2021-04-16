@@ -1,6 +1,5 @@
 ---
 title: linux centos 7 下安装nginx1.13+php7.0环境
-date: 2017-12-27 11:07:51
 tags:
   - linux
   - php
@@ -9,6 +8,8 @@ tags:
 category:
   - 服务器操作
   - nginx
+abbrlink: 44a3c70a
+date: 2017-12-27 11:07:51
 ---
 # Nginx1.13   安装
 

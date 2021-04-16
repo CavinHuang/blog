@@ -1,12 +1,13 @@
 ---
 title: Linux的cron和crontab
-date: 2017-11-14 20:22:56
 tags:
   - Linux
   - crontab
 category:
   - 服务器操作
   - 定时任务
+abbrlink: 60ad6505
+date: 2017-11-14 20:22:56
 ---
 
 # 一 cron

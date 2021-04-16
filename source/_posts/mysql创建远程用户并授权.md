@@ -1,11 +1,12 @@
 ---
 title: mysql创建远程用户并授权
-date: 2017-12-27 16:31:44
 tags:
   - mysql
 category:
   - 服务器操作
   - mysql
+abbrlink: e5ff0b13
+date: 2017-12-27 16:31:44
 ---
 
 # mysql授权远程用户
