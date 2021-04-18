@@ -6,7 +6,7 @@
     "dev": "hexo s -p 3111 -o"
   },
   "hexo": {
-    "version": "5.3.0"
+    "version": "3.4.0"
   },
   "dependencies": {
     "hexo": "^5.3.0",

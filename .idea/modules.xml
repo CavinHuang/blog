@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../外接/ab22143834.icoc.vc/.idea/ab22143834.icoc.vc.iml" filepath="$PROJECT_DIR$/../外接/ab22143834.icoc.vc/.idea/ab22143834.icoc.vc.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/blog.iml" filepath="$PROJECT_DIR$/.idea/blog.iml" />
       <module fileurl="file://$PROJECT_DIR$/../lenno-blog/.idea/lenno-blog.iml" filepath="$PROJECT_DIR$/../lenno-blog/.idea/lenno-blog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../users/res/.idea/res.iml" filepath="$PROJECT_DIR$/../users/res/.idea/res.iml" />
     </modules>
   </component>
 </project>
