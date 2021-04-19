@@ -25,7 +25,7 @@ tags:
 ### **组件测试及demo文档**
 
 > 保留`vue cli3`当做example示例启动架子,支持vuepress文档,采用类是element-ui文档风格的组件展示.使用jest当做项目测试工具
-
+<!--more-->
 ### **其他一些配置**
 
 > 内置了`eslint`,`styleline`,`commitlint`,`prettier`,`conventional`等多个插件来规范代码,保证代码质量
